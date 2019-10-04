@@ -1,0 +1,73 @@
+﻿
+/*********** 
+Page Header
+***********/
+.page-header.navbar.orange
+{
+  background-color: #F7931E;
+}
+
+.page-header.navbar .top-menu .orange {
+  background-color: #F7931E;
+}
+
+.page-header-fixed-mobile .page-header.navbar .top-menu.orange {
+	background-color: #F7931E;
+}
+
+/****
+ CSS3 Spinner Bar
+****/
+.page-spinner-bar > div.orange,
+.block-spinner-bar > div.orange {
+  background: #F7931E;
+}
+
+/* Button */
+.orange.btn {
+  background-color: #F7931E;
+}
+.orange.btn:hover, .orange.btn:focus, .orange.btn:active, .orange.btn.active {
+  background-color: #EE7D01;
+}
+.open .orange.btn.dropdown-toggle {
+  background-color: #E66201;
+}
+.orange.btn:active, .orange.btn.active {
+  background-color: #E66201;
+}
+.orange.btn:active:hover, .orange.btn.active:hover {
+  background-color: #DF4D01;
+}
+.orange.btn.disabled, .orange.btn.disabled:hover, .orange.btn.disabled:focus, .orange.btn.disabled:active, .orange.btn.disabled.active, .orange.btn[disabled], .orange.btn[disabled]:hover, .orange.btn[disabled]:focus, .orange.btn[disabled]:active, .orange.btn[disabled].active, fieldset[disabled] .orange.btn, fieldset[disabled] .orange.btn:hover, fieldset[disabled] .orange.btn:focus, fieldset[disabled] .orange.btn:active, fieldset[disabled] .orange.btn.active {
+  background-color: #F7931E;
+}
+.orange.btn .badge {
+  color: #F7931E;
+}
+
+/* Portlet */
+.portlet > .portlet-body.orange,
+.portlet.orange {
+  background-color: #F7931E;
+}
+
+.portlet.box.orange {
+  border-color: #F7931E;
+}
+
+.portlet.box.orange > .portlet-title {
+  background-color: #F7931E;
+}
+
+/* TABS
+----------------------------------------------------------*/
+
+.nav-tabs > li > a
+{
+	color: #F7931E;
+}
+
+.form-control:focus {
+	border-color: #F7931E;
+}

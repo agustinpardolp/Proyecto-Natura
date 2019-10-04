@@ -1,0 +1,10 @@
+﻿
+@font-face {
+	font-family: 'Natura Sans';
+	src: url('fonts/NaturaSansWeb-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Natura Script';
+	src: url('fonts/NaturaScript.otf') format('opentype');
+}
