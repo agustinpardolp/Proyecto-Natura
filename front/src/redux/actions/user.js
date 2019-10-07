@@ -21,10 +21,10 @@ export const setAvatar = (data) => {
   }
 }
 
-export const loginUser = userData => dispatch => {
+export const loginUser = user => dispatch => {
 
     return axios
-      .post("/api/employee/login", userData)
+      .post("/api/user/login", {user})
       .then(res => res.data)
       .then(user => {
         dispatch(receiveLoggedUser(user));
@@ -32,19 +32,23 @@ export const loginUser = userData => dispatch => {
       });
   };
 
-  export const logout = userData => dispatch =>{
-    return axios.post("/api/employee/login", userData)
+  export const logout = () => dispatch =>{
+    console.log("USERRRRRLOGOUT")
+    return axios.post("/api/user/logout")
     .then(res =>res.data)
     .then(answer =>{
-
+      console.log(answer, "USERLOGOUT")
         dispatch(userLogout())
         return answer;
     });
   };
   
   export const fetchLoggedUser = () => dispatch => {
+    
     return axios
-      .get("/api/employee/logged")
-      .then(res => res.data)
+      .get("/api/user/logged")
+      .then(res => {
+        console.log("res", res.data)
+        res.data})
       .then(user => dispatch(receiveLoggedUser(user)));
   };

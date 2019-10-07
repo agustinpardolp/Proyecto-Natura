@@ -20,12 +20,14 @@ html,
 body {
   height: 100%;
   margin: 0;
+  
 }
 .mainWeb {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .mainRouter {
@@ -220,16 +222,18 @@ fieldset[disabled] .orange.btn.active {
 }
 .main-advice {
   /* font-family:"Natura" !important; */
-  color: #b07500;
+  color: #8a6d3b;
   font-size: 20px;
   vertical-align: middle;
+  margin-left: 15px !important;
 }
 .main-advice-header {
-  background: #f2e9cb !important;
-  border: 1px solid rgb(240, 219, 179);
+  background:  #fcf8e3!important;
+  border: 1px solid #faebcc;
   margin-left: 10px !important;
-  text-align: center;
+  text-align: left;
   border-radius: 3px;
+ 
 }
 .main-pedidos-tittle {
   align-items: center;
@@ -237,11 +241,11 @@ fieldset[disabled] .orange.btn.active {
   justify-content: center;
   font-size: 24px;
   line-height: 20px !important;
+
 }
 
 .main-pedidos-header {
   display: flex;
-
   padding: 20px 42px !important;
   align-items: stretch !important;
   text-align: left;
@@ -276,5 +280,10 @@ fieldset[disabled] .orange.btn.active {
 .home-container :first-child {
   align-items: flex-start;
   text-align: left;
+}
+
+.login-container{
+color: #DF4D01;
+/*   */
 }
 
