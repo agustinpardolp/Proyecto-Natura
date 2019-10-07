@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NavBar from './navBar'
-
-import ReactDOM from "react-dom";
-
+import {logout} from "../../redux/actions/user"
 
 class NavBarContainer extends Component {
     constructor(props){
@@ -11,31 +9,35 @@ class NavBarContainer extends Component {
         this.state = {
             showSidebar: false
         }
+        this.onHandlerLogout = this.onHandlerLogout.bind(this)
     }
     componentDidMount(){
 
 
     }
 
-    sideBarToggle(){
-        
+    onHandlerLogout(e){
+        this.props.logout()
+        .then(res=> this.props.history.push("/login")
+        )
     }
 
     render() {
         return (
             <div>
-                <NavBar/>
+                <NavBar user = {this.props.user}
+                onHandlerLogout = {this.onHandlerLogout}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    
+    user: state.user.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    
+    logout: ()=>dispatch(logout())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer)
