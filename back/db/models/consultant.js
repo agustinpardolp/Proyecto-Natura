@@ -4,13 +4,11 @@ const db = require("../index");
 const Consultant = db.define("consultant", {
   code: {
     type: Sequelize.STRING,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: false
   },
   sector: {
     type: Sequelize.STRING,
-    allowNull: false
+    defaultValue: null
   },
   name: {
     type: Sequelize.STRING,
@@ -26,11 +24,11 @@ const Consultant = db.define("consultant", {
   },
   cod_superviser: {
     type: Sequelize.STRING,
-    unique: true
+    defaultValue: null
   },
   mail: {
     type: Sequelize.STRING,
-    defaultValue: null,
+    allowNull: false,
     validate: {
       isEmail: true
     }
@@ -39,6 +37,10 @@ const Consultant = db.define("consultant", {
     type: Sequelize.DOUBLE,
     defaultValue: null
   },
+  isSuperviser:{
+    type: Sequelize.BOOLEAN,
+    
+  }
   
 });
 

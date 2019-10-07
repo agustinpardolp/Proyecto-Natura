@@ -1,6 +1,11 @@
 ﻿/* OVERRIDES
 ----------------------------------------------------------*/
+html, body{ 
+	height:100% !important;
+	margin:0;
 
+  }
+  
 .page-header.navbar {
 	height: auto;
 }
@@ -11,7 +16,9 @@
     color: white;
     font-size: large;
 }
-
+.ant-layout{
+	display: flex !important;
+}
 .ant-layout-header {
 	background-color: #F7931E!important;
 	padding: 0px !important;
@@ -20,9 +27,26 @@
 	background-color: #F7931E!important;
 	float: right !important;
 }
+.ant-layout-content{
+
+	padding: 0px 15px !important;
+	align-items: stretch !important;
+}
+
+.ant-layout-has-sider{
+	background: none !important;
+}
 
 .alert-warning {
     font-size: large;
+}
+.ant-menu-item {
+	padding-left: 20px !important;
+
+}
+.logo-default{
+
+	margin-left: 10px;
 }
 
 @media (min-width: 1200px) {
@@ -86,3 +110,14 @@
 {
     margin-left: 0px;
 }
+
+.main-pedidos-header {
+	padding: 20px 42px !important;
+	align-items: stretch !important;
+	border-radius: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
