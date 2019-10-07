@@ -2,55 +2,71 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Row, Col, Layout } from "antd";
-// import {fetchLoggedUser} from "../../redux/actions/user"
+import {fetchLoggedUser} from "../../redux/actions/user"
 
 import NavBarContainer from "../NavBarContainer";
 import Footer from "../FooterContainer/footer";
 import ProductContainer from "../ProductsContainer/products";
 import SideBarContainer from "../SiderBarContainer/index";
-import Home from "../HomeContainer/Home";
+import HomeContainer from "../HomeContainer/Home";
+import LoginContainer from "../LoginContainer/index";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user:""
+      user:"",
+      loading: true
 
     };
   }
 
-  // componentDidMount(){
-  //   this.props.fetchLoggedUser()
-  //   .then(user=>{
-  //     this.setState({
-  //       user:user
-  //     })
+  componentDidMount(){
+    this.props.fetchLoggedUser()
+    .then(user=>{
+      console.log(user, "userrr")
+      this.setState({
+        user:user,
+        loading:false
+      })
 
-  //   })
-  // }
+    })
+  }
 
   render() {
+    // if (this.state.loading) {
+    //   return <h1>Ups! something went wrong.. Please, reload the web again</h1>
+    // }
     return (
       <div className="mainRouter">
-        <NavBarContainer />
+        <NavBarContainer user= {this.props.user}/>
+      { this.props.user.code?
         <Layout style={{ minHeight: '100vh' }}>
         <SideBarContainer />
         <Switch>
-          <Route exact path= "/" component= {Home} />
-          <Route exact path="/pedidos" component={ProductContainer} />
+           <Route exact path= "/" component= {HomeContainer} />
+           <Route exact path="/pedidos" component={ProductContainer} />
         </Switch>
         </Layout>
-        {/* <Footer/> */}
-      </div>
-    );
+        :
+        <>
+        <Route exact path= "/login" component = {LoginContainer} /> 
+         <Redirect from="/" to="/login" component={LoginContainer} /> 
+        </>
+  }
+  </div>
+        );
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  user: state.user.user
+
+});
 
 const mapDispatchToProps = dispatch => ({
 
-  // fetchLoggedUser = ()=> dispatch(fetchLoggedUser())
+  fetchLoggedUser: ()=> dispatch(fetchLoggedUser())
 
 });
 
