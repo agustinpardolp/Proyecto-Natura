@@ -15,6 +15,10 @@
   font-family: "Roboto";
   src: url("/fonts/Roboto-Regular.ttf") format("truetype");
 }
+:root {
+  --main-bg-color: #F7931E;
+  --main-bg-tittles: #6D6D6D
+}
 
 html,
 body {
@@ -34,164 +38,6 @@ body {
   flex: 1;
 }
 
-/***
-Orange Default
-***/
-/* Button */
-.orange.btn {
-  color: white;
-  background-color: #ee7d01; /*#35aa47; b8d2ba*/
-  border-color: "";
-}
-.orange.btn:hover,
-.orange.btn:focus,
-.orange.btn:active,
-.orange.btn.active {
-  color: white;
-  background-color: #e66201; /*#2d8f3c;*/
-}
-.open .orange.btn.dropdown-toggle {
-  color: white;
-  background-color: #e66201;
-}
-.orange.btn:active,
-.orange.btn.active {
-  background-image: none;
-  background-color: #df4d01; /*#267b34;*/
-}
-.orange.btn:active:hover,
-.orange.btn.active:hover {
-  background-color: #e25501; /*#298337;*/
-}
-.open .orange.btn.dropdown-toggle {
-  background-image: none;
-}
-.orange.btn.disabled,
-.orange.btn.disabled:hover,
-.orange.btn.disabled:focus,
-.orange.btn.disabled:active,
-.orange.btn.disabled.active,
-.orange.btn[disabled],
-.orange.btn[disabled]:hover,
-.orange.btn[disabled]:focus,
-.orange.btn[disabled]:active,
-.orange.btn[disabled].active,
-fieldset[disabled] .orange.btn,
-fieldset[disabled] .orange.btn:hover,
-fieldset[disabled] .orange.btn:focus,
-fieldset[disabled] .orange.btn:active,
-fieldset[disabled] .orange.btn.active {
-  background-color: #ee7d01;
-}
-.orange.btn .badge {
-  color: #ee7d01;
-  background-color: white;
-}
-
-/* Button Strip */
-.btn.orange-stripe {
-  border-left: 3px solid #ee7d01;
-}
-
-/* Portlet */
-.portlet > .portlet-body.orange,
-.portlet.orange {
-  background-color: #ee7d01;
-}
-
-.portlet.solid.orange > .portlet-title,
-.portlet.solid.orange > .portlet-body {
-  border: 0;
-  color: white;
-}
-.portlet.solid.orange > .portlet-title > .caption > i {
-  color: white;
-}
-/* .portlet.solid.orange > .portlet-title > .tools > a.remove {
-  background-image: url(../img/portlet-remove-icon-white.png); }
-.portlet.solid.orange > .portlet-title > .tools > a.config {
-  background-image: url(../img/portlet-config-icon-white.png); }
-.portlet.solid.orange > .portlet-title > .tools > a.reload {
-  background-image: url(../img/portlet-reload-icon-white.png); }
-.portlet.solid.orange > .portlet-title > .tools > a.expand {
-  background-image: url(../img/portlet-expand-icon-white.png); }
-.portlet.solid.orange > .portlet-title > .tools > a.collapse {
-  background-image: url(../img/portlet-collapse-icon-white.png); }
-.portlet.solid.orange > .portlet-title > .tools > a.fullscreen {
-  color: #fdfdfd; } */
-
-.portlet.box.orange {
-  border: 1px solid #ff9a01; /*#4bc75e;*/
-  border-top: 0;
-}
-.portlet.box.orange > .portlet-title {
-  background-color: #ee7d01;
-}
-.portlet.box.orange > .portlet-title > .caption {
-  color: white;
-}
-.portlet.box.orange > .portlet-title > .caption > i {
-  color: white;
-}
-.portlet.box.orange > .portlet-title > .actions .btn-default {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: 1px solid #7ad588;
-  color: #8ddc99;
-}
-.portlet.box.orange > .portlet-title > .actions .btn-default > i {
-  color: #99dfa4;
-}
-.portlet.box.orange > .portlet-title > .actions .btn-default:hover,
-.portlet.box.orange > .portlet-title > .actions .btn-default:focus,
-.portlet.box.orange > .portlet-title > .actions .btn-default:active,
-.portlet.box.orange > .portlet-title > .actions .btn-default.active {
-  border: 1px solid #a1e2ab;
-  color: #b4e8bc;
-}
-
-/* Statistic Block */
-.dashboard-stat.orange {
-  background-color: #ee7d01;
-}
-.dashboard-stat.orange.dashboard-stat-light:hover {
-  background-color: #309a41;
-}
-.dashboard-stat.orange .visual > i {
-  color: white;
-  opacity: 0.1;
-  filter: alpha(opacity=10);
-}
-.dashboard-stat.orange .details .number {
-  color: white;
-}
-.dashboard-stat.orange .details .desc {
-  color: white;
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-.dashboard-stat.orange .more {
-  color: white;
-  background-color: #309a41;
-}
-
-/* General Element */
-.bg-orange {
-  border-color: #ee7d01 !important;
-  background-image: none !important;
-  background-color: #ee7d01 !important;
-  color: white !important;
-}
-
-/* General Text & Icon Font Colors */
-.font-orange {
-  color: #ee7d01 !important;
-}
-
-.user-dropdown {
-  color: white;
-  font-family: "Natura Sans";
-}
 
 .lbl-CaptionUser {
   display: none;
@@ -266,7 +112,7 @@ fieldset[disabled] .orange.btn.active {
 }
 
 .btn-home {
-  background: #ee7d01 !important;
+  background:var(--main-bg-color) !important;
   color: white !important;
 }
 
@@ -283,7 +129,15 @@ fieldset[disabled] .orange.btn.active {
 }
 
 .login-container{
-color: #DF4D01;
+color: var(--main-bg-color);
 /*   */
+}
+
+.h4-home-tittle{
+color: var(--main-bg-tittles)
+
+}
+.h3-login-tittle{
+  color: var(--main-bg-tittles)
 }
 

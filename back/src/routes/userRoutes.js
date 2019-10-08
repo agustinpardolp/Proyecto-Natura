@@ -5,13 +5,10 @@ const DataStorage = require("../auxFunctions/auxFunctions").DataStorage
 
 
 router.post("/login", function(req, res){
-    
-    var user = {
-        code:111,
-        dni:111
-    }
+    let user = DataStorage().getUserData()
+ 
     if(req.body.user.code == user.code && req.body.user.dni == user.dni) {
-        
+        console.log(user, "soy user del post")
         DataStorage().setUserData(user)
         res.send(user)
     }
@@ -24,8 +21,8 @@ router.post("/logout", function(req, res){
   
     res.send(user)
 })
-router.get("user/logged", function(req, res){
-    console.log("USERRRRRRRRRRRRRRRRRRR")
+router.get("/logged", function(req, res){
+   
     let user = DataStorage().getUserData()
     console.log("USERRRRRRRRRRRRRRRRRRR", user)
     res.send(user)

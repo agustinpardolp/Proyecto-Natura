@@ -2,18 +2,21 @@ module.exports = {
 
         DataStorage(){
             let userDataStore = {
-                code: "",
-                dni: ""
+                code: "111",
+                dni: "111"
             }
              return {
                 setUserData(user){
+                   
                     if(user.code){
-                        this.code = user.code,
-                        this.dni = user.dni
-
+                        userDataStore.code = user.code,
+                        userDataStore.dni = user.dni
+                        console.log(userDataStore, "userdatastore")
                     } else userDataStore = user
+                    console.log("logout", userDataStore)
                 },
                 getUserData(){
+                    console.log("entre a pedir", userDataStore)
                     return userDataStore
                 }
             }
