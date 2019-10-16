@@ -16,7 +16,7 @@ export default function products() {
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <a href="http://www.alipay.com/">1st menu item</a>
+        <Link to={"/home"}>Direccionn</Link>
       </Menu.Item>
     </Menu>
   );

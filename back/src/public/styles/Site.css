@@ -284,6 +284,11 @@ fieldset[disabled] .orange.btn.active {
 
 .login-container{
 color: #DF4D01;
-/*   */
 }
+.panel-primary{
+
+  margin-left: 25px;
+}
+
+
 

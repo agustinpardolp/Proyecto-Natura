@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Row, Col, Layout } from "antd";
 import {fetchLoggedUser} from "../../redux/actions/user"
-
 import NavBarContainer from "../NavBarContainer";
 import Footer from "../FooterContainer/footer";
 import ProductContainer from "../ProductsContainer/products";
 import SideBarContainer from "../SiderBarContainer/index";
 import HomeContainer from "../HomeContainer/Home";
 import LoginContainer from "../LoginContainer/index";
+import OrderHistoryContainer from "../OrderHistoryContainer";
 
 class Main extends Component {
   constructor(props) {
@@ -46,6 +46,7 @@ class Main extends Component {
         <Switch>
            <Route exact path= "/" component= {HomeContainer} />
            <Route exact path="/pedidos" component={ProductContainer} />
+           <Route exact path= "/pedidos/consulta" component={OrderHistoryContainer} />
         </Switch>
         </Layout>
         :

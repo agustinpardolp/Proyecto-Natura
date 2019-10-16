@@ -27,13 +27,12 @@ export default function SideBar({ onCollapse, collapsed }) {
           >
             <Menu.Item key="3">
               {" "}
-              <Icon type="shopping-cart" />
-              Carga de pedidos
+              <Link to="/pedidos"> <Icon type="shopping-cart" />
+              Carga de pedidos</Link>
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="4" >
               {" "}
-              <Icon type="file-search" />
-              Consulta de pedidos
+              <Link to="/pedidos/consulta"><Icon type="file-search" />Consulta de pedidos</Link>
             </Menu.Item>
           </SubMenu>
           <Menu.Item key="9">
