@@ -2,10 +2,6 @@ import axios from "axios";
 import {RECEIVE_PRODUCTS,
     RECEIVE_CURRENT_PRODUCT,
     RECEIVE_PRODUCT_PARAMETERS,
-    RECEIVE_PRODUCT_BY_LEGACY
-    // RECEIVE_MAGAZINE_ERRORS,
-    // RECEIVE_MAGAZINE_PUBLICATIONS,
-    // RECEIVE_MAGAZINE_PAGES
   } from "../../constants"
 
   export const receiveProducts = function (productList) {
@@ -26,37 +22,23 @@ export const receiveProductParameters = function (productParameters) {
       productParameters
     };
   };
-  export const receiveProductByLegacy = function (productByLegacy) {
-    return {
-      type: RECEIVE_PRODUCT_BY_LEGACY,
-      productByLegacy
-    };
-  };
 
 
-export const getProducts = () => dispatch => {
+export const fetchProducts = () => dispatch => {
     axios.get("/api/products")
-    .then(productList => {
-      dispatch(receiveProducts(productList));
-    });
+    .then(res =>res.data) 
+    .then(productList => dispatch(receiveProducts(productList)));
 };
-export const getProductById =(magazineId) => dispatch =>{
+export const fetchProductById =(magazineId) => dispatch =>{
     axios.get(`/api/products/${magazineId}`)
     .then(res =>res.data)
     .then(product => dispatch(receiveCurrentProduct(product)))
 }
 
-export const getProductParameters =() => dispatch =>{
+export const fetchProductParameters =() => dispatch =>{
     axios.get('api/products/parameters')
     .then(res => res.data)
     .then(productParameters => dispatch(receiveProductParameters(productParameters)))
-}
-
-export const getProductByLegacy = (legacyCode)=> dispatch =>{
-    axios.get('api/products/legacy', legacyCode)
-    .then(res => res.data)
-    .then(productByLegacy => dispatch(receiveProductParameters(productByLegacy)))
-
 }
 
 export const createProduct = (dataProduct ) => () => {

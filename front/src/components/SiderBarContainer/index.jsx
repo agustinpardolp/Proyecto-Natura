@@ -11,7 +11,7 @@ export default class SideBarContainer extends React.Component {
     }
 
   onCollapse (collapsed){
-    console.log(collapsed);
+
     this.setState({ collapsed });
   };
 

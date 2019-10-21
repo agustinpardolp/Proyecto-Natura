@@ -7,12 +7,12 @@ import store from "./redux/store";
 import Main from "./components/MainContainer/Main";
 
 //Config Ant + Boostrap
-import "../../back/src/public/styles/Override.css";
-import "../../back/src/public/styles/Site.css";
-// import "../../back/src/public/styles/Login.css";
-import 'antd/dist/antd.css';
-// import "bootstrap-css-only/css/bootstrap.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'antd/dist/antd.css';
+import "../../back/src/public/styles/Site.css";
+import "../../back/src/public/styles/Override.css";
+// import "../../back/src/public/styles/Login.css";
+// import "bootstrap-css-only/css/bootstrap.min.css";
 
 ReactDOM.render(
   <Provider store={store}>

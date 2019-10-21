@@ -104,8 +104,13 @@ html, body{
 	.page-header-fixed.page-header-fixed-mobile .page-container {
 		margin-top: 134px !important;
 	}
-}
 
+	.card-container {
+		 -webkit-flex-flow: column;
+				 flex-flow: column;
+		}
+
+	}
 .page-content-wrapper .page-content.no-sidebar
 {
     margin-left: 0px;
@@ -116,8 +121,16 @@ html, body{
 	align-items: stretch !important;
 	border-radius: 3px;
     margin-top: 15px;
-    margin-bottom: 15px;
+	margin-bottom: 15px;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
 }
+
+.select-consultant-container{
+	text-align-last: end;
+
+}
+
+
 
 
 

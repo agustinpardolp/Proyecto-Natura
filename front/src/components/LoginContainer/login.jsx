@@ -6,13 +6,14 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
    
   
     return (
-
+      <div>
+        <br/><br/>
     <Row>
-    
+  
     <Col span={12} offset={2}>
 
         <div className = "login-container">
-        <h3>Ingreso</h3>
+        <h3 className = "h3-login-tittle">Ingreso</h3>
         
     <Tabs defaultActiveKey="1" >
     <TabPane  tab="Ingresar como consultor/a" key="1">
@@ -23,7 +24,7 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
             <Input
               prefix={<Icon type="code" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Username"
-              name="code" class="form-control" onChange = {onCodeChange}
+              name="userIdent" class="form-control" onChange = {onCodeChange}
               
               />
 
@@ -34,7 +35,7 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="dni"
-              name="dni" class="form-control" onChange = {onPassChange}
+              name="pass" class="form-control" onChange = {onPassChange}
               labelCol={{ span: 5 }}
               />
 
@@ -76,6 +77,7 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
            
               </Col>
               </Row>
+              </div>
     )
   }
 
