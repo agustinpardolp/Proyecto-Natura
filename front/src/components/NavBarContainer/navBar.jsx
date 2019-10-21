@@ -1,54 +1,77 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
-export default function Navbar({user, onHandlerLogout}) {
+export default function Navbar({ user, onHandlerLogout, productPath }) {
   return (
-    <div>
-  
+    <div>  
       <Layout>
-        <Header className="header">
+        <Header className="header" style={{ boxShadow: "0px 3px 6px rgba(0,0,0,0.16)" }}>
           <div className="logo" />
-           <div class="page-logo">
-            <img
-              runat="server"
-              id="imgLogo"
-              class="logo-default"
-              alt="Logo"
-              src="/assets/img/natura_logo_40px.png"
+          {user.code && user.code ? (
+            <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
+              {/* defaultSelectedKeys={[]} */}
+              <SubMenu
+                key="sub1"
+                title={
+                  <span>
+                    {" "}
+                    <Icon type="user" /> {user.name}{" "}
+                  </span>
+                }
+              >
+                <Menu.Item key="1">
+                  <Link onClick={onHandlerLogout}>Logout </Link>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          ) : null}
+        {user.code && user.code ?
+          <div className="navbar-container-user">
+            <div class="page-logo d-none d-sm-block">
+              <img
+                runat="server"
+                id="imgLogo"
+                class="logo-default"
+                alt="Logo"
+                src="/assets/img/natura_logo_40px.png"
               />
-          </div>
-
-   
-          {user.code && user.code?
-
-
-          <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
-            {/* defaultSelectedKeys={[]} */}
-            <SubMenu key="sub1"title={<span> <Icon type="user"/> User </span>}>
-                <Menu.Item key="1"><Link onClick={onHandlerLogout}>Logout </Link></Menu.Item>
-            </SubMenu>
-          </Menu>:
-          null
+            </div>
+           {productPath && productPath == "/pedidos" ?
+            <div className= "navbar-container">
+              <h6>Precio Venta: <span>1000</span></h6>
+              <h6>Vos Pagas: <span>500</span></h6>
+              <h6 className = "h6-ganancia">Ganancia: <span>4000</span> </h6>
+            </div>:null
             }
-
+          </div>:
+             <div className="navbar-container">
+             <div class="page-logo">
+               <img
+                 runat="server"
+                 id="imgLogo"
+                 class="logo-default"
+                 alt="Logo"
+                 src="/assets/img/natura_logo_40px.png"
+               />
+             </div>
+          </div>
+            }
         </Header>
-        {user.code && user.code?
-        <Content style={{ padding: "0 50px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Link to = {"/"}><Breadcrumb.Item>Inicio</Breadcrumb.Item></Link>
-            <Breadcrumb.Item>Pedido</Breadcrumb.Item>
-            <Breadcrumb.Item>Showroom</Breadcrumb.Item>
-          </Breadcrumb>
-         
-        </Content>:null
-        }
+        {user.code && user.code ? (
+          <Content style={{ padding: "0 50px" }}>
+            <Breadcrumb style={{ margin: "16px 0" }}>
+              <Link to={"/"}>
+                <Breadcrumb.Item>Inicio</Breadcrumb.Item>
+              </Link>
+              <Breadcrumb.Item>Pedido</Breadcrumb.Item>
+              <Breadcrumb.Item>Showroom</Breadcrumb.Item>
+            </Breadcrumb>
+          </Content>
+        ) : null}
       </Layout>
-      
-            
-     
     </div>
   );
 }

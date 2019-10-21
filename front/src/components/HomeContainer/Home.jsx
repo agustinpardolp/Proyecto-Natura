@@ -8,7 +8,7 @@ export default function Home() {
       <br />
       <br />
 
-      <h4>Bienvenido al ShowRoom de Natura</h4>
+      <h4 className= "h4-home-tittle">Bienvenido al ShowRoom de Natura</h4>
       <br />
       <Link to={"/pedidos"}>
         <Button className = "btn-home" >Cargar mi pedido</Button>
@@ -16,3 +16,4 @@ export default function Home() {
     </div>
   );
 }
+

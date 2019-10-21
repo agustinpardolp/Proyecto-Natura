@@ -1,26 +1,30 @@
-import { USER_LOGOUT, RECEIVE_LOGGED_USER, SET_AVATAR } from "../../constants";
+import {
+  USER_LOGOUT,
+  RECEIVE_LOGGED_USER,
+  RECEIVE_CONSULTANTS
+} from "../../constants";
 
 const initialState = {
   user: {},
-  avatar: {}
+  avatar: {},
+  consultantList: []
   // userAdmin:{}
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOGGED_USER:
-      return Object.assign({}, state, 
-            { 
-              user: action.loggedUser ,
-              avatar:action.loggedUser.avatar
-            });
+      return Object.assign({}, state, {
+        user: action.loggedUser,
+        avatar: action.loggedUser.avatar
+      });
 
     case USER_LOGOUT:
+      return { ...state, user: {} };
 
-      return { ...state, user: {} }
-
-    // case RECEIVE_ADMINS:
-    //   return { ...state, admins: action.admins };
+    case RECEIVE_CONSULTANTS:
+      console.log(action.consultantList)
+      return { ...state, consultantList: [...action.consultantList] };
 
     default:
       return state;

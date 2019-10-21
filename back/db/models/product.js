@@ -6,12 +6,20 @@ const Product = db.define("product", {
     type: Sequelize.STRING,
     allowNull: false
   },
+  name:{
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   description: {
     type: Sequelize.STRING
   },
   price: {
     type: Sequelize.FLOAT,
     allowNull: false
+  },
+  image:{
+    type: Sequelize.STRING,
+    defaultValue: "natura.png"
   },
   points: {
     type: Sequelize.INTEGER,
@@ -57,19 +65,19 @@ const ProductGift = db.define("productGift", {
   },
   min_points: {
     type: Sequelize.INTEGER,
-    defaultValue: null
+    defaultValue: 0
   },
   max_points: {
     type: Sequelize.INTEGER,
-    defaultValue: null
+    defaultValue: 0
   },
   min_dif_cases: {
     type: Sequelize.INTEGER,
-    defaultValue: null
+    defaultValue: 0
   },
   max_dif_cases: {
     type: Sequelize.INTEGER,
-    defaultValue: null
+    defaultValue: 0
   },
   
 });

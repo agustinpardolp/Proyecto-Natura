@@ -9,8 +9,8 @@ function modalError({handleOk, handleCancel, modalShow}) {
           okType= "danger"
           visible={modalShow}
           onOk={handleOk}
-          cancelButtonProps="false"
-
+          cancelButtonProps="true"
+          onCancel = {handleCancel} 
         >
           <p>Usuario y/o contraseña no encontrado/a.</p>
          

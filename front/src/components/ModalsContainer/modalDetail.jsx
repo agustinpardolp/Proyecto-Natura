@@ -2,13 +2,14 @@ import React from 'react'
 import { Modal, Tabs } from "antd"
 const { TabPane } = Tabs;
 
-function modalError({selectedOrder, showModal}) {
+function modalError({showModal, handleOk}) {
     return (
         <div>
         <Modal
           title="Detalle de la orden n"
           okType= "danger"
           visible={showModal}
+          onOk={handleOk}
           cancelButtonProps="false"
         >
            <Tabs type="card">

@@ -8,12 +8,17 @@ const Order = db.define("order", {
     validate: {
         notEmpty: true,
         isNumeric: true
-    }
+    },
+    defaultValue: 0
 },
   extra: {
     type: Sequelize.INTEGER,
-    allowNull: false
   },
+  status: {
+    type: Sequelize.STRING,
+    defaultValue: "creada"
+  }
+
 });
 
 module.exports = Order;

@@ -11,6 +11,9 @@ const Superviser = db.define("superviser", {
   mail: {
     type: Sequelize.STRING
   },
+  isSuperviser: {
+    type: Sequelize.BOOLEAN
+  },
 });
 
 

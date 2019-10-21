@@ -1,93 +1,80 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Products from './products'
-import productlist from  "../../auxFunctions"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Products from "../ProductsContainer/products";
+import { fetchProducts } from "../../redux/actions/products";
+import { addProductToOrder } from "../../redux/actions/order";
+import { fetchConsultantBySuperviser } from "../../redux/actions/user";
 
+class ProductContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cantidad: 0,
+      precioVenta: 0,
+      previoRevend: 0,
+      ganancia: 0,
+      puntos: 0,
+      estuches: 0,
+      order: []
+    };
+    this.onHandleIncrement = this.onHandleIncrement.bind(this);
+    this.onHandlerDecrement = this.onHandlerDecrement.bind(this);
+  }
 
-export class ProductContainer extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            productlist:[],
-            precioVenta:0,
-            pagoConsultor:0,
-            ganancia:0,
-            productOrder:[]
-        }
-        this.onhandlerIncrement = this.onhandlerIncrement.bind(this)
-        this.onhandlerDecrement = this.onhandlerDecrement.bind(this)
+  componentDidMount() {
+    this.props.fetchProducts();
+
+    if (this.props.user.isSuperviser) {
+      this.props.fetchConsultantBySuperviser(this.props.user.id);
     }
+  }
 
-componentDidMount() {
+  onHandleIncrement(product) {
 
+    this.props.addProductToOrder(product)
+    // this.props.addProductToOrder(product, this.props.user);
+  }
+  onHandlerDecrement(val) {
     this.setState({
-        productlist: productlist
-    })
+      cantidad: this.state.cantidad + val
+    });
+  }
+
+  render() {
+    return (
+      <>
+        {console.log(this.props.order, "ORDER")}
+        <Products
+          consultantList={this.props.consultantList}
+          user={this.props.user}
+          products={this.props.products}
+          cantidad={this.state.cantidad}
+          onHandleIncrement={this.onHandleIncrement}
+          onHandlerDecrement={this.onHandlerDecrement}
+        />
+      </>
+    );
+  }
 }
 
-    onhandlerIncrement(product ){
-        var pagoConsultor = product.precio + product.profit
-        this.setState({
-            pagoConsultor: this.state.pagoConsultor + pagoConsultor,
-            precioVenta:this.state.precioVenta + product.precio,
-            ganancia: this.state.ganancia + product.profit,
-            productOrder:[...this.state.productOrder, product]
+const mapStateToProps = (state, ownProps) => ({
+  products: state.product.productList,
+  user: state.user.user,
+  consultantList: state.user.consultantList,
+  order: state.orders.order
+});
 
-        })
-        console.log(this.state.productOrder, "increment")
-    }
-
-    onhandlerDecrement(product){
-
-        var pagoConsultor = product.precio + product.profit
-        if (this.state.precioVenta > 0) {
-            this.setState({
-                pagoConsultor: this.state.pagoConsultor - pagoConsultor,
-                precioVenta:this.state.precioVenta - product.precio,
-                ganancia: this.state.ganancia - product.profit,
-                productOrder:[...this.state.productOrder, product]
-            })
-            var list = this.state.productOrder
-            for (let i = 0; i < list.length; i++) {
-                if (list[i].id == product.id) {
-                
-                    list.splice(list[i],1)
-                
-                    break
-                }    
-            }   
-            this.setState({
-                productOrder:list
-            })
-        }
-
-    }
-
-    render() {
-        return (
-            <div>
-
-            {console.log(this.state.productOrder, "decrement")}
-            <Products onhandlerIncrement = {this.onhandlerIncrement}
-            onhandlerDecrement = {this.onhandlerDecrement}
-            productlist = {this.state.productlist}
-            ganancia = {this.state.ganancia}
-            precioVenta = {this.state.precioVenta}
-            pagoConsultor = {this.state.pagoConsultor}
-            /> 
-            </div>
-        )
-    }
-
-
-}
-const mapStateToProps = (state) => ({
-    
-})
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer)
-
+const mapDispatchToProps = dispatch => {
+  return {
+    addProductToOrder: product => dispatch(addProductToOrder(product)),
+    fetchProducts: () => dispatch(fetchProducts()),
+    addProductToOrder: (product, user) =>
+      dispatch(addProductToOrder(product, user)),
+    fetchConsultantBySuperviser: userId =>
+      dispatch(fetchConsultantBySuperviser(userId))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductContainer);

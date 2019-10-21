@@ -1,35 +1,35 @@
-const express = require("express")
+const express = require("express");
 const router = express.Router();
-const DataStorage = require("../auxFunctions/auxFunctions").DataStorage
-// const Magazine = require("../../db/index").Magazine;
+const DataStorage = require("../auxFunctions/auxFunctions").DataStorage;
+const passport = require("../../config/passport");
+const Consultant = require("../../db/models").Consultant;
+const Superviser = require("../../db/models").Superviser;
 
+router.post("/login", passport.authenticate("local"), function(req, res) {
+  res.send(req.user);
+});
 
-router.post("/login", function(req, res){
-    
-    var user = {
-        code:111,
-        dni:111
-    }
-    if(req.body.user.code == user.code && req.body.user.dni == user.dni) {
-        
-        DataStorage().setUserData(user)
-        res.send(user)
-    }
-    else res.sendStatus(401)
-})
+router.post("/logout", function(req, res) {
+  req.logout();
+  res.send("logoutOK");
+});
+router.get("/logged", function(req, res) {
+  res.send(req.user);
+});
 
-router.post("/logout", function(req, res){
-    console.log("LOGOUT")
-    let user = DataStorage().setUserData({})
-  
-    res.send(user)
-})
-router.get("user/logged", function(req, res){
-    console.log("USERRRRRRRRRRRRRRRRRRR")
-    let user = DataStorage().getUserData()
-    console.log("USERRRRRRRRRRRRRRRRRRR", user)
-    res.send(user)
-   
-})
+router.get("/superviser/consultant/:id", function(req, res) {
 
+  Superviser.findByPk(req.params.id)
+  .then(superviser=>{
+
+    Consultant.findAll({
+      where:{
+        cod_superviser: superviser.code
+      }
+    }).then(consultantList =>{
+      console.log(consultantList,"consultants")
+      res.send(consultantList)
+    })
+  })
+});
 module.exports = router;

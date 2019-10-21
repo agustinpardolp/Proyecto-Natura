@@ -37,11 +37,9 @@ const Consultant = db.define("consultant", {
     type: Sequelize.DOUBLE,
     defaultValue: null
   },
-  isSuperviser:{
-    type: Sequelize.BOOLEAN,
-    
+  isSuperviser: {
+    type: Sequelize.BOOLEAN
   }
-  
 });
 
 module.exports = Consultant;

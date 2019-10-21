@@ -8,15 +8,15 @@ const {Product, ProductGif} = require ("../models/product");
 const SectorEvent = require ("../models/sectorEvent");
 
 //CART RELATIONS
-Order.belongsTo(Consultant, {as:"consultantId"})
-Order.belongsTo(Superviser, {as:"superviserId"})
+Order.belongsTo(Consultant, {as:"consultant"})
+Order.belongsTo(Superviser, {as:"superviser"})
 
-Order.belongsToMany(Product,{ through: OrderDetail, foreignKey: 'orderId' })
-Product.belongsToMany(Order,{ through: OrderDetail, foreignKey: 'productId' } )
+Order.belongsToMany(Product,{ through: OrderDetail, foreignKey: 'order' })
+Product.belongsToMany(Order,{ through: OrderDetail, foreignKey: 'product' } )
 
 Product.belongsTo(SectorEvent, {as:"sectorEventId"})
 
-Adress.belongsTo(Consultant, {as:"consultantId"})
-Adress.belongsTo(Superviser, {as:"superviserId"})
+Adress.belongsTo(Consultant, {as:"consultant"})
+Adress.belongsTo(Superviser, {as:"superviser"})
 
 module.exports = { db, Adress, Order, Product, Consultant, Superviser, OrderDetail };
