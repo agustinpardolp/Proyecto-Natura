@@ -1,8 +1,10 @@
 import React from 'react'
 import {Layout} from "antd";
-  const { Header } = Layout;
 
-function orderHistory({modalDetail}) {
+
+const { Header } = Layout;
+
+function orderHistory({onHandlerDetail}) {
     return (
         <div>
 
@@ -36,7 +38,7 @@ function orderHistory({modalDetail}) {
                 </tr>
             </thead>
             <tbody>
-                <tr onClick={()=> {modalDetail(orderId)}}>
+                <tr onClick={()=> {onHandlerDetail(orderId)}}>
                     <td>1</td>
                     <td>Kilgore</td>
                     <td>Trout</td>
@@ -60,6 +62,7 @@ function orderHistory({modalDetail}) {
 {/* #fcf8e3!important
 #F7931E!important
 rgba(0, 0, 0, 0.65)
+// <Link to="/pedidos/consulta"><Icon type="file-search" />Consulta de pedidos</Link>
 */}
         </div>
     )

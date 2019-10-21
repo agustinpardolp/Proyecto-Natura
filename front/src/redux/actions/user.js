@@ -33,11 +33,11 @@ export const loginUser = user => dispatch => {
   };
 
   export const logout = () => dispatch =>{
-    console.log("USERRRRRLOGOUT")
+    
     return axios.post("/api/user/logout")
     .then(res =>res.data)
     .then(answer =>{
-      console.log(answer, "USERLOGOUT")
+  
         dispatch(userLogout())
         return answer;
     });
@@ -48,7 +48,7 @@ export const loginUser = user => dispatch => {
     return axios
       .get("/api/user/logged")
       .then(res => {
-        console.log("res", res.data)
+    
         res.data})
       .then(user => dispatch(receiveLoggedUser(user)));
   };

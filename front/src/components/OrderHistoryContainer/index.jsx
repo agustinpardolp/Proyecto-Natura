@@ -1,33 +1,38 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux"
 import OrderHistory from "../OrderHistoryContainer/orderHistory"
-
-export default class OrderHistoryContainer extends Component {
+import ModalDetail from "../ModalsContainer/modalDetail"
+class OrderHistoryContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
-            selectedOrder = {}
+            selectedOrder : {},
+            showModal:false
         }
     }
 
     componentDidMount(){
-        this.props.fetchOrders()
-      
+        // this.props.fetchOrders()
+       
     }
 
     onHandlerDetail(orderId){
-        this.props.fetchOrderByid(orderId)
-        .then(selectedOrder=>{
+        // this.props.fetchOrderByid(orderId)
+        // .then(selectedOrder=>{
+        //     if(selectedOrder) 
             this.setState({
-                selectedOrder:selectedOrder
-            })
+                selectedOrder:selectedOrder,
+                showModal:true
+            // })
         })
     }
 
-
     render() {
         return (
-          <OrderHistory/>
-          <ModalDetail selectedOrder = {this.state.selectedOrder}/>
+            <div>
+                <OrderHistory onHandlerDetail = {this.onHandlerDetail}/>
+                <ModalDetail selectedOrder = {this.state.selectedOrder} showModal={this.state.showModal}/>
+            </div>
         )
     }
 }
@@ -37,7 +42,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchOrders: user => dispatch(fetchOrders())
+    // fetchOrders: user => dispatch(fetchOrders())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(OrderHistoryContainer)

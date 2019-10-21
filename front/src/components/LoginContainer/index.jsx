@@ -42,12 +42,10 @@ export class LoginContainer extends Component {
     }
     onHandlerClick(e){
         e.preventDefault()
-        console.log(this.state)
         this.props.loginUser(this.state)
         .then(user=>{
             this.props.history.push("/");
             }).catch((e) => {
-                console.log(e)
                 this.setState({
                     modalShow:true
                 })

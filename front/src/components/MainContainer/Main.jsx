@@ -5,7 +5,7 @@ import { Row, Col, Layout } from "antd";
 import {fetchLoggedUser} from "../../redux/actions/user"
 import NavBarContainer from "../NavBarContainer";
 import Footer from "../FooterContainer/footer";
-import ProductContainer from "../ProductsContainer/products";
+import ProductContainer from "../ProductsContainer/index";
 import SideBarContainer from "../SiderBarContainer/index";
 import HomeContainer from "../HomeContainer/Home";
 import LoginContainer from "../LoginContainer/index";
