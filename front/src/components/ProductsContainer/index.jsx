@@ -47,9 +47,11 @@ class ProductContainer extends Component {
 
   render() {
     return (
-      <>
+      <div>
+        {console.log("ORDER", this.props.order)}
         <Products
-          consultantList={this.props.consultantList}
+        
+          // consultantList={this.props.consultantList}
           user={this.props.user}
         //   products={this.props.products}
           products={this.state.products}
@@ -57,7 +59,8 @@ class ProductContainer extends Component {
           onHandleIncrement={this.onHandleIncrement}
           onHandlerDecrement={this.onHandlerDecrement}
         />
-      </>
+                      </ div>
+   
     );
   }
 }

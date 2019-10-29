@@ -4,13 +4,16 @@ import { Layout, Menu, Icon, Card, Row, Col } from "antd";
 const { Content, Footer, Sider, Header, Breadcrumb } = Layout;
 const { SubMenu } = Menu;
 
-export default function SideBar({ onCollapse, collapsed, collapsible }) {
+export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreenChange }) {
   return (
     <Sider
-      breakpoint="md"
+      breakpoint="xs"
+      hidden = {hiddenSidebar}
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
+      onresize = {onScreenChange}
+      className = "sidebarContainer"
     >
       <div className="logo" />
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">

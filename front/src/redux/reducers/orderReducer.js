@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return { ...state, orderList: action.orderList };
 
     case ADD_PRODUCT_TO_ORDER:
-      
+    
       if (!state.order.length) {
     
         var objProd1 = {
@@ -23,34 +23,44 @@ export default (state = initialState, action) => {
           quantity: 1,
           price: action.product.price
         };
-
-        var productArray = [objProd1];
-     
-        console.log("primer ingreso", productArray)
-        return {  ...state, order:  productArray };
+        let productArray = objProd1;
+        console.log("CASO 1", productArray)
+        return {...state, order:[...state.order, productArray] };
 
       } else if (state.order.length > 0) {
+        var objProd2 = {
+          product: action.product,
+          quantity: 1,
+          price: action.product.price
+        };
+        var exist = false;
+        console.log("CASO 2", state.order)
         for (let i = 0; i < state.order.length; i++) {
+          console.log("ID ORDER REDUCER ", state.order[i].product.id, "ID ACTION",action.product.id)
           if (state.order[i].product.id == action.product.id) {
-            console.log(state.order[i] )
             var objProd3 = {
               product: action.product,
-              quantity: state.order[i].product.quantity + 1,
-              price: state.order[i].product.price * (state.order[i].quantity + 1)
-                  
-          };
-          var productArray = [objProd3];
-          return { ...state, order:  productArray  };
+              quantity: state.order[i].quantity + 1,
+              price: state.order[i].product.price * state.order[i].quantity + 1
+            };
+            
+            let productArray = state.order;
+            productArray[i] = objProd3;
+            exist = true
+            
+            return {...state, order:productArray };
 
           } else {
-            var objProd2 = {
+            console.log("CASO 3", state.order)
+            var objProd3 = {
               product: action.product,
               quantity: 1,
               price: action.product.price
             };
-            var productArray = [objProd2];
-         
-            return { ...state, order:  productArray  };
+            let productArray = [];
+            productArray[0] = objProd3;
+    
+            return { order: [...state.order, ...productArray] };
           }
         }
       }

@@ -33,12 +33,12 @@ export default function products({
         </ol>
       </nav>
       <div class="card main-card-grid">
-        <div class="container card-header header-pedidos">
+        <div class="card-header header-pedidos">
           <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 ">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 ">
               <div class="form-group">Pedido</div>
               </div>
-              <div class="col-xs-12 col-sm-10 col-md-10 col-lg-4 offset-lg-1 " id = "select-consultant-container">
+              <div class="col-xs-12 col-sm-10 col-md-4 col-lg-3 offset-lg-2">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Consultor </label>{" "}
                 <select class="selectpicker" data-style="btn-info">
@@ -52,7 +52,7 @@ export default function products({
                 </select>
               </div>
               </div>
-              <div class="col-xs-12 col-sm-10 col-md-10 col-lg-3 offset-lg-2  select-direction-container">
+              <div class="col-xs-12 col-sm-10 col-md-5 col-lg-1 offset-lg-1 ">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Direccion: </label>{" "}
                 <select class="selectpicker">
@@ -74,7 +74,7 @@ export default function products({
           <div class="row card-list">
             {products.length &&
               products.map(product => (
-                <div class=" col-sm-12 col-md-12 col-lg-6">
+                <div class=" col-sm-12 col-md-12 col-lg-6">                     
                   <div className="card-container" style={{ width: "18rem" }}>
                     <img
                       class="card-img-top"
@@ -129,16 +129,6 @@ export default function products({
           </div>
         </div>
       </div>
-      
-      <Footer style={{ textAlign: "center" }}>
-        <div className="btn-list-botton">
-          <button className="btn btn-secondary"> Limpiar</button>
-          <button className="btn btn-secondary">
-            {" "}
-            <Link to="/orden">Finalizar</Link>
-          </button>
-        </div>
-      </Footer>
     </Layout>
   );
 }

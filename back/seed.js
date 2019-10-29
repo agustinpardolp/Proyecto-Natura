@@ -147,88 +147,173 @@ Superviser.create({
 
 
 // PRODUCTS
-  Product.create({
-    code: "Cod: 89243ar",
-    name: "Crema de Manos",
-    description: "Crema de Manos de Cacao 75gr Ekos Natura",
-    price: 640,
-    points: 20,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:200,
-    event_code:"aaa",
-    image: "cremaManos.jpg"
-  });
-  Product.create({
-    code: "Cod: 90558ar",
-    name:"Perfume Femenino",
-    description: "Perfume Femenino Likes de Humor EDT 75ml Natura",
-    price: 903.00,
-    points: 30,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:300,
-    event_code:"aaa",
-    image: "perfume.jpg"
-  });
-  Product.create({
-    code: "Cod: 892322ar",
-    name:"Regalo Ekos Jabones",
-    description: "Regalo Ekos Jabones x6 Natura",
-    price: 308.00,
-    points: 26,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:200,
-    event_code:"aaa",
-    image: "jabones.jpeg"
-  });
-  Product.create({
-    code: "Cod: 33343ar",
-    name:"Cápsulas Capilares",
-    description: "Cápsulas Capilares Fortificantes Plant - 30un",
-    price: 352.00,
-    points: 20,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:200,
-    event_code:"aaa",
-    image: "capsulas.jpg"
-  });
+Product.create({
+  code: "Cod: 89243ar",
+  name: "Crema de Manos",
+  description: "Crema de Manos de Cacao 75gr Ekos Natura",
+  price: 640,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"MADRE",
+  image: "cremaManos.jpg"
+});
+Product.create({
+  code: "Cod: 90558ar",
+  name:"Perfume Femenino",
+  description: "Perfume Femenino Likes de Humor EDT 75ml Natura",
+  price: 903.00,
+  points: 30,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:300,
+  event_code:"MADRE",
+  image: "perfume.jpg"
+});
+Product.create({
+  code: "Cod: 892322ar",
+  name:"Regalo Ekos Jabones",
+  description: "Regalo Ekos Jabones x6 Natura",
+  price: 308.00,
+  points: 26,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"PADRE",
+  image: "jabones.jpeg"
+});
+Product.create({
+  code: "Cod: 33343ar",
+  name:"Cápsulas Capilares",
+  description: "Cápsulas Capilares Fortificantes Plant - 30un",
+  price: 352.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"PADRE",
+  image: "capsulas.jpg"
+});
 
-  Product.create({
-    code: "Cod: 78909ar",
-    name:"Balm Post Barba Homem",
-    description: "Balm Post Barba Homem - 75ml",
-    price: 315.00,
-    points: 20,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:200,
-    event_code:"aaa",
-    image: "balsamo.jpeg"
-  });
-  Product.create({
-    code: "Cod: 25971ar",
-    name:"Colonia UHU!",
-    description: "Colonia UHU! Muchachitos Naturé - 100ml",
-    price: 555.00,
-    points: 20,
-    list_order: 0,
-    add_points:1,
-    add_cases:1,
-    add_dif_cases:1,
-    profit:200,
-    event_code:"aaa",
-    image: "colonia.jpeg"
-  });
+Product.create({
+  code: "Cod: 78909ar",
+  name:"Balm Post Barba Homem",
+  description: "Balm Post Barba Homem - 75ml",
+  price: 315.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"MADRE",
+  image: "balsamo.jpeg"
+});
+Product.create({
+  code: "87264ar",
+  name:"ÓLEO HIDRATANTE DE BARBA",
+  description: "Óleo Hidratante de Barba 30ml Homem Natura",
+  price: 685.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"PADRE",
+  image: "oleo.jpg"
+});
+Product.create({
+  code: "Cod: 89243ar",
+  name: "Crema de Manos",
+  description: "Crema de Manos de Cacao 75gr Ekos Natura",
+  price: 640,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"MADRE",
+  image: "cremaManos.jpg"
+});
+Product.create({
+  code: "Cod: 90558ar",
+  name:"Perfume Femenino",
+  description: "Perfume Femenino Likes de Humor EDT 75ml Natura",
+  price: 903.00,
+  points: 30,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:300,
+  event_code:"MADRE",
+  image: "perfume.jpg"
+});
+Product.create({
+  code: "Cod: 892322ar",
+  name:"TOALLITAS HÚMEDAS DE LIMPIEZA",
+  description: "Toallitas Mama y Bebé para Recién Nacidos 50u Natura",
+  price: 203.00,
+  points: 26,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"PADRE",
+  image: "toallitas.jpg"
+});
+Product.create({
+  code: "Cod: 33343ar",
+  name:"Cápsulas Capilares",
+  description: "Cápsulas Capilares Fortificantes Plant - 30un",
+  price: 352.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"PADRE",
+  image: "capsulas.jpg"
+});
+
+Product.create({
+  code: "78291ar",
+  name:"KIT HIDRATACIÓN CIRUELA",
+  description: "Kit Hidratación Ciruela y Flor de Cerezo Tododía",
+  price: 470.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"MADRE",
+  image: "ciruela.jpg"
+});
+Product.create({
+  code: "Cod: 25971ar",
+  name:"FRESCOR CUMARU!",
+  description: "Frescor Eau de Toilette Cumaru Ekos - 150 ml",
+  price:  590.00,
+  points: 20,
+  list_order: 0,
+  add_points:1,
+  add_cases:1,
+  add_dif_cases:1,
+  profit:200,
+  event_code:"MADRE",
+  image: "frescor.jpg"
+});
