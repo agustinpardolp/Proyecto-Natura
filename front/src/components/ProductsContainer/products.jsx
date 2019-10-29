@@ -35,10 +35,10 @@ export default function products({
       <div class="card main-card-grid">
         <div class="card-header header-pedidos">
           <div class="row">
-            <div class="col-xs-12 col-sm-2 col-md-2 ">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 ">
               <div class="form-group">Pedido</div>
               </div>
-              <div class="col-xs-12 col-sm-10 col-md-5 .offset-md-1 select-consultant-container">
+              <div class="col-xs-12 col-sm-10 col-md-4 col-lg-3 offset-lg-2">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Consultor </label>{" "}
                 <select class="selectpicker" data-style="btn-info">
@@ -52,7 +52,7 @@ export default function products({
                 </select>
               </div>
               </div>
-              <div class="col-xs-12 col-sm-10 col-md-5 .offset-md-2">
+              <div class="col-xs-12 col-sm-10 col-md-5 col-lg-1 offset-lg-1 ">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Direccion: </label>{" "}
                 <select class="selectpicker">
@@ -74,7 +74,7 @@ export default function products({
           <div class="row card-list">
             {products.length &&
               products.map(product => (
-                <div class=" col-sm-12 col-md-12 col-lg-6">
+                <div class=" col-sm-12 col-md-12 col-lg-6">                     
                   <div className="card-container" style={{ width: "18rem" }}>
                     <img
                       class="card-img-top"
@@ -129,154 +129,6 @@ export default function products({
           </div>
         </div>
       </div>
-      {/* <Row type="flex" justify="center">
-        <Col span={16} offset={0} xs={18} sm={20} md={22} lg={24} xl={24} >
-          <Header
-            className="main-advice-header"
-            style={{ background: "#fff", padding: 0 }}
-          >
-            <span className="main-advice">
-              {" "}
-              Recordá que tenes hasta las 18hrs del dia para cargar tu pedido
-            </span>
-            <br />
-          </Header>
-        </Col>
-        <Col span={20} offset={0} xs={18} sm={20} md={22} lg={24} xl={24}>
-          <Header
-            className="main-pedidos-header "
-            style={{ background: "#fff", padding: 0 }}
-          >
-            <div className="container">
-              <h2 className="main-pedidos-tittle"> Pedidos</h2>
-
-              <Dropdown
-                overlay={menu}
-                placement="bottomLeft"
-                trigger={["click"]}
-              >
-                <Button>Seleccione una direccion</Button>
-              </Dropdown>
-            </div>
-          </Header>
-        </Col>
-      </Row>  */}
-      {/* <Content style={{ margin: "0 16px" }}>
-        <Row gutter={8}>
-          <Col className="gutter-row"  xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row" xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row"  xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-          </Col>
-
-          <Col className="gutter-row"  xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row"  xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row" xs={16} sm={18} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row" xs={24} sm={24} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-
-          <Col className="gutter-row"  xs={24} sm={24} md={24} lg={20} xl={12}>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 500 }}
-            >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-            <br />
-          </Col>
-         
-        </Row>
-      </Content> */}
-      <Footer style={{ textAlign: "center" }}>
-        <div className="btn-list-botton">
-          <button className="btn btn-secondary"> Limpiar</button>
-          <button className="btn btn-secondary">
-            {" "}
-            <Link to="/orden">Finalizar</Link>
-          </button>
-        </div>
-      </Footer>
     </Layout>
   );
 }

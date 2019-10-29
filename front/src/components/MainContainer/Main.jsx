@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { Row, Col, Layout } from "antd";
 import {fetchLoggedUser} from "../../redux/actions/user"
 import NavBarContainer from "../NavBarContainer";
-import Footer from "../FooterContainer/footer";
+import Footer from "../FooterContainer/index";
 import ProductContainer from "../ProductsContainer/index";
 import SideBarContainer from "../SiderBarContainer/index";
 import HomeContainer from "../HomeContainer/Home";
@@ -51,9 +51,10 @@ class Main extends Component {
            <Route exact path="/orden" component= {OrderConfirmContainer}/>
            <Route exact path= "/pedidos/consulta" component = {OrderHistoryContainer} />
         </Switch>
+        <Footer/>
         </Layout>
         </>
-        :
+        : 
         <>
         <Route exact path= "/login" component = {LoginContainer} /> 
          <Redirect from="/" to="/login" component={LoginContainer} /> 

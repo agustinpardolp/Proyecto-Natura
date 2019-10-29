@@ -8,7 +8,7 @@ import {
 } from "../../constants";
 
 export const addProductToOrder = function(product) {
-  console.log(product)
+
   return {
     type: ADD_PRODUCT_TO_ORDER,
     product

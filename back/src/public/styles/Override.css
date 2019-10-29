@@ -126,9 +126,15 @@ html, body{
 }
 
 .select-consultant-container{
-	text-align-last: end;
+	/* text-align-last: end; */
 
 }
+
+/* 
+
+.ant-layout-footer{
+	height: 0px;
+} */
 
 
 

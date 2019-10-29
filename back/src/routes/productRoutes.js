@@ -3,7 +3,7 @@ const router = express.Router();
 const Products = require("../../db/models").Product
 
 router.get("/", function(req, res){
-
+  
     Products.findAll()
     .then(products => {
         res.send(products)

@@ -43,7 +43,7 @@ class ProductContainer extends Component {
   render() {
     return (
       <>
-        {console.log(this.props.order, "ORDER")}
+        {console.log(this.props.order, "order")}
         <Products
           consultantList={this.props.consultantList}
           user={this.props.user}

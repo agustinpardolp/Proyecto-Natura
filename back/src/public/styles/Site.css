@@ -16,29 +16,26 @@
   src: url("/fonts/Roboto-Regular.ttf") format("truetype");
 }
 :root {
-  --main-bg-color: #F7931E;
-  --main-bg-tittles: #6D6D6D
+  --main-bg-color: #f7931e;
+  --main-bg-tittles: #6d6d6d;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
-  
 }
 .mainWeb {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
 
 .mainRouter {
   flex: 1;
   flex-wrap: wrap;
 }
-
 
 .lbl-CaptionUser {
   display: none;
@@ -65,12 +62,11 @@ body {
   background-color: black;
   bottom: 0;
   width: 70%;
-  position: fixed; 
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
 }
 .main-advice {
   /* font-family:"Natura" !important; */
@@ -80,20 +76,18 @@ body {
   margin-left: 15px !important; */
 }
 .main-header-advice {
-  background:  #FFDD65 !important;
+  background: #ffdd65 !important;
   border: 1px solid #faebcc;
   color: #8a6d3b;
   margin-left: 1%;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.16)
-
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
-.header-pedidos{
-  background:var(--main-bg-color) !important;
+.header-pedidos {
+  background: var(--main-bg-color) !important;
   color: white;
   display: block;
   justify-content: space-between;
-  font-size:24px;
-  
+  font-size: 24px;
 }
 
 .container {
@@ -107,14 +101,14 @@ body {
 }
 
 .btn-home {
-  background:var(--main-bg-color) !important;
+  background: var(--main-bg-color) !important;
   color: white !important;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
-.home-container{
+.home-container {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
   flex-direction: column;
   margin-left: 15px;
 }
@@ -124,104 +118,111 @@ body {
   text-align: left;
 }
 
-.login-container{
-color: var(--main-bg-color);
-/*   */
+.login-container {
+  color: var(--main-bg-color);
+  /*   */
 }
 
-.h4-home-tittle{
-color: var(--main-bg-tittles)
-
+.h4-home-tittle {
+  color: var(--main-bg-tittles);
 }
-.h3-login-tittle{
-  color: var(--main-bg-tittles)
+.h3-login-tittle {
+  color: var(--main-bg-tittles);
 }
-.main-card-grid{
-
-  left:1%;
+.main-card-grid {
+  left: 1%;
 }
 
-.container-label-direccion{
+.container-label-direccion {
   display: -webkit-inline-box;
   font-size: 18px;
 }
-.container-label-direccion > label{
+.container-label-direccion > label {
   margin-right: 10px;
-  padding-top: 2px
+  padding-top: 2px;
 }
-.card-img-top{
+.card-img-top {
   max-inline-size: 65%;
 }
 
-.card-container{
-display: flex;
-
+.card-container {
+  display: flex;
 }
-.btn-plus{
+.btn-plus {
   background: var(--main-bg-color) !important;
-  border-top-left-radius:20px !important;
+  border-top-left-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
   width: 35px !important;
   border: solid 1px rgb(59, 53, 53) !important;
 }
-.btn-minus{
+.btn-minus {
   background: var(--main-bg-color) !important;
-  border-top-right-radius:20px !important;
+  border-top-right-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
   width: 35px !important;
   border: solid 1px rgb(59, 53, 53) !important;
 }
-.imput-qnty-result{
+.imput-qnty-result {
   width: 110px;
   border: solid 1px rgb(59, 53, 53);
-  
 }
-.btn-card-container{
-display: flex;
+.btn-card-container {
+  display: flex;
 }
 
-.navbar-container{
+.navbar-container {
   display: flex;
   display: contents;
-
 }
-.navbar-container-user{
+.navbar-container-user {
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
 }
-.navbar-container>h6{
+.navbar-container > h6 {
   color: white;
 }
-.card-info-container{
+.card-info-container {
   margin-left: 20px;
-
 }
-.h6-ganancia{
+.h6-ganancia {
   margin-right: 35px;
 }
 
-.btn-list-botton{
-
-display: flex;
-justify-content: flex-end
-
+.btn-list-botton {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.btn-list-botton > button{
-
-background: var(--main-bg-color) !important;
-margin-right: 10px;
+.btn-list-botton > button {
+  background: var(--main-bg-color) !important;
+  margin-right: 10px;
 }
 
-.selectpicker{
-
+.selectpicker {
   font-size: 14px;
   padding: 5px;
   border-radius: 7px;
   color: grey;
   background: white;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
-
-
+.footer {
+  color: #4e5766;
+  padding: 0px 0px 0px 0px;
+  margin: 0px auto;
+  text-align: center;
+  line-height: normal;
+  height: 80px;
+  width: 100% !important;
+}
+.hidden-footer {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+.show-footer {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
