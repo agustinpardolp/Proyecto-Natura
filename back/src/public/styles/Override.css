@@ -76,6 +76,10 @@ html, body{
 	.page-header-fixed.page-header-fixed-mobile .page-container {
 		margin-top: 134px !important;
 	}
+	.select-consultant-container{
+		text-align-last: left;
+		
+	}
 }
 
 @media (max-width: 614px) {
@@ -86,6 +90,15 @@ html, body{
 	.page-header-fixed.page-header-fixed-mobile .page-container {
 		margin-top: 134px !important;
 	}
+	#select-consultant-container{
+		text-align-last: left;
+		
+	}
+	.select-direction-container{
+
+		text-align-last: left;
+	}
+	
 }
 
 @media (max-width: 480px) {
@@ -109,8 +122,17 @@ html, body{
 		 -webkit-flex-flow: column;
 				 flex-flow: column;
 		}
-
+	#select-consultant-container{
+			text-align-last: left;
+			
+		}
 	}
+	.select-direction-container{
+
+		text-align-last: left;
+	}
+	
+	
 .page-content-wrapper .page-content.no-sidebar
 {
     margin-left: 0px;
@@ -127,7 +149,7 @@ html, body{
 
 .select-consultant-container{
 	text-align-last: end;
-
+	
 }
 
 

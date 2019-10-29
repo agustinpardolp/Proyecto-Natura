@@ -27,7 +27,7 @@ class NavBarContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  
+
   return {
     user: state.user.user,
     productPath: ownProps.location.pathname

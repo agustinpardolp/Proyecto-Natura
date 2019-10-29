@@ -7,6 +7,7 @@ import {
 } from "../../constants";
 
 export const receiveLoggedUser = loggedUser => ({
+  
   type: RECEIVE_LOGGED_USER,
   loggedUser
 });
@@ -31,6 +32,7 @@ export const receiveConsultants = consultantList => {
 };
 
 export const loginUser = user => dispatch => {
+
   return axios
     .post("/api/user/login", user)
     .then(res => res.data)

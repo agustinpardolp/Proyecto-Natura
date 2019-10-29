@@ -104,6 +104,8 @@ body {
 .container :first-child {
   align-items: flex-start;
   text-align: left;
+  color: white !important;
+  /* font-size: 25px; */
 }
 
 .btn-home {
@@ -122,6 +124,7 @@ body {
 .home-container :first-child {
   align-items: flex-start;
   text-align: left;
+  
 }
 
 .login-container{
@@ -228,6 +231,11 @@ margin-right: 10px;
   color: grey;
   background: white;
   box-shadow: 0px 3px 6px rgba(0,0,0,0.16)
+}
+
+.div-history-container{
+
+  margin-left: 12px;
 }
 
 

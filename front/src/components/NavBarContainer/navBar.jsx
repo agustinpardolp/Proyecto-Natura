@@ -5,12 +5,13 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function Navbar({ user, onHandlerLogout, productPath }) {
+
   return (
     <div>  
       <Layout>
         <Header className="header" style={{ boxShadow: "0px 3px 6px rgba(0,0,0,0.16)" }}>
           <div className="logo" />
-          {user.code && user.code ? (
+          {user.userIdent && user.userIdent ? (
             <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
               {/* defaultSelectedKeys={[]} */}
               <SubMenu
@@ -28,7 +29,8 @@ export default function Navbar({ user, onHandlerLogout, productPath }) {
               </SubMenu>
             </Menu>
           ) : null}
-        {user.code && user.code ?
+        {user.userIdent && user.userIdent ?
+        
           <div className="navbar-container-user">
             <div class="page-logo d-none d-sm-block">
               <img
@@ -60,7 +62,8 @@ export default function Navbar({ user, onHandlerLogout, productPath }) {
           </div>
             }
         </Header>
-        {user.code && user.code ? (
+        {user.userIdent && user.userIdent ? (
+          <div className ="d-none d-sm-block">
           <Content style={{ padding: "0 50px" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
               <Link to={"/"}>
@@ -70,6 +73,7 @@ export default function Navbar({ user, onHandlerLogout, productPath }) {
               <Breadcrumb.Item>Showroom</Breadcrumb.Item>
             </Breadcrumb>
           </Content>
+          </div>
         ) : null}
       </Layout>
     </div>
