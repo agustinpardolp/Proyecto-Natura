@@ -48,11 +48,8 @@ html, body{
 
 	margin-left: 10px;
 }
-
-@media (min-width: 1200px) {
-}
-
-@media (min-width: 992px) {
+.main-card-grid{
+	margin: 7px
 }
 
 
@@ -60,13 +57,15 @@ html, body{
 	.page-header-fixed .page-container {
 		margin-top: 65px;
 	}
-}
-
-@media (max-width: 991px) {
 	.page-header-fixed.page-header-fixed-mobile .page-container {
 		margin-top: 65px !important;
 	}
+	.btn-list-botton {
+		display: flex;
+		justify-content: flex-end;
+	  }
 }
+
 
 @media (max-width: 767px) {
 	.page-header.navbar {
@@ -79,6 +78,9 @@ html, body{
 	.select-consultant-container{
 		text-align-last: left;
 		
+	}
+	.main-card-grid{
+		margin: 0px
 	}
 }
 
@@ -119,18 +121,39 @@ html, body{
 	}
 
 	.card-container {
-		 -webkit-flex-flow: column;
+		 /* -webkit-flex-flow: column; */
 				 flex-flow: column;
+				 align-items: center;
+				 text-align: center;
+				 
 		}
 	#select-consultant-container{
 			text-align-last: left;
 			
 		}
+		.btn-list-botton {
+			display: flex;
+			justify-content:  space-evenly;
+		}
+	}
+	.card-list{
+
+		text-align: -webkit-center;
 	}
 	.select-direction-container{
 
 		text-align-last: left;
 	}
+	.container-label-direccion {
+		max-width: 100%;
+		width: 100%;
+		font-size: 18px;
+		display: grid;
+	  }
+
+	  .btn-footer-container{
+		justify-content: center
+	  }
 	
 	
 .page-content-wrapper .page-content.no-sidebar
@@ -147,16 +170,22 @@ html, body{
 	box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
 }
 
+.container > .btn-footer-container {
+	align-items: flex-start;
+	text-align: center;
+	color: white !important;
+	width: inherit;
+	width: 140px;
+	/* font-size: 25px; */
+  }
+
+ 
+
 .select-consultant-container{
 	/* text-align-last: end; */
 
 }
 
-/* 
-
-.ant-layout-footer{
-	height: 0px;
-} */
 
 
 

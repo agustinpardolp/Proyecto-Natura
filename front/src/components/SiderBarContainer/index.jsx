@@ -23,7 +23,7 @@ componentDidMount() {
    
    var screenSize = window.innerWidth
 
-   if(screenSize < 420){
+   if(screenSize < 767){
 
      this.setState({hiddenSidebar:true})
    }else{

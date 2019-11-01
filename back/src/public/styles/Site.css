@@ -58,48 +58,23 @@ body {
   align-items: center;
 }
 
-.footer {
-  background-color: black;
-  bottom: 0;
-  width: 70%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-}
 .main-advice {
-  /* font-family:"Natura" !important; */
   color: #8a6d3b;
-  /* font-size: 20px;
-  vertical-align: middle;
-  margin-left: 15px !important; */
 }
-.main-header-advice {
-  background: #ffdd65 !important;
+#main-header-advice {
+  background: #fcf8e3;
   border: 1px solid #faebcc;
   color: #8a6d3b;
   margin-left: 1%;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
+
 .header-pedidos {
   background: var(--main-bg-color) !important;
   color: white;
   display: block;
   justify-content: space-between;
   font-size: 24px;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.container :first-child {
-  align-items: flex-start;
-  text-align: left;
-  color: white !important;
-  /* font-size: 25px; */
 }
 
 .btn-home {
@@ -136,13 +111,12 @@ body {
 .h3-login-tittle {
   color: var(--main-bg-tittles);
 }
-.main-card-grid {
-  left: 1%;
-}
 
 .container-label-direccion {
-  display: -webkit-inline-box;
+  max-width: 100%;
+  width: 100%;
   font-size: 18px;
+  display: inline-flex;
 }
 .container-label-direccion > label {
   margin-right: 10px;
@@ -155,23 +129,31 @@ body {
 .card-container {
   display: flex;
 }
-.btn-plus {
-  background: var(--main-bg-color) !important;
-  border-top-left-radius: 20px !important;
-  border-bottom-left-radius: 20px !important;
+#btn-plus {
+  background: var(--main-bg-color) ;
+  border-top-left-radius: 20px ;
+  border-bottom-left-radius: 20px ;
+  border-top-right-radius: 0px ;
+  border-bottom-right-radius: 0px ;
   width: 35px !important;
-  border: solid 1px rgb(59, 53, 53) !important;
+  border: solid 1px rgb(160, 151, 151);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
 }
-.btn-minus {
-  background: var(--main-bg-color) !important;
-  border-top-right-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
-  width: 35px !important;
-  border: solid 1px rgb(59, 53, 53) !important;
+#btn-minus {
+  background: var(--main-bg-color) ;
+  border-top-right-radius: 20px ;
+  border-bottom-right-radius: 20px ;
+  border-top-left-radius: 0px ;
+  border-bottom-left-radius: 0px ;
+  width: 35px ;
+  border: solid 1px rgb(160, 151, 151);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 .imput-qnty-result {
   width: 110px;
-  border: solid 1px rgb(59, 53, 53);
+  border: solid 1px rgb(160, 151, 151);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 .btn-card-container {
   display: flex;
@@ -205,6 +187,8 @@ body {
   background: var(--main-bg-color) !important;
   margin-right: 10px;
   color: white;
+  width: 95px;
+  text-align: center;
 }
 .btn-list-botton .btn-finalizar {
 
@@ -218,16 +202,27 @@ body {
   color: grey;
   background: white;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  margin-bottom: 8px;
 }
-.footer {
+ .footer {
   color: #4e5766;
-  padding: 0px 0px 0px 0px;
   margin: 0px auto;
   text-align: center;
   line-height: normal;
   height: 80px;
   width: 100% !important;
-}
+  
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: "center"; 
+	bottom: 0;
+  width: 70%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+} 
 .hidden-footer {
   visibility: hidden;
   opacity: 0;

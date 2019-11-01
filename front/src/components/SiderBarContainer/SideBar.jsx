@@ -7,7 +7,7 @@ const { SubMenu } = Menu;
 export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreenChange }) {
   return (
     <Sider
-      breakpoint="xs"
+      breakpoint="md"
       hidden = {hiddenSidebar}
       collapsible
       collapsed={collapsed}
