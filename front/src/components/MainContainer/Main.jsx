@@ -26,7 +26,6 @@ class Main extends Component {
   componentDidMount(){
     this.props.fetchLoggedUser()
     .then(user=>{
-      console.log(user, "userrr")
       this.setState({
         user:user,
         loading:false
@@ -41,8 +40,9 @@ class Main extends Component {
     return (
       <div className="mainRouter">
         <Route component={NavBarContainer} />
-      { this.props.user.code?
+      {this.props.user.userIdent?
          <>
+ 
         <Layout style={{ minHeight: '100vh' }}>
         <SideBarContainer />
          <Switch>

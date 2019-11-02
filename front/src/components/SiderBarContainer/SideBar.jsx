@@ -7,13 +7,13 @@ const { SubMenu } = Menu;
 export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreenChange }) {
   return (
     <Sider
-      
       breakpoint="md"
       hidden = {hiddenSidebar}
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
       onresize = {onScreenChange}
+      className = "sidebarContainer"
     >
       <div className="logo" />
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
@@ -34,8 +34,11 @@ export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreen
         >
           <Menu.Item key="3">
             {" "}
+            
+            <Link to="/pedidos">
             <Icon type="shopping-cart" />
             Carga de pedidos
+            </Link>
           </Menu.Item>
           <Menu.Item key="4">
             {" "}

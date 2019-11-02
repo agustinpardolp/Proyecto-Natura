@@ -14,6 +14,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOGGED_USER:
+        console.log(action.loggedUser, "userreducer")
       return Object.assign({}, state, {
         user: action.loggedUser,
         avatar: action.loggedUser.avatar

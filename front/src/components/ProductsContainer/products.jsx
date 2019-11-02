@@ -26,7 +26,7 @@ export default function products({
   return (
     <Layout>
       <nav aria-label="breadcrumb main-header-advice">
-        <ol class="breadcrumb main-header-advice">
+        <ol class="breadcrumb d-none d-sm-block" id= "main-header-advice">
           <li class="breadcrumb-item active " aria-current="page">
             Recordá que tenes hasta las 18hrs del dia para cargar tu pedido
           </li>
@@ -42,7 +42,7 @@ export default function products({
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Consultor </label>{" "}
                 <select class="selectpicker" data-style="btn-info">
-                  <option >Seleccione una direccion</option>
+                  <option >Seleccione un consultor </option>
                   {consultantList &&
                     consultantList.map(consultant => {
                       return (
@@ -94,7 +94,8 @@ export default function products({
                         <div className="btn-card-container">
                           <button
                             type="submit"
-                            className="btn btn-plus"
+                            className="btn"
+                            id = "btn-plus"
                             onClick={() => {
                               onHandleIncrement(product);
                             }}
@@ -108,7 +109,8 @@ export default function products({
                             placeholder={cantidad}
                           ></input>{" "}
                           <button
-                            className="btn btn-minus"
+                            className="btn"
+                            id = "btn-minus"
                             data-type="minus"
                             data-type="plus"
                             onClick={() => {

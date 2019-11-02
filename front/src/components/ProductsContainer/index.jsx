@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import productlist from  "../../auxFunctions"
 import Products from "../ProductsContainer/products";
 import { fetchProducts } from "../../redux/actions/products";
 import { addProductToOrder } from "../../redux/actions/order";
@@ -15,18 +16,22 @@ class ProductContainer extends Component {
       ganancia: 0,
       puntos: 0,
       estuches: 0,
-      order: []
+      order: [],
+      products: []
     };
     this.onHandleIncrement = this.onHandleIncrement.bind(this);
     this.onHandlerDecrement = this.onHandlerDecrement.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
+      this.setState({
+          products: productlist
+      })
+    // this.props.fetchProducts();
 
-    if (this.props.user.isSuperviser) {
-      this.props.fetchConsultantBySuperviser(this.props.user.id);
-    }
+    // if (this.props.user.isSuperviser) {
+    //   this.props.fetchConsultantBySuperviser(this.props.user.id);
+    // }
   }
 
   onHandleIncrement(product) {
@@ -42,17 +47,20 @@ class ProductContainer extends Component {
 
   render() {
     return (
-      <>
-        {console.log(this.props.order, "order")}
+      <div>
+        {console.log("ORDER", this.props.order)}
         <Products
-          consultantList={this.props.consultantList}
+        
+          // consultantList={this.props.consultantList}
           user={this.props.user}
-          products={this.props.products}
+        //   products={this.props.products}
+          products={this.state.products}
           cantidad={this.state.cantidad}
           onHandleIncrement={this.onHandleIncrement}
           onHandlerDecrement={this.onHandlerDecrement}
         />
-      </>
+                      </ div>
+   
     );
   }
 }

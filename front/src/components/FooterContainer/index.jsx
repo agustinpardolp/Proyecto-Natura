@@ -28,7 +28,6 @@ onScroll() {
       });
 
     } else {
-        console.log("scroll ELSE");
       this.setState({
         scrollChange: "hidden-footer"
       });

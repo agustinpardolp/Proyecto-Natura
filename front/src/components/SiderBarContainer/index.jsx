@@ -11,19 +11,19 @@ export default class SideBarContainer extends React.Component {
           this.onCollapse = this.onCollapse.bind(this)
           this.onScreenChange = this.onScreenChange.bind(this)
     }
-// componentDidMount() {
-//   window.addEventListener("resize", this.onScreenChange)
-// }
+componentDidMount() {
+  window.addEventListener("resize", this.onScreenChange)
+}
   onCollapse (collapsed){
 
     this.setState({ collapsed });
   };
 
   onScreenChange(e){
-    console.log("entreeeeeeeeee", e)
+   
    var screenSize = window.innerWidth
-   console.log(screenSize, "soy screen size")
-   if(screenSize < 420){
+
+   if(screenSize < 767){
 
      this.setState({hiddenSidebar:true})
    }else{

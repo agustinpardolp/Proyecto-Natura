@@ -4,7 +4,7 @@ import {Layout} from "antd";
 
 function orderHistory({onHandlerDetail}) {
     return (
-        <div>
+        <div className = "div-history-container">
 
         <Header
         className="main-pedidos-header "
@@ -16,7 +16,6 @@ function orderHistory({onHandlerDetail}) {
       </Header>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Lista de pedidos</h3>
             <div class="pull-right">
                 <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
                     <i class="glyphicon glyphicon-filter"></i>

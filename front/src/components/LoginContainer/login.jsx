@@ -18,7 +18,8 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
     <Tabs defaultActiveKey="1" >
     <TabPane  tab="Ingresar como consultor/a" key="1">
     <Form onSubmit={onHandlerClick} className="login-form"
-    labelCol={{ span: 5 }} wrapperCol={{ span: 8 }}>
+    // labelCol={{ span: 5 }} wrapperCol={{ span: 8 }}
+    >
         <Form.Item>
 
             <Input
@@ -50,7 +51,8 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
     <TabPane tab="Ingresar como supervisor/a" key="2">
     <Form onSubmit={onHandlerClick} className="login-form"
     
-    labelCol={{ span: 5 }} wrapperCol={{ span: 8 }}>
+    // labelCol={{ span: 5 }} wrapperCol={{ span: 8 }}
+    >
         <Form.Item>
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
