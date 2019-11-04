@@ -22,6 +22,7 @@ export default function products({
   user,
   cantidad,
   consultantList,
+  order
 }) {
   return (
     <Layout>
@@ -107,7 +108,7 @@ export default function products({
                             className="imput-qnty-result"
                             value={cantidad}
                             placeholder={cantidad}
-                          ></input>{" "}
+                          >  {order.quantity}</input>{" "}
                           <button
                             className="btn"
                             id = "btn-minus"

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import productlist from  "../../auxFunctions"
+import productlist from "../../auxFunctions";
 import Products from "../ProductsContainer/products";
 import { fetchProducts } from "../../redux/actions/products";
-import { addProductToOrder } from "../../redux/actions/order";
+import { addProductToOrder, removeProductFromOrder } from "../../redux/actions/order";
 import { fetchConsultantBySuperviser } from "../../redux/actions/user";
 
 class ProductContainer extends Component {
@@ -11,9 +11,6 @@ class ProductContainer extends Component {
     super(props);
     this.state = {
       cantidad: 0,
-      precioVenta: 0,
-      previoRevend: 0,
-      ganancia: 0,
       puntos: 0,
       estuches: 0,
       order: [],
@@ -24,43 +21,40 @@ class ProductContainer extends Component {
   }
 
   componentDidMount() {
-      this.setState({
-          products: productlist
-      })
-    // this.props.fetchProducts();
+    // this.setState({
+    //     products: productlist
+    // })
+    this.props.fetchProducts();
 
-    // if (this.props.user.isSuperviser) {
-    //   this.props.fetchConsultantBySuperviser(this.props.user.id);
-    // }
+    if (this.props.user.isSuperviser) {
+      this.props.fetchConsultantBySuperviser(this.props.user.id);
+    }
   }
 
   onHandleIncrement(product) {
-
-    this.props.addProductToOrder(product)
-    // this.props.addProductToOrder(product, this.props.user);
+    this.props.addProductToOrder(product);
+    
   }
-  onHandlerDecrement(val) {
-    this.setState({
-      cantidad: this.state.cantidad + val
-    });
+  onHandlerDecrement(product) {
+    this.props.removeProductFromOrder(product);
   }
 
   render() {
     return (
       <div>
         {console.log("ORDER", this.props.order)}
+
         <Products
-        
-          // consultantList={this.props.consultantList}
+          order = {this.props.order}
+          consultantList={this.props.consultantList}
           user={this.props.user}
-        //   products={this.props.products}
-          products={this.state.products}
+          products={this.props.products}
+          // products={this.state.products}
           cantidad={this.state.cantidad}
           onHandleIncrement={this.onHandleIncrement}
           onHandlerDecrement={this.onHandlerDecrement}
         />
-                      </ div>
-   
+      </div>
     );
   }
 }
@@ -79,7 +73,8 @@ const mapDispatchToProps = dispatch => {
     addProductToOrder: (product, user) =>
       dispatch(addProductToOrder(product, user)),
     fetchConsultantBySuperviser: userId =>
-      dispatch(fetchConsultantBySuperviser(userId))
+      dispatch(fetchConsultantBySuperviser(userId)),
+      removeProductFromOrder: (product) => dispatch(removeProductFromOrder(product))
   };
 };
 export default connect(

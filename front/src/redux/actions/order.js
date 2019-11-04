@@ -34,10 +34,10 @@ export const addProductFromOrder = function(updatedProduct) {
     updatedProduct
   };
 };
-export const removeProductFromOrder = function(updatedProduct) {
+export const removeProductFromOrder = function(product) {
   return {
     type: REMOVE_PRODUCT_FROM_ORDER,
-    updatedProduct
+    product
   };
 };
 export const decrementProductFromOrder = function(updatedProduct) {
