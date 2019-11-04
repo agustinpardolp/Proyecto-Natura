@@ -40,7 +40,7 @@ class Main extends Component {
     return (
       <div className="mainRouter">
         <Route component={NavBarContainer} />
-      {this.props.user.userIdent?
+      {this.props.user.id?
          <>
  
         <Layout style={{ minHeight: '100vh' }}>
