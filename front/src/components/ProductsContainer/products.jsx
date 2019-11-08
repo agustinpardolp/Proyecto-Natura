@@ -19,13 +19,12 @@ export default function products({
   products,
   onHandleIncrement,
   onHandlerDecrement,
-  user,
-  cantidad,
   consultantList,
-  order
+  totalOrderValue
 }) {
+
   return (
-    <Layout>
+    <Layout className = "main-body-products">
       <nav aria-label="breadcrumb main-header-advice">
         <ol class="breadcrumb d-none d-sm-block" id= "main-header-advice">
           <li class="breadcrumb-item active " aria-current="page">
@@ -53,7 +52,7 @@ export default function products({
                 </select>
               </div>
               </div>
-              <div class="col-xs-12 col-sm-10 col-md-5 col-lg-1 offset-lg-1 ">
+              <div class="col-xs-12 col-sm-10 col-md-5 col-lg-3 offset-lg-1 ">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Direccion: </label>{" "}
                 <select class="selectpicker">
@@ -75,7 +74,7 @@ export default function products({
           <div class="row card-list">
             {products.length &&
               products.map(product => (
-                <div class=" col-sm-12 col-md-12 col-lg-6">                     
+                <div class=" col-sm-12 col-md-12 col-lg-6 products-container">                     
                   <div className="card-container" style={{ width: "18rem" }}>
                     <img
                       class="card-img-top"
@@ -98,35 +97,43 @@ export default function products({
                             className="btn"
                             id = "btn-plus"
                             onClick={() => {
-                              onHandleIncrement(product);
-                            }}
-                          >
+                              onHandlerDecrement(product);
+                            }}>
                             {" "}
-                            +{" "}
+                            -{" "}
                           </button>{" "}
+                          {totalOrderValue  && totalOrderValue?
                           <input
-                            className="imput-qnty-result"
-                            value={cantidad}
-                            placeholder={cantidad}
-                          >  {order.quantity}</input>{" "}
+                          className="input-qnty-result"
+                          value={product.userQuantity}
+                          placeholder={product.userQuantity}
+                          ></input>
+                          :
+                          <input
+                          className="input-qnty-result"
+                          value= {0}
+                          placeholder={0}
+                          ></input>
+                        }
+
                           <button
                             className="btn"
                             id = "btn-minus"
                             data-type="minus"
                             data-type="plus"
                             onClick={() => {
-                              onHandlerDecrement(product);
+                              onHandleIncrement(product);
                             }}
                           >
                             {" "}
-                            -{" "}
+                            +{" "}
                           </button>
                         </div>
                         <h6>Puntos acumulados {product.points}pts</h6>
                       </div>
                     </div>
                   </div>
-                  <Divider dashed />
+                  <Divider dashed className = "divider-main-products"/>
                 </div>
               ))}
           </div>

@@ -3,14 +3,14 @@ import {Link} from "react-router-dom";
 import { Layout } from "antd";
 const { Footer, Content } = Layout;
 
-export default function footer({scrollChange}) {
+export default function footer({scrollChange, onHandlerClear}) {
   return (
         <div className={`footer ${scrollChange}`}>
             <Footer className ="footer">
               <div className = "container btn-footer-container">
               <div className=" btn-list-botton">
            
-            <button className="btn"> Limpiar</button>
+            <button className="btn" onClick = {onHandlerClear}> Limpiar</button>
 
           <button className="btn"> <Link to="/orden" className="btn-finalizar">Finalizar</Link> </button>
   

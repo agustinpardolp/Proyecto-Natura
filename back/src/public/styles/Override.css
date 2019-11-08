@@ -82,6 +82,15 @@ html, body{
 	.main-card-grid{
 		margin: 0px
 	}
+	.main-product-full{
+  
+		padding-left: 0px;
+		transition-duration: 0.2s;
+	  
+	}
+	.divider-main-products{
+		visibility: visible;
+	  }
 }
 
 @media (max-width: 614px) {
@@ -148,7 +157,7 @@ html, body{
 		max-width: 100%;
 		width: 100%;
 		font-size: 18px;
-		display: grid;
+		/* display: grid; */
 	  }
 
 	  .btn-footer-container{
@@ -179,11 +188,14 @@ html, body{
 	/* font-size: 25px; */
   }
 
- 
-
 .select-consultant-container{
 	/* text-align-last: end; */
 
+}
+
+.main-login-container{
+
+	padding-top: 64px;
 }
 
 

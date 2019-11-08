@@ -8,16 +8,9 @@ class NavBarContainer extends Component {
     super(props);
     this.state = {
       showSidebar: false,
-      precioVenta: 0,
-      precioRevend: 0,
-      ganancia: 0
     };
+
     this.onHandlerLogout = this.onHandlerLogout.bind(this);
-  }
-
-  componentDidUpdate(preProps) {
-
-   
   }
 
   onHandlerLogout(e) {
@@ -27,7 +20,7 @@ class NavBarContainer extends Component {
   render() {
     return (
       <div>
-          {console.log("PRUEBA", this.props.totalOrderValue)}
+    
         <NavBar
           totalOrderValue = {this.props.totalOrderValue}
           user={this.props.user}
@@ -38,13 +31,12 @@ class NavBarContainer extends Component {
     );
   }
 }
-
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user.user,
-    productPath: ownProps.location.pathname,
     order: state.orders.order,
-    totalOrderValue: state.orders.totalOrderValue
+    totalOrderValue: state.orders.totalOrderValue,
+    productPath: ownProps.location.pathname == "/pedidos",
   };
 };
 

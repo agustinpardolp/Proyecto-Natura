@@ -31,7 +31,7 @@ class OrderHistoryContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className = {this.props.collapseView?"main-product-full":"main-product-partial"}>
                 <OrderHistory onHandlerDetail = {this.onHandlerDetail}/>
                 <ModalDetail showModal={this.state.showModal} handleOk={this.handleOk}/>
             </div>
@@ -41,7 +41,7 @@ class OrderHistoryContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    
+    collapseView: state.product.collapseView
 })
 
 const mapDispatchToProps = (dispatch) => ({

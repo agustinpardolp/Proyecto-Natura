@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import Footer from "../FooterContainer/footer";
+import {removeOrder} from "../../redux/actions/order";
 
-export default class FooterContainer extends Component {
+class FooterContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -9,12 +11,18 @@ export default class FooterContainer extends Component {
     };
 
     this.onScroll = this.onScroll.bind(this)
+    this.onHandlerClear = this.onHandlerClear.bind(this)
   }
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
+}
+
+onHandlerClear(){
+
+this.props.removeOrder()
 }
 
 onScroll() {
@@ -34,6 +42,20 @@ onScroll() {
     }
   }
   render() {
-    return <Footer scrollChange={this.state.scrollChange} />;
+    return <Footer scrollChange={this.state.scrollChange} onHandlerClear ={this.onHandlerClear} />;
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  removeOrder: ()=> dispatch(removeOrder())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FooterContainer);

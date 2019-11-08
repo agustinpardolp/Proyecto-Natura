@@ -2,6 +2,9 @@ import axios from "axios";
 import {RECEIVE_PRODUCTS,
     RECEIVE_CURRENT_PRODUCT,
     RECEIVE_PRODUCT_PARAMETERS,
+    RECEIVE_VIEW_PRODUCT_CHANGE,
+    RECEIVE_PRODUCT_PATH_CHANGE 
+    
   } from "../../constants"
 
   export const receiveProducts = function (productList) {
@@ -23,11 +26,23 @@ export const receiveProductParameters = function (productParameters) {
     };
   };
 
+  export const productWidthScreenChange = function (collapse){
 
+    return {
+      type: RECEIVE_VIEW_PRODUCT_CHANGE,
+      collapse
+    };
+  }
+ 
 export const fetchProducts = () => dispatch => {
-    axios.get("/api/products")
+   return axios.get("/api/products")
     .then(res =>res.data) 
-    .then(productList => dispatch(receiveProducts(productList)));
+
+    .then(productList => {
+      
+      dispatch(receiveProducts(productList))
+      return productList
+    });
 };
 export const fetchProductById =(magazineId) => dispatch =>{
     axios.get(`/api/products/${magazineId}`)
@@ -64,3 +79,5 @@ export const createProduct = (dataProduct ) => () => {
     .post('api/products/update', {dataProduct, imgKey})
     .then(productImgUpdated => {return productImgUpdated});
   }
+
+  

@@ -6,7 +6,7 @@ function login({onPassChange, onCodeChange,onHandlerClick,onTabChange, noTitleKe
    
   
     return (
-      <div>
+      <div className = "main-login-container">
         <br/><br/>
     <Row>
   

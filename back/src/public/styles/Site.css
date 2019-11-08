@@ -66,6 +66,7 @@ body {
   border: 1px solid #faebcc;
   color: #8a6d3b;
   margin-left: 1%;
+  margin-right: 0.9%;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
@@ -88,6 +89,7 @@ body {
   align-items: flex-start;
   flex-direction: column;
   margin-left: 15px;
+  padding-left: 200px
 }
 
 .home-container :first-child {
@@ -124,10 +126,12 @@ body {
 }
 .card-img-top {
   max-inline-size: 65%;
+  padding-top: 20%;
 }
 
 .card-container {
   display: flex;
+  vertical-align: baseline;
 }
 #btn-plus {
   background: var(--main-bg-color) ;
@@ -150,10 +154,11 @@ body {
   border: solid 1px rgb(160, 151, 151);
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
-.imput-qnty-result {
+.input-qnty-result {
   width: 110px;
   border: solid 1px rgb(160, 151, 151);
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  text-align: center;
 }
 .btn-card-container {
   display: flex;
@@ -173,6 +178,7 @@ body {
 }
 .card-info-container {
   margin-left: 20px;
+  align-self: center;
 }
 .h6-ganancia {
   margin-right: 35px;
@@ -211,7 +217,6 @@ body {
   line-height: normal;
   height: 80px;
   width: 100% !important;
-  
 	padding-left: 15px;
 	padding-right: 15px;
 	text-align: "center"; 
@@ -236,4 +241,43 @@ body {
 .sidebarContainer{
 
   z-index: 1000;
+  position: fixed;
+  height: 100%;
+}
+.main-navbar-layout{
+
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+.main-body{
+
+  padding-top: 117px;
+}
+.main-product-full{
+  
+  padding-left: 200px;
+  transition-duration: 0.2s;
+
+}
+.main-product-partial{
+  
+  padding-left: 80px;
+  transition-duration: 0.2s;
+
+}
+
+.ant-menu-dark {
+   z-index: 100000;
+
+}
+
+.divider-main-products{
+  visibility: hidden;
+}
+
+.products-container{
+
+  border: #80808096 dashed 0.1px;
 }

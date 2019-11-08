@@ -8,10 +8,10 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
 
   return (
     <div>  
-      <Layout>
+      <Layout className = "main-navbar-layout">
         <Header className="header" style={{ boxShadow: "0px 3px 6px rgba(0,0,0,0.16)" }}>
           <div className="logo" />
-          {user.userIdent && user.userIdent ? (
+          {user.id && user.id ? (
             <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
               {/* defaultSelectedKeys={[]} */}
               <SubMenu
@@ -23,7 +23,7 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
                   </span>
                 }
               >
-                <Menu.Item key="1">
+                <Menu.Item key="1" style={{ zIndex: "10000000" }}>
                   <Link onClick={onHandlerLogout}>Logout </Link>
                 </Menu.Item>
               </SubMenu>
@@ -41,11 +41,11 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
                 src="/assets/img/natura_logo_40px.png"
               />
             </div>
-           {productPath && productPath == "/pedidos" ?
+           {productPath && productPath?
             <div className= "navbar-container">
-              <h6>Precio Venta: <span>{totalOrderValue.total}</span></h6>
-              <h6>Vos Pagas: <span>{totalOrderValue.price}</span></h6>
-              <h6 className = "h6-ganancia">Ganancia: <span>{totalOrderValue.profit}</span> </h6>
+              <h6>Precio Venta: <span>{totalOrderValue?`$ ${totalOrderValue.total}`:`$ ${0}`}</span></h6>
+              <h6>Vos Pagas: <span>{totalOrderValue?`$ ${totalOrderValue.price}`:`$ ${0}`}</span></h6>
+              <h6 className = "h6-ganancia">Ganancia: <span>{totalOrderValue?`$ ${totalOrderValue.profit}`:`$ ${0}`}</span> </h6>
             </div>:null
             }
           </div>:
@@ -69,7 +69,7 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
               <Link to={"/"}>
                 <Breadcrumb.Item>Inicio</Breadcrumb.Item>
               </Link>
-              <Breadcrumb.Item>Pedido</Breadcrumb.Item>
+              <Link to = {"/pedidos"}><Breadcrumb.Item>Pedido</Breadcrumb.Item></Link>
               <Breadcrumb.Item>Showroom</Breadcrumb.Item>
             </Breadcrumb>
           </Content>

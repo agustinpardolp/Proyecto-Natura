@@ -4,15 +4,17 @@ const DataStorage = require("../auxFunctions/auxFunctions").DataStorage;
 const passport = require("../../config/passport");
 const Consultant = require("../../db/models").Consultant;
 const Superviser = require("../../db/models").Superviser;
+const user = require ("../auxFunctions/auxFunctions").user
 
-router.post("/login", passport.authenticate("local"), function(req, res) {
-  res.send(req.user);
-});
-// router.post("/login", function(req, res) {
-//   if(req.body.pass == "111")
-  
-//   res.send(req.body);
+// router.post("/login", passport.authenticate("local"), function(req, res) {
+//   res.send(req.user);
 // });
+router.post("/login", function(req, res) {
+
+  if(req.body.pass == user.code)
+  
+  res.send(user);
+});
 
 router.post("/logout", function(req, res) {
   req.logout();

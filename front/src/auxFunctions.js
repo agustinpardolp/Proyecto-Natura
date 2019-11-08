@@ -1,9 +1,34 @@
 
-const productlist = [
-{ id: 1, name: "Ekos Copaib", price: 1180, code: "(72572)", points: 20, profit: 354, image: "capsulas.jpg" },
-{ id: 2, name: "Homem Verum", price: 560, code: "(72572)", points: 9, profit: 168, image: "balsamo.jpeg" },
-{ id:3, name: "Essencial Exclusivo", price: 1990, code: "(72572)", points:33, profit: 597, image: "cremaManos.jpg" },
-{ id:4, name: "Kaiak Urbe", price: 1393, code: "(72572)", points: 20, profit: 450, image: "perfume.jpg" }
-];
 
-export default productlist;
+function orderCounter(action){
+
+    var newOrderList = action.product;
+    newOrderList = newOrderList.filter((product)=>{  //filtro y devuelvo con todos los que tengan qty mayor a cero
+        return product.userQuantity > 0
+    })
+    
+    var totalOrderValue = newOrderList.length? newOrderList.map((acum) => {
+        
+        let profit = acum.profit  * acum.userQuantity //MAPEO LOS PRODUCTOS FILTRADOS QUE TIENE QTY MAYOR A 0
+        let price = acum.price * acum.userQuantity    //ACUMULO VALORES TOTALES POR PRODUCTO
+        let total = profit + price
+        //sumo totales
+        return {
+            profit: profit,
+            price: price,
+            total: total
+        };
+    }).reduce(function(acum, order){  //ACUMULO VALORES TOTALES POR ORDEN
+        return{
+            profit: acum.profit + order.profit,
+            price: acum.price + order.price,
+            total: acum.total + order.total
+        }
+    }):0    
+    return {
+        order: newOrderList, // esta es la orden filtrada con los productos y cantidades elegidos por usuario
+        totalOrderValue: totalOrderValue //devuelvo totales que se muestran en navbar
+    };
+    
+}
+    export default orderCounter

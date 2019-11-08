@@ -3,6 +3,7 @@ const Product = require ("../back//db/models").Product;
 const Superviser = require ("../back/db/models").Superviser;
 // USERS
 Consultant.create({
+  
   code: "111",
   sector: "admin",
   name: "Mirta",

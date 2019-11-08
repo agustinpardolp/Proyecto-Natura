@@ -37,6 +37,7 @@ export const loginUser = user => dispatch => {
     .post("/api/user/login", user)
     .then(res => res.data)
     .then(user => {
+      console.log(user)
       dispatch(receiveLoggedUser(user));
       return user;
     });

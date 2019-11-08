@@ -2,8 +2,7 @@ import axios from "axios";
 import {
   ADD_PRODUCT_TO_ORDER,
   RECEIVE_ORDERS,
-  ADD_PRODUCT_FROM_ORDER,
-  REMOVE_PRODUCT_FROM_ORDER,
+  REMOVE_ORDER,
   DECREMENT_PRODUCT_FROM_ORDER
 } from "../../constants";
 
@@ -15,6 +14,12 @@ export const addProductToOrder = function(product) {
   };
 };
 
+export const decrementProductFromOrder = function(product) {
+  return {
+    type: DECREMENT_PRODUCT_FROM_ORDER,
+    product
+  };
+};
 export const receiveOrders = function(orderList) {
   return {
     type: RECEIVE_ORDERS,
@@ -23,27 +28,10 @@ export const receiveOrders = function(orderList) {
 };
 
 export const removeOrder = function() {
+  let order = []
   return {
-    type: REMOVE_PRODUCTS
-  };
-};
-
-export const addProductFromOrder = function(updatedProduct) {
-  return {
-    type: ADD_PRODUCT_FROM_ORDER,
-    updatedProduct
-  };
-};
-export const removeProductFromOrder = function(product) {
-  return {
-    type: REMOVE_PRODUCT_FROM_ORDER,
-    product
-  };
-};
-export const decrementProductFromOrder = function(updatedProduct) {
-  return {
-    type: DECREMENT_PRODUCT_FROM_ORDER,
-    updatedProduct
+    type: REMOVE_ORDER,
+    order
   };
 };
 

@@ -1,7 +1,10 @@
 import React from "react";
 import SideBar from "../SiderBarContainer/SideBar"
+import {productWidthScreenChange} from "../../redux/actions/products"
+import {connect} from "react-redux";
 
-export default class SideBarContainer extends React.Component {
+ class SideBarContainer extends React.Component {
+
     constructor(props){
         super(props)
         this.state = {
@@ -15,21 +18,20 @@ componentDidMount() {
   window.addEventListener("resize", this.onScreenChange)
 }
   onCollapse (collapsed){
-
     this.setState({ collapsed });
+    this.props.productWidthScreenChange(this.state.collapsed)
+
   };
 
   onScreenChange(e){
    
    var screenSize = window.innerWidth
 
-   if(screenSize < 767){
-
+   if (screenSize < 767){
      this.setState({hiddenSidebar:true})
-   }else{
-    this.setState({hiddenSidebar:false})
+   } else {
+     this.setState({hiddenSidebar:false})
    }
-
   }
 
   render() {
@@ -38,3 +40,10 @@ componentDidMount() {
     );
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    productWidthScreenChange: (collapse)=>dispatch(productWidthScreenChange(collapse))
+  };
+};
+
+export default connect(null,mapDispatchToProps)(SideBarContainer)
