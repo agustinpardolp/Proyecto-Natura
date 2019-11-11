@@ -5,6 +5,7 @@ const passport = require("../../config/passport");
 const Consultant = require("../../db/models").Consultant;
 const Superviser = require("../../db/models").Superviser;
 const user = require ("../auxFunctions/auxFunctions").user
+const consultantsRespose = require ("../auxFunctions/auxFunctions").consultantsRespose
 
 // router.post("/login", passport.authenticate("local"), function(req, res) {
 //   res.send(req.user);
@@ -26,18 +27,21 @@ router.get("/logged", function(req, res) {
 });
 
 router.get("/superviser/consultant/:id", function(req, res) {
-
-  Superviser.findByPk(req.params.id)
-  .then(superviser=>{
-
-    Consultant.findAll({
-      where:{
-        cod_superviser: superviser.code
-      }
-    }).then(consultantList =>{
-      console.log(consultantList,"consultants")
-      res.send(consultantList)
-    })
+  consultantsRespose()
+  .then(consultantList =>{
+    res.send(consultantList)
   })
+  // Superviser.findByPk(req.params.id)
+  // .then(superviser=>{
+
+  //   Consultant.findAll({
+  //     where:{
+  //       cod_superviser: superviser.code
+  //     }
+  //   }).then(consultantList =>{
+  //     console.log(consultantList,"consultants")
+  //     res.send(consultantList)
+  //   })
+  // })
 });
 module.exports = router;

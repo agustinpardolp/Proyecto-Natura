@@ -3,7 +3,7 @@ import {RECEIVE_PRODUCTS,
     RECEIVE_CURRENT_PRODUCT,
     RECEIVE_PRODUCT_PARAMETERS,
     RECEIVE_VIEW_PRODUCT_CHANGE,
-    RECEIVE_PRODUCT_PATH_CHANGE 
+    RESET_ORDER_PRODUCTS
     
   } from "../../constants"
 
@@ -31,6 +31,14 @@ export const receiveProductParameters = function (productParameters) {
     return {
       type: RECEIVE_VIEW_PRODUCT_CHANGE,
       collapse
+    };
+  }
+
+  export const resetOrderProducts = function(products){
+
+    return {
+      type: RESET_ORDER_PRODUCTS,
+      products
     };
   }
  
@@ -79,5 +87,6 @@ export const createProduct = (dataProduct ) => () => {
     .post('api/products/update', {dataProduct, imgKey})
     .then(productImgUpdated => {return productImgUpdated});
   }
+  
 
   

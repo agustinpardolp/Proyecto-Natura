@@ -18,6 +18,7 @@
 :root {
   --main-bg-color: #f7931e;
   --main-bg-tittles: #6d6d6d;
+  --main-bg-secondary-buttons: #E0E0E0;
 }
 
 html,
@@ -25,42 +26,7 @@ body {
   height: 100%;
   margin: 0;
 }
-.mainWeb {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.mainRouter {
-  flex: 1;
-  flex-wrap: wrap;
-}
-
-.lbl-CaptionUser {
-  display: none;
-  padding: 14px 6px 12px 8px;
-  margin: 0 20px 0 0;
-  color: white;
-  font-family: "Natura Sans";
-}
-
-.li-userInfo {
-  display: none;
-  padding: 12px 0px 0px 0px;
-  color: white;
-  align-items: center;
-}
-.menu-list {
-  display: flex;
-  display: -webkit-flex;
-  width: 100%;
-  align-items: center;
-}
-
-.main-advice {
-  color: #8a6d3b;
-}
 #main-header-advice {
   background: #fcf8e3;
   border: 1px solid #faebcc;
@@ -70,8 +36,8 @@ body {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
-.header-pedidos {
-  background: var(--main-bg-color) !important;
+#header-pedidos {
+  background: var(--main-bg-color) ;
   color: white;
   display: block;
   justify-content: space-between;
@@ -79,9 +45,17 @@ body {
 }
 
 .btn-home {
-  background: var(--main-bg-color) !important;
-  color: white !important;
+  background: var(--main-bg-color) ;
+  color: white;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  height: 40px;
+  
+}
+.ant-btn:hover {
+  background:#fdac50;
+  transition: all 1s ease;
+  color:white;
+  border:none;  
 }
 
 .home-container {
@@ -100,7 +74,7 @@ body {
 
 .login-container {
   color: var(--main-bg-color);
-  /*   */
+
 }
 .panel-primary{
 
@@ -186,19 +160,35 @@ body {
 
 .btn-list-botton {
   display: flex;
-  justify-content: flex-end;
 }
 
-.btn-list-botton > button {
-  background: var(--main-bg-color) !important;
+.btn-list-botton > .btn-clear  {
+  background: var(--main-bg-secondary-buttons);
+  margin-right: 10px;
+  color: #777272;
+  width: 95px;
+  text-align: center;
+}
+.btn-clear:hover {
+  background:#b8b1b1;
+  transition: all 3s ease;
+  color:#777272;
+  border:none;  
+}
+.btn-list-botton > .btn-finalizar  {
+  background: var(--main-bg-color);
   margin-right: 10px;
   color: white;
   width: 95px;
   text-align: center;
+  margin-left: 6px;
 }
-.btn-list-botton .btn-finalizar {
 
+.btn-finalizar:hover {
+  background:#fdac50;
+  transition: all 3s ease;
   color: white;
+  border:none;  
 }
 
 .selectpicker {
@@ -228,6 +218,10 @@ body {
   right: 0;
 
 } 
+.control-label{
+font-size: 16px;
+}
+
 .hidden-footer {
   visibility: hidden;
   opacity: 0;
@@ -245,38 +239,28 @@ body {
   height: 100%;
 }
 .main-navbar-layout{
-
   position: fixed;
   width: 100%;
   z-index: 10000;
 }
-
 .main-body{
-
   padding-top: 117px;
 }
 .main-product-full{
-  
   padding-left: 200px;
   transition-duration: 0.2s;
-
 }
 .main-product-partial{
-  
   padding-left: 80px;
   transition-duration: 0.2s;
 
 }
-
 .ant-menu-dark {
    z-index: 100000;
-
 }
-
 .divider-main-products{
   visibility: hidden;
 }
-
 .products-container{
 
   border: #80808096 dashed 0.1px;

@@ -9,11 +9,11 @@ productRespose()
 .then(productList => {
     console.log(productList, "product")
     res.send(productList)
-    // Products.findAll()
-    // .then(products => {
-    //     res.send(products)
-    // })
-    // .catch(err => res.json(err));
 })
+//     Products.findAll()
+//     .then(products => {
+//         res.send(products)
+//     })
+//     .catch(err => res.json(err));
 })
 module.exports = router;

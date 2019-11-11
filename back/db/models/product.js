@@ -48,8 +48,13 @@ const Product = db.define("product", {
   event_code: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  userQuantity:{
+    type:Sequelize.INTEGER,
+    defaultValue: 0
   }
 });
+
 const ProductGift = db.define("productGift", {
   code: {
     type: Sequelize.STRING,

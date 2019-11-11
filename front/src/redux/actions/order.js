@@ -28,13 +28,20 @@ export const receiveOrders = function(orderList) {
 };
 
 export const removeOrder = function() {
-  let order = []
+  let product = []
   return {
     type: REMOVE_ORDER,
-    order
+    product
   };
 };
 
+export const createOrder= (order, user) => dispatch => {
+
+  return axios
+    .post("/api/orders/create", { order, user })
+    .then(res => res.data)
+    .then(updatedPruduct => dispatch(addProductFromOrder(updatedPruduct)));
+};
 // export const addProductToOrder = (product, user) => dispatch => {
 //   console.log("ACTION", product, user);
 //   return axios
@@ -55,3 +62,13 @@ export const fetchOrdersById = userId => dispatch => {
     .then(res => res.data)
     .then(orderList => dispatch(receiveOrders(orderList)));
 };
+
+// export const resetProductFromOrder = () => dispatch => {
+//   return axios.get("/api/products")
+//    .then(res =>res.data) 
+
+//    .then(product => {
+//      console.log("action", product)
+//      dispatch(removeOrder(product))
+//    });
+// };

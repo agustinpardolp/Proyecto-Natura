@@ -10,8 +10,7 @@ class LoginContainer extends Component {
     this.state = {
       userIdent: "",
       pass: "",
-      modalShow: false,
- 
+      modalShow: false
     };
 
     this.onHandlerClick = this.onHandlerClick.bind(this);
@@ -21,15 +20,14 @@ class LoginContainer extends Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleOk = this.handleOk.bind(this);
   }
-  componentDidMount() {
- 
-  }
+  componentDidMount() {}
 
   onTabChange(key, type) {
     this.setState({ [type]: key });
   }
 
   onPassChange(e) {
+
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -48,14 +46,12 @@ class LoginContainer extends Component {
         this.props.history.push("/");
       })
       .catch(() => {
-      
         this.setState({
           modalShow: true
         });
       });
   }
   handleOk(e) {
-    
     this.setState({
       modalShow: false
     });
@@ -86,14 +82,13 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  
-    user: state.user.user
-  
-  });
+  user: state.user.user
+});
 
 const mapDispatchToProps = dispatch => ({
   loginUser: user => dispatch(loginUser(user)),
-  fetchConsultantBySuperviser: userCode => dispatch(fetchConsultantBySuperviser(userCode))
+  fetchConsultantBySuperviser: userCode =>
+    dispatch(fetchConsultantBySuperviser(userCode))
 });
 
 export default connect(
