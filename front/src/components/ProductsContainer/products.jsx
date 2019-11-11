@@ -19,11 +19,15 @@ export default function products({
   products,
   onHandleIncrement,
   onHandlerDecrement,
+  onHandleSelectedConsultant,
   consultantList,
-  totalOrderValue
+  totalOrderValue,
+  consultantAdress,
+  user
 }) {
-
+  console.log(consultantAdress)
   return (
+  
     <Layout className = "main-body-products">
       <nav aria-label="breadcrumb main-header-advice">
         <ol class="breadcrumb d-none d-sm-block" id= "main-header-advice">
@@ -40,36 +44,52 @@ export default function products({
               </div>
               <div class="col-xs-12 col-sm-10 col-md-4 col-lg-3 offset-lg-2">
               <div className="container-label-direccion">
-                <label className="d-none d-sm-block"> Consultor </label>{" "}
-                <select class="selectpicker" data-style="btn-info">
-                  <option >Seleccione un consultor </option>
-                  {consultantList &&
+                  {user && user.identification?null:// si es consultor no muestro selector "consultores"
+                  <>
+                <label className="d-none d-sm-block"> Consultor </label>
+                <select onChange = {onHandleSelectedConsultant} class="selectpicker" data-style="btn-info" >
+                  <option  >Seleccione un consultor </option>
+                  {consultantList && 
                     consultantList.map(consultant => {
                       return (
-                        <option key={consultant.id}>{consultant.name}</option>
-                      );
-                    })}
-                </select>
+                        <option value = {JSON.stringify(consultant)} key={consultant.id} >{consultant.name}</option>
+                        );
+                      })}
+                      </select>
+                    </>
+                    }
               </div>
               </div>
               <div class="col-xs-12 col-sm-10 col-md-5 col-lg-3 offset-lg-1 ">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Direccion: </label>{" "}
-                <select class="selectpicker">
+               
+                {user && user.identification? //si hay user consultor, muestro su direccion
+                 <select class="selectpicker" >
+                 <option>Seleccione una direccion</option>
+                       <option>
+                         {user.location}
+                       </option>
+                     );
+               </select>
+                :
+                <select class="selectpicker" >
                   <option>Seleccione una direccion</option>
-                  {consultantList &&
-                    consultantList.map(consultant => {
+                  {consultantAdress &&  //si hay user supervisor muestro direccion de consultores
+                    consultantAdress.map(adress => {
                       return (
-                        <option key={consultant.id}>
-                          {consultant.location}
+                        <option key={adress}>
+                          {adress}
                         </option>
                       );
                     })}
                 </select>
+                }
               </div>
             </div>
           </div>
         </div>
+        
         <div class="card-body">
           <div class="row card-list">
             {products.length &&

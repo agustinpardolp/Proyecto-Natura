@@ -6,15 +6,15 @@ const Consultant = require("../../db/models").Consultant;
 const Superviser = require("../../db/models").Superviser;
 const user = require ("../auxFunctions/auxFunctions").user
 
-// router.post("/login", passport.authenticate("local"), function(req, res) {
-//   res.send(req.user);
-// });
-router.post("/login", function(req, res) {
-
-  if(req.body.pass == user.code)
-  
-  res.send(user);
+router.post("/login", passport.authenticate("local"), function(req, res) {
+  res.send(req.user);
 });
+// router.post("/login", function(req, res) {
+
+//   if(req.body.pass == user.code)
+  
+//   res.send(user);
+// });
 
 router.post("/logout", function(req, res) {
   req.logout();
@@ -26,7 +26,7 @@ router.get("/logged", function(req, res) {
 });
 
 router.get("/superviser/consultant/:id", function(req, res) {
-
+  
   Superviser.findByPk(req.params.id)
   .then(superviser=>{
 

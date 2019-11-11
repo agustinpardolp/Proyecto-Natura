@@ -7,7 +7,7 @@ class NavBarContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSidebar: false,
+      showSidebar: false
     };
 
     this.onHandlerLogout = this.onHandlerLogout.bind(this);
@@ -20,9 +20,8 @@ class NavBarContainer extends Component {
   render() {
     return (
       <div>
-    
         <NavBar
-          totalOrderValue = {this.props.totalOrderValue}
+          totalOrderValue={this.props.totalOrderValue}
           user={this.props.user}
           productPath={this.props.productPath}
           onHandlerLogout={this.onHandlerLogout}
@@ -36,7 +35,7 @@ const mapStateToProps = (state, ownProps) => {
     user: state.user.user,
     order: state.orders.order,
     totalOrderValue: state.orders.totalOrderValue,
-    productPath: ownProps.location.pathname == "/pedidos",
+    productPath: ownProps.location.pathname == "/pedidos"
   };
 };
 

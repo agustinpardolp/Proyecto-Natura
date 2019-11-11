@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { Layout } from "antd";
 const { Footer, Content } = Layout;
 
-export default function footer({scrollChange, onHandlerClear}) {
+export default function footer({scrollChange, onHandlerClear, onConfirmOrder}) {
   return (
         <div className={`footer ${scrollChange}`}>
             <Footer className ="footer">
@@ -12,7 +12,7 @@ export default function footer({scrollChange, onHandlerClear}) {
            
             <button className="btn" onClick = {onHandlerClear}> Limpiar</button>
 
-          <button className="btn"> <Link to="/orden" className="btn-finalizar">Finalizar</Link> </button>
+          <button className="btn" onClick = {onConfirmOrder}>Finalizar </button>
   
         </div> 
           {/* <div className="row btn-list-botton">

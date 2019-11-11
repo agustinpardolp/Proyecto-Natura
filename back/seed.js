@@ -19,7 +19,7 @@ Consultant.create({
   code: "222",
   sector: "admin",
   name: "Ramona",
-  identification: "111",
+  identification: "123",
   location: "Herrera 2310",
   cod_superviser: "002",
   mail: "ramona@gmail.com",
@@ -31,7 +31,7 @@ Consultant.create({
   code: "333",
   sector: "admin",
   name: "Norma",
-  identification: "111",
+  identification: "124",
   location: "Alem 1100",
   cod_superviser: "001",
   mail: "mirta.natura@gmail.com",
@@ -43,7 +43,7 @@ Consultant.create({
   code: "444",
   sector: "admin",
   name: "Sandra",
-  identification: "111",
+  identification: "125",
   location: "Ortigoza 500",
   cod_superviser: "001",
   mail: "mirta.natura@gmail.com",
@@ -54,7 +54,7 @@ Consultant.create({
   code: "555",
   sector: "admin",
   name: "Pedro",
-  identification: "111",
+  identification: "126",
   location: "Braña y Andujar 327 PB",
   cod_superviser: "001",
   mail: "mirta.natura@gmail.com",
@@ -62,10 +62,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "666",
   sector: "admin",
   name: "Pedro",
-  identification: "111",
+  identification: "127",
   location: "Braña y Andujar 327 PB",
   cod_superviser: "001",
   mail: "mirta.natura@gmail.com",
@@ -73,10 +73,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "777",
   sector: "admin",
   name: "Monica",
-  identification: "111",
+  identification: "128",
   location: "calle 472 n 333",
   cod_superviser: "003",
   mail: "moni@gmail.com",
@@ -84,10 +84,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "888",
   sector: "admin",
   name: "Rita",
-  identification: "111",
+  identification: "129",
   location: "calle 56 327 PB",
   cod_superviser: "003",
   mail: "rita09@gmail.com",
@@ -95,10 +95,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "999",
   sector: "admin",
   name: "Susana",
-  identification: "111",
+  identification: "130",
   location: " Alcorta 3900 PB",
   cod_superviser: "003",
   mail: "susi@gmail.com",
@@ -106,10 +106,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "1000",
   sector: "admin",
   name: "Armando",
-  identification: "111",
+  identification: "131",
   location: "Braña y Andujar 327 PB",
   cod_superviser: "003",
   mail: "arman@gmail.com",
@@ -117,10 +117,10 @@ Consultant.create({
   isSuperviser: false
 });
 Consultant.create({
-  code: "555",
+  code: "1001",
   sector: "admin",
   name: "Miguel",
-  identification: "111",
+  identification: "132",
   location: "Roma PB 2",
   cod_superviser: "003",
   mail: "miguel@gmail.com",
@@ -160,7 +160,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"MADRE",
-  image: "cremaManos.jpg"
+  image: "cremaManos.jpg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 90558ar",
@@ -174,7 +175,8 @@ Product.create({
   add_dif_cases:1,
   profit:300,
   event_code:"MADRE",
-  image: "perfume.jpg"
+  image: "perfume.jpg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 892322ar",
@@ -188,7 +190,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"PADRE",
-  image: "jabones.jpeg"
+  image: "jabones.jpeg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 33343ar",
@@ -202,7 +205,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"PADRE",
-  image: "capsulas.jpg"
+  image: "capsulas.jpg",
+  userQuantity:0
 });
 
 Product.create({
@@ -217,7 +221,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"MADRE",
-  image: "balsamo.jpeg"
+  image: "balsamo.jpeg",
+  userQuantity:0
 });
 Product.create({
   code: "87264ar",
@@ -231,8 +236,10 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"PADRE",
-  image: "oleo.jpg"
-});
+  image: "oleo.jpg",
+  userQuantity:0
+}),
+
 Product.create({
   code: "Cod: 89243ar",
   name: "Crema de Manos",
@@ -245,7 +252,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"MADRE",
-  image: "cremaManos.jpg"
+  image: "cremaManos.jpg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 90558ar",
@@ -259,7 +267,8 @@ Product.create({
   add_dif_cases:1,
   profit:300,
   event_code:"MADRE",
-  image: "perfume.jpg"
+  image: "perfume.jpg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 892322ar",
@@ -273,7 +282,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"PADRE",
-  image: "toallitas.jpg"
+  image: "toallitas.jp",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 33343ar",
@@ -287,7 +297,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"PADRE",
-  image: "capsulas.jpg"
+  image: "capsulas.jpg",
+  userQuantity:0
 });
 
 Product.create({
@@ -302,7 +313,8 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"MADRE",
-  image: "ciruela.jpg"
+  image: "ciruela.jpg",
+  userQuantity:0
 });
 Product.create({
   code: "Cod: 25971ar",
@@ -316,5 +328,6 @@ Product.create({
   add_dif_cases:1,
   profit:200,
   event_code:"MADRE",
-  image: "frescor.jpg"
+  image: "frescor.jpg",
+  userQuantity:0
 });
