@@ -5,54 +5,50 @@ import {
   DECREMENT_PRODUCT_FROM_ORDER,
   RECEIVE_PRODUCT_PATH_CHANGE
 } from "../../constants";
-import orderCounter from "../../auxFunctions"
+import orderCounter from "../../auxFunctions";
 
 const initialState = {
-  orderList: [],  //ORDENES DEL BACK YA INGRESADAS  
-  order: [],      //ORDENES CREADAS 1ERO EN EL FRONT
-  totalOrderValue: "" //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC 
+  orderList: [], //ORDENES DEL BACK YA INGRESADAS
+  order: [], //ORDENES CREADAS 1ERO EN EL FRONT
+  totalOrderValue: "" //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
 };
 
 export default (state = initialState, action) => {
-
   switch (action.type) {
-
     //ORDENES DEL BACK
     case RECEIVE_ORDERS:
       return { ...state, orderList: action.orderList };
 
     //AGREGO PRODUCTOS A ORDER
     case ADD_PRODUCT_TO_ORDER: //1) agrego un producto, primer caso si NO hay nada en la orden
-    
-    let order = orderCounter(action) //2) llamo funcion para incremento/decremento de orden
+      let order = orderCounter(action); //2) llamo funcion para incremento/decremento de orden
       return {
-            ...state,
-                order: order.newOrderList, // esta es la orden filtrada con los productos y cantidades elegidos por usuario
-                totalOrderValue: order.totalOrderValue //devuelvo totales que se muestran en navbar
-          };
-      
+        ...state,
+        order: order.newOrderList, // esta es la orden filtrada con los productos y cantidades elegidos por usuario
+        totalOrderValue: order.totalOrderValue //devuelvo totales que se muestran en navbar
+      };
+
     //BORRO PRODUCTOS DE ORDER
     case DECREMENT_PRODUCT_FROM_ORDER:
-        order = orderCounter(action) //2) llamo funcion para incremento/decremento de orden
+      order = orderCounter(action); //2) llamo funcion para incremento/decremento de orden
 
-       return {
+      return {
         ...state,
-            order: order.newOrderList, 
-            totalOrderValue: order.totalOrderValue 
-           };
-    
+        order: order.newOrderList,
+        totalOrderValue: order.totalOrderValue
+      };
+
     case REMOVE_ORDER:
-          return {
-            ...state,
-            order: action.order,
-            totalOrderValue: 0
-          };
+      return {
+        ...state,
+        order: action.order,
+        totalOrderValue: 0
+      };
 
     case RECEIVE_PRODUCT_PATH_CHANGE:
-
-      return{
-        ...state,
-      }
+      return {
+        ...state
+      };
 
     default:
       return state;
@@ -137,7 +133,7 @@ export default (state = initialState, action) => {
 //                 price: acum.price + order.price,
 //                 total: acum.total + order.total
 //               };
-//             }): 0;  
+//             }): 0;
 //             return {
 //               ...state,
 //               order: newProductOrder,
@@ -189,7 +185,7 @@ export default (state = initialState, action) => {
 //             newOrderList = newOrderList.filter((product)=>{  //filtro y devuelvo con todos los que sean distintos a newOrder[i]
 //               return product !== newOrderList[i]
 //             })
-            
+
 //           };
 //         }
 //       }

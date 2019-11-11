@@ -35,6 +35,13 @@ export const removeOrder = function() {
   };
 };
 
+export const createOrder= (order, user) => dispatch => {
+  console.log("ACTION", product, user);
+  return axios
+    .post("/api/orders/create", { order, user })
+    .then(res => res.data)
+    .then(updatedPruduct => dispatch(addProductFromOrder(updatedPruduct)));
+};
 // export const addProductToOrder = (product, user) => dispatch => {
 //   console.log("ACTION", product, user);
 //   return axios

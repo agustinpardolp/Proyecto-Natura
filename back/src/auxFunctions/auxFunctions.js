@@ -38,9 +38,7 @@ module.exports = {
   
         })     
     },
-    
-    
-    
+
     user: {
       id: 1,
       code: "111",
