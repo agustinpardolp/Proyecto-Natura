@@ -50,7 +50,6 @@ class ProductContainer extends Component {
   onHandlerDecrement(product) {
     
     var productList = this.props.products
--
     for (let i = 0; i < productList.length; i++) { //itero sobre el array de productos
      if (productList[i].id == product.id) { //si el producto esta en la lista, y la cantidad es mayor a cero
         if (productList[i].userQuantity > 0) {
