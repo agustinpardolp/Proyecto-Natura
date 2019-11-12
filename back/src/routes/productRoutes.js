@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Products = require("../../db/models").Product
-const productRespose = require ("../auxFunctions/auxFunctions").productRespose
+const productRespose = require ("../auxFunctions/auxFunctions").productResponse
 
 router.get("/", function(req, res){
   

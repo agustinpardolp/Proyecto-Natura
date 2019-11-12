@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Products from "../ProductsContainer/products";
-import { fetchProducts, changePathProduct } from "../../redux/actions/products";
+import { fetchProducts } from "../../redux/actions/products";
 import {
   addProductToOrder,
   decrementProductFromOrder,
@@ -16,7 +16,7 @@ class ProductContainer extends Component {
       productList: "",
       originalProductList: "",
       consultantAdress: "",
-   
+
     };
     this.onHandleIncrement = this.onHandleIncrement.bind(this);
     this.onHandlerDecrement = this.onHandlerDecrement.bind(this);
@@ -98,7 +98,6 @@ class ProductContainer extends Component {
           this.props.collapseView ? "main-product-full" : "main-product-partial"
         }
       >
-       
         <Products
           consultantList={this.props.consultantList}
           user={this.props.user}

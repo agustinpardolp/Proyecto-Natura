@@ -12,7 +12,6 @@ export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreen
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
-      onresize = {onScreenChange}
       className = "sidebarContainer"
     >
       <div className="logo" />

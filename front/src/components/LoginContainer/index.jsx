@@ -46,6 +46,7 @@ class LoginContainer extends Component {
         this.props.history.push("/");
       })
       .catch(() => {
+        console.log(error)
         this.setState({
           modalShow: true
         });

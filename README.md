@@ -1,4 +1,5 @@
 Ejecutar instalacion de paquetes de Node
+
 Ejecutar el comando npm install tanto en el directorio del back, (/back), como del Front (/front)
 
 Crear Base de Datos
@@ -17,3 +18,7 @@ Ejecutar el comando node seed.js en el directorio del back, (/back) para realiza
 IMP: Pueden encontrarse comentadas algunas rutas, entre ellas las de autenticacion para el login,
 en ese caso se ingresara con cualquier user y
 el pass 111. ESTO SE DEJO ASI SOLO A MODO DE PRUEBA.
+
+Fremeworks de CSS: Boostrap / Ant Design
+Libreria JS: React-Redux
+Framework backend: Node JS

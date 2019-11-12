@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Footer from "../FooterContainer/footer";
+import ModalConfirmOrder from "../ModalsContainer/ModalConfirmOrder"
 import { removeOrder, createOrder } from "../../redux/actions/order";
 import { resetOrderProducts } from "../../redux/actions/products";
 
@@ -8,12 +9,15 @@ class FooterContainer extends Component {
   constructor() {
     super();
     this.state = {
-      scrollChange: "hidden-footer"
+      scrollChange: "hidden-footer",
+      showModal: false
     };
 
     this.onScroll = this.onScroll.bind(this);
     this.onHandlerClear = this.onHandlerClear.bind(this);
-    this.onConfirmOrder = this.onConfirmOrder.bind(this)
+    this.onConfirmOrder = this.onConfirmOrder.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleOk = this.handleOk.bind(this);
   }
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
@@ -28,8 +32,11 @@ class FooterContainer extends Component {
   }
 
   onConfirmOrder(){
-    console.log("order", this.props.order, "user", this.props.user, "total", this.props.totalOrderValue)
-    this.props.createOrder(this.props.order, this.props.user, this.props.totalOrderValue)
+    this.setState({
+      showModal:true
+    })
+    // console.log("order", this.props.order, "user", this.props.user, "total", this.props.totalOrderValue)
+    // this.props.createOrder(this.props.order, this.props.user, this.props.totalOrderValue)
   }
 
   onScroll() {
@@ -46,14 +53,30 @@ class FooterContainer extends Component {
       });
     }
   }
+  handleOk(e) {
+    console.log("entreeeeeeee")
+    this.setState({
+      showModal: false
+    });
+  }
+
+  handleCancel(e) {
+    console.log(e);
+    this.setState({
+      showModal: false
+    });
+  }
   render() {
     return (
+      <>
       <Footer
       onHandlerClear= {this.onHandlerClear}
       onConfirmOrder= {this.onConfirmOrder}
       scrollChange={this.state.scrollChange}
       totalOrderValue={this.props.totalOrderValue}
       />
+       <ModalConfirmOrder showModal = {this.state.showModal} handleCancel ={this.handleOk} handleOk = {this.handleOk}/>
+      </>
     );
   }
 }

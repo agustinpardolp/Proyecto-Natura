@@ -41,7 +41,7 @@ class Main extends Component {
       <div className="mainRouter">
         <Route component={NavBarContainer} />
         
-      {this.props.user.id?
+      {this.props.user && this.props.user.id?
          <>
         <Layout className= "main-body" style={{ minHeight: '100vh' }}>
         <SideBarContainer />

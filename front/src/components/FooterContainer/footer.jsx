@@ -10,13 +10,13 @@ export default function footer({scrollChange, onHandlerClear, onConfirmOrder, to
             <Footer className ="footer">
               <div className = "container">
                   <div className = "row">
-                    <div class="col-lg-4 col-md-34 col-sm-3 col-xs-4 d-none d-sm-block">
+                    <div className="col-lg-4 col-md-34 col-sm-3 col-xs-4 d-none d-sm-block">
                       <label className="control-label">Unidades: {totalOrderValue.totalQuantity}</label>	
 					          </div>
-					          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 d-none d-sm-block">
+					          <div className="col-lg-3 col-md-3 col-sm-3 col-xs-4 d-none d-sm-block">
 						          <label className="control-label">Estuches: {totalOrderValue.totalCases}</label>
 					          </div>
-					          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 d-none d-sm-block">
+					          <div className="col-lg-3 col-md-3 col-sm-3 col-xs-4 d-none d-sm-block">
                       <label className="control-label">Puntos: {totalOrderValue.totalPoints}</label>
 				          	</div>
                     {/* <div className = "col-lg-6 col-md-4 offset-3">

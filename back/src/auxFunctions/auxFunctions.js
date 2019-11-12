@@ -16,7 +16,7 @@ module.exports = {
       }
     };
   },
-  productRespose: function(){
+  productResponse: function(){
     return new Promise (resolve =>{
       
       var productlist =  [
@@ -35,7 +35,7 @@ module.exports = {
   
         })     
     },
-    consultantsRespose: function(){
+    consultantsResponse: function(){
       return new Promise (resolve =>{
         
         var consultantList =  [
@@ -49,18 +49,25 @@ module.exports = {
     
           })     
       },
-
-    user: {
-      id: 1,
-      code: "111",
-      sector: "admin",
-      name: "Mirta",
-      identification: "31596585",
-      location: "San Martin 7100",
-      cod_superviser: "002",
-      mail: "mirta@gmail.com",
-      profit: 1000,
-      isSuperviser: false
-    }
+      userResponse: function(){
+        return new Promise (resolve =>{
+          let user = {
+            id: 1,
+            code: "111",
+            sector: "admin",
+            name: "Mirta",
+            identification: "31596585",
+            location: "San Martin 7100",
+            cod_superviser: "002",
+            mail: "mirta@gmail.com",
+            profit: 1000,
+            isSuperviser: false
+          }
+         
+            resolve (user)
+      
+            })     
+        },
+    
     
 };

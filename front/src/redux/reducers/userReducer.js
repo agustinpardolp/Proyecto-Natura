@@ -14,11 +14,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOGGED_USER:
-   
-      return Object.assign({}, state, {
-        user: action.loggedUser,
-        avatar: action.loggedUser.avatar
-      });
+  
+      return {...state, user: action.loggedUser }
+      // return Object.assign({}, state, {
+      //   user: action.loggedUser,
+      //   avatar: action.loggedUser.avatar
+      // });
 
     case USER_LOGOUT:
       return { ...state, user: {} };

@@ -11,7 +11,7 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
       <Layout className = "main-navbar-layout">
         <Header className="header" style={{ boxShadow: "0px 3px 6px rgba(0,0,0,0.16)" }}>
           <div className="logo" />
-          {user.id && user.id ? (
+          {user && user.id ? (
             <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
               {/* defaultSelectedKeys={[]} */}
               <SubMenu
@@ -24,19 +24,19 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
                 }
               >
                 <Menu.Item key="1" style={{ zIndex: "10000000" }}>
-                  <Link onClick={onHandlerLogout}>Logout </Link>
+                  <span onClick={onHandlerLogout}>Logout </span>
                 </Menu.Item>
               </SubMenu>
             </Menu>
           ) : null}
-        {user.id && user.id ?
+        {user && user.id ?
         
           <div className="navbar-container-user">
-            <div class="page-logo d-none d-sm-block">
+            <div className="page-logo d-none d-sm-block">
               <img
                 runat="server"
                 id="imgLogo"
-                class="logo-default"
+                className="logo-default"
                 alt="Logo"
                 src="/assets/img/natura_logo_40px.png"
               />
@@ -50,11 +50,11 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
             }
           </div>:
              <div className="navbar-container">
-             <div class="page-logo">
+             <div className="page-logo">
                <img
                  runat="server"
                  id="imgLogo"
-                 class="logo-default"
+                 className="logo-default"
                  alt="Logo"
                  src="/assets/img/natura_logo_40px.png"
                />
@@ -62,14 +62,14 @@ export default function Navbar({ user, onHandlerLogout, productPath, totalOrderV
           </div>
             }
         </Header>
-        {user.id && user.id ? (
+        {user && user.id ? (
           <div className ="d-none d-sm-block">
           <Content style={{ padding: "0 50px" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
-              <Link to={"/"}>
-                <Breadcrumb.Item>Inicio</Breadcrumb.Item>
-              </Link>
-              <Link to = {"/pedidos"}><Breadcrumb.Item>Pedido</Breadcrumb.Item></Link>
+              
+                <Breadcrumb.Item><Link to={"/"}>Inicio </Link></Breadcrumb.Item>
+             
+              <Breadcrumb.Item><Link to = {"/pedidos"}>Pedido </Link></Breadcrumb.Item>
               <Breadcrumb.Item>Showroom</Breadcrumb.Item>
             </Breadcrumb>
           </Content>

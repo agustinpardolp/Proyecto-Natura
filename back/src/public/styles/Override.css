@@ -1,11 +1,17 @@
 ﻿/* OVERRIDES
 ----------------------------------------------------------*/
+:root {
+	--main-bg-color: #f7931e;
+	--main-bg-tittles: #6d6d6d;
+	--main-bg-secondary-buttons: #E0E0E0;
+  }
+
 html, body{ 
 	height:100% !important;
 	margin:0;
 
   }
-  
+
 .page-header.navbar {
 	height: auto;
 }
@@ -164,7 +170,6 @@ html, body{
 		justify-content: center
 	  }
 	
-	
 .page-content-wrapper .page-content.no-sidebar
 {
     margin-left: 0px;
@@ -198,7 +203,10 @@ html, body{
 	padding-top: 64px;
 }
 
-
+.ant-btn-danger{
+background: var(--main-bg-color);
+border: none
+}
 
 
 

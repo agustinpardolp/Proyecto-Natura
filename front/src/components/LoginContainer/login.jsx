@@ -36,7 +36,7 @@ function login({
                       }
                       placeholder="codigo de consultora"
                       name="userIdent"
-                      class="form-control"
+                      // class="form-control"
                       onChange={onCodeChange}
                     />
                   </Form.Item>
@@ -51,9 +51,9 @@ function login({
                       type="password"
                       placeholder="dni"
                       name="pass"
-                      class="form-control"
+                      // class="form-control"
                       onChange={onPassChange}
-                      labelCol={{ span: 5 }}
+                      labelcol={{ span: 5 }}
                     />
                   </Form.Item>
                   <Form.Item>
