@@ -19,6 +19,6 @@ IMP: Pueden encontrarse comentadas algunas rutas, entre ellas las de autenticaci
 en ese caso se ingresara con cualquier user y
 el pass 111. ESTO SE DEJO ASI SOLO A MODO DE PRUEBA.
 
-Fremeworks de CSS: Boostrap / Ant Design
+Frameworks de CSS: Bootstrap / Ant Design
 Libreria JS: React-Redux
-Framework backend: Node JS
+Framework backend: Node JS / ORM Sequelize
