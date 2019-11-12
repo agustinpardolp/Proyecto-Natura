@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const path = require('path');
-// const db = require('./db/index');
+const db = require('./db/index');
 const indexRouter = require('./src/routes/index')
 const passport = require("./config/passport");
 
@@ -31,8 +31,8 @@ app.get('/*', function (req, res) {
 })
 
 
-// db.sync({ force: false })
-    // .then(() => {
+db.sync({ force: false })
+    .then(() => {
         app.listen(8000)
         console.log('Your server available at http://localhost:8000')
-    // })
+    })

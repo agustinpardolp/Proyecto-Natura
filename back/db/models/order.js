@@ -14,10 +14,6 @@ const Order = db.define("order", {
   extra: {
     type: Sequelize.INTEGER,
   },
-  status: {
-    type: Sequelize.STRING,
-    defaultValue: "creada"
-  }
 
 });
 

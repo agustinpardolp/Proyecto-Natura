@@ -1,8 +1,7 @@
 function orderCounter(action) {
   var newOrderList = action.product;
   newOrderList = newOrderList.length
-  ? newOrderList.filter(product => {
-    //filtro y devuelvo con todos los que tengan qty mayor a cero
+  ? newOrderList.filter(product => {  //filtro y devuelvo todos los que tengan qty mayor a cero
     return product.userQuantity > 0;
   }): []
 
@@ -10,10 +9,10 @@ function orderCounter(action) {
     ? newOrderList
         .map(acum => {
           let profit = acum.profit * acum.userQuantity; //MAPEO LOS PRODUCTOS FILTRADOS QUE TIENE QTY MAYOR A 0
-          let price = acum.price * acum.userQuantity; //ACUMULO VALORES TOTALES POR PRODUCTO
+          let price = acum.price * acum.userQuantity; //ACUMULO VALORES TOTALES POR PRODUCTO (por cada objeto)
           let total = profit + price;
-          let totalPoints = acum.points;
-          let totalCases = acum.cases;
+          let totalPoints = acum.points * acum.userQuantity;
+          let totalCases = acum.cases
           let totalQuantity = acum.userQuantity
           //sumo totales
           return {
@@ -33,7 +32,7 @@ function orderCounter(action) {
             total: acum.total + order.total,
             totalPoints: acum.totalPoints + order.totalPoints,
             totalCases: acum.totalCases + order.totalCases,
-            totalQuantity: acum.totalQuantity + acum.totalQuantity
+            totalQuantity: acum.totalQuantity + order.totalQuantity
           };
         })
     : 0;

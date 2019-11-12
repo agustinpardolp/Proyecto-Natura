@@ -10,8 +10,7 @@ import orderCounter from "../../auxFunctions";
 const initialState = {
   orderList: [], //ORDENES DEL BACK YA INGRESADAS
   order: [], //ORDENES CREADAS 1ERO EN EL FRONT
-  totalOrderValue: "", //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
-  
+  totalOrderValue: "" //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
 };
 
 export default (state = initialState, action) => {
@@ -23,33 +22,30 @@ export default (state = initialState, action) => {
     //AGREGO PRODUCTOS A ORDER
     case ADD_PRODUCT_TO_ORDER: //1) agrego un producto, primer caso si NO hay nada en la orden
       let order = orderCounter(action); //2) llamo funcion para incremento/decremento de orden
-     
+    
       return {
         ...state,
         order: order.order, // esta es la orden filtrada con los productos y cantidades elegidos por usuario
         totalOrderValue: order.totalOrderValue, //devuelvo totales que se muestran en navbar
-        orderExist:true
+  
       };
 
     //BORRO PRODUCTOS DE ORDER
     case DECREMENT_PRODUCT_FROM_ORDER:
-        
       order = orderCounter(action); //2) llamo funcion para incremento/decremento de orden
-      
+
       return {
         ...state,
         order: order.order,
         totalOrderValue: order.totalOrderValue
       };
-
+    //REMUEVO LA ORDERN COMPLETA
     case REMOVE_ORDER:
- 
       order = orderCounter(action);
       return {
         ...state,
         order: order.order,
-        totalOrderValue:  order.totalOrderValue,
-       
+        totalOrderValue: order.totalOrderValue
       };
 
     case RECEIVE_PRODUCT_PATH_CHANGE:
