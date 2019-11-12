@@ -8,7 +8,6 @@ import {
 
 const initialState = {
   productList: [],
-  originalProductList: "",
   product: {},
   productParameters: [],
   collapseView: true
@@ -16,14 +15,17 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    
     case RECEIVE_PRODUCTS:
-      let originalProductList = action.productList
-      return { ...state, productList: action.productList, originalProductList: originalProductList};
+      return { ...state, productList: action.productList };
 
     case RESET_ORDER_PRODUCTS:
-      
-      return { ...state, productList:action.products};
+      let productListRestarted = action.products.map(function(product) {
+        let userQuantity = 0;
+        product.userQuantity = userQuantity;
+        return product;
+      });
+
+      return { ...state, productList: productListRestarted };
 
     case RECEIVE_CURRENT_PRODUCT:
       return { ...state, product: action.product };
@@ -32,7 +34,7 @@ export default (state = initialState, action) => {
       return { ...state, productParameters: action.productParameters };
 
     case RECEIVE_VIEW_PRODUCT_CHANGE:
-    return { ...state, collapseView:action.collapse};
+      return { ...state, collapseView: action.collapse };
 
     default:
       return state;

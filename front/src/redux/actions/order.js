@@ -35,10 +35,10 @@ export const removeOrder = function() {
   };
 };
 
-export const createOrder= (order, user) => dispatch => {
+export const createOrder= (order, user, totals) => dispatch => {
 
   return axios
-    .post("/api/orders/create", { order, user })
+    .post("/api/orders/new", { order, user, totals })
     .then(res => res.data)
     .then(updatedPruduct => dispatch(addProductFromOrder(updatedPruduct)));
 };

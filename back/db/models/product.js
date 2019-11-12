@@ -25,6 +25,7 @@ const Product = db.define("product", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  
   list_order: {
     type: Sequelize.INTEGER,
     allowNull: false
@@ -33,9 +34,9 @@ const Product = db.define("product", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  add_cases: {
+  cases: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    defaultValue: 1
   },
   add_dif_cases: {
     type: Sequelize.INTEGER,
