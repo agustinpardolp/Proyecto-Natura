@@ -42,17 +42,6 @@ class ProductContainer extends Component {
     this.props.removeOrder();
   }
 
-  // componentDidUpdate (prevProps, prevState){
-  
-  //   if (prevProps.orderExist !== this.props.orderExist) {
-  //     console.log("PREVSTATE ENTRE", prevProps.orderExist, this.props.orderExist)
-  //     this.setState({
-  //       productList: this.state.originalProductList
-  //     })
-  //   }
-  //   console.log(this.state.productList, "cambie la product list")
-  // }
-
   onHandleIncrement(product) {
     //PÁSO PREVIO DE SETEO PRODUCTOS CON CANTIDADES!! PARA VISTA PRODUCTS (INPUT DEL MAS Y MENOS)
     var productList = this.props.products;
@@ -109,6 +98,7 @@ class ProductContainer extends Component {
           this.props.collapseView ? "main-product-full" : "main-product-partial"
         }
       >
+       
         <Products
           consultantList={this.props.consultantList}
           user={this.props.user}
