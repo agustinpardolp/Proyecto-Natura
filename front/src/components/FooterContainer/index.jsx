@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Footer from "../FooterContainer/footer";
 import ModalConfirmOrder from "../ModalsContainer/ModalConfirmOrder"
-import { removeOrder, createOrder } from "../../redux/actions/order";
+import { removeOrder, createOrder, updateOrderShipping } from "../../redux/actions/order";
 import { resetOrderProducts } from "../../redux/actions/products";
 
 class FooterContainer extends Component {
@@ -10,7 +10,8 @@ class FooterContainer extends Component {
     super();
     this.state = {
       scrollChange: "hidden-footer",
-      showModal: false
+      showModal: false,
+      orderId:""
     };
 
     this.onScroll = this.onScroll.bind(this);
@@ -32,11 +33,14 @@ class FooterContainer extends Component {
   }
 
   onConfirmOrder(){
-    this.setState({
-      showModal:true
-    })
-    // console.log("order", this.props.order, "user", this.props.user, "total", this.props.totalOrderValue)
-    // this.props.createOrder(this.props.order, this.props.user, this.props.totalOrderValue)
+     let userType = this.props.selectedConsultant? this.props.selectedConsultant: this.props.user
+     this.props.createOrder(this.props.order, userType, this.props.totalOrderValue)
+     .then(order =>{
+      this.setState({
+        showModal:true,
+        orderId:order.id
+      })
+     })
   }
 
   onScroll() {
@@ -66,6 +70,10 @@ class FooterContainer extends Component {
       showModal: false
     });
   }
+  onConfirmShipping(orderId){
+    this.props.updateOrderShipping(orderId)
+
+  }
   render() {
     return (
       <>
@@ -75,7 +83,7 @@ class FooterContainer extends Component {
       scrollChange={this.state.scrollChange}
       totalOrderValue={this.props.totalOrderValue}
       />
-       <ModalConfirmOrder showModal = {this.state.showModal} handleCancel ={this.handleOk} handleOk = {this.handleOk}/>
+       <ModalConfirmOrder showModal = {this.state.showModal} handleCancel ={this.handleOk} handleOk = {this.handleOk} orderId = {this.state.orderId}/>
       </>
     );
   }
@@ -85,14 +93,16 @@ const mapStateToProps = (state, ownProps) => {
     user: state.user.user,
     totalOrderValue: state.orders.totalOrderValue,
     products: state.product.productList,
-    order: state.orders.order
+    order: state.orders.order,
+    selectedConsultant: state.user.selectedConsultant
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   removeOrder: () => dispatch(removeOrder()),
   resetOrderProducts: products => dispatch(resetOrderProducts(products)),
-  createOrder: (order, user, totals) => dispatch(createOrder(order, user, totals))
+  createOrder: (order, user, totals) => dispatch(createOrder(order, user, totals)),
+  updateOrderShipping: (orderId) => dispatch(updateOrderShipping(orderId))
 });
 
 export default connect(

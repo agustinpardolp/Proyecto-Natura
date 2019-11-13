@@ -265,3 +265,15 @@ font-size: 16px;
 
   border: #80808096 dashed 0.1px;
 }
+.loading-products{
+  background: url("../img/natura-logo.jpg") no-repeat fixed center; 
+  position: absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100% ;
+  text-align: center;
+
+}

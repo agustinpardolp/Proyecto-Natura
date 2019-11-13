@@ -6,14 +6,14 @@ const productRespose = require ("../auxFunctions/auxFunctions").productResponse
 router.get("/", function(req, res){
   
 productRespose()
-.then(productList => {
-    console.log(productList, "product")
-    res.send(productList)
-})
-//     Products.findAll()
-//     .then(products => {
-//         res.send(products)
-//     })
-//     .catch(err => res.json(err));
+// .then(productList => {
+//     console.log(productList, "product")
+//     res.send(productList)
+// })
+    Products.findAll()
+    .then(products => {
+        res.send(products)
+    })
+    .catch(err => res.json(err));
 })
 module.exports = router;

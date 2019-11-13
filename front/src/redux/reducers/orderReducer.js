@@ -1,5 +1,5 @@
 import {
-  RECEIVE_ORDERS,
+  RECEIVE_ORDER,
   REMOVE_ORDER,
   ADD_PRODUCT_TO_ORDER,
   DECREMENT_PRODUCT_FROM_ORDER,
@@ -8,16 +8,17 @@ import {
 import orderCounter from "../../auxFunctions";
 
 const initialState = {
-  orderList: [], //ORDENES DEL BACK YA INGRESADAS
+  orderCreated: "", //ORDENES DEL BACK YA INGRESADAS
   order: [], //ORDENES CREADAS 1ERO EN EL FRONT
   totalOrderValue: "" //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
     //ORDENES DEL BACK
-    case RECEIVE_ORDERS:
-      return { ...state, orderList: action.orderList };
+    case RECEIVE_ORDER:
+      return { ...state, orderCreated: action.order };
 
     //AGREGO PRODUCTOS A ORDER
     case ADD_PRODUCT_TO_ORDER: //1) agrego un producto, primer caso si NO hay nada en la orden
@@ -39,6 +40,7 @@ export default (state = initialState, action) => {
         order: order.order,
         totalOrderValue: order.totalOrderValue
       };
+      
     //REMUEVO LA ORDERN COMPLETA
     case REMOVE_ORDER:
       order = orderCounter(action);

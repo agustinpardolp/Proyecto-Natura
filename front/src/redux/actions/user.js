@@ -3,7 +3,8 @@ import {
   RECEIVE_LOGGED_USER,
   USER_LOGOUT,
   SET_AVATAR,
-  RECEIVE_CONSULTANTS
+  RECEIVE_CONSULTANTS,
+  RECEIVE_SELECTED_CONSULTANT
 } from "../../constants";
 
 export const receiveLoggedUser = loggedUser => ({
@@ -30,7 +31,12 @@ export const receiveConsultants = consultantList => {
     consultantList
   };
 };
-
+export const selectedConsultant = consultant => {
+  return {
+    type: RECEIVE_SELECTED_CONSULTANT,
+    consultant
+  };
+}
 export const loginUser = user => dispatch => {
 
   return axios

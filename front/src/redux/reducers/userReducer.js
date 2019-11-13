@@ -1,13 +1,15 @@
 import {
   USER_LOGOUT,
   RECEIVE_LOGGED_USER,
-  RECEIVE_CONSULTANTS
+  RECEIVE_CONSULTANTS,
+  RECEIVE_SELECTED_CONSULTANT
 } from "../../constants";
 
 const initialState = {
   user: {},
   avatar: {},
-  consultantList: []
+  consultantList: [],
+  selectedConsultant: ""
   // userAdmin:{}
 };
 
@@ -27,7 +29,8 @@ export default (state = initialState, action) => {
     case RECEIVE_CONSULTANTS:
 
       return { ...state, consultantList: [...action.consultantList] };
-
+    case RECEIVE_SELECTED_CONSULTANT:
+      return { ...state, selectedConsultant: action.consultant }
     default:
       return state;
   }

@@ -5,7 +5,7 @@ const Superviser = require ("../back/db/models").Superviser;
 Consultant.create({
   
   code: "111",
-  sector: "admin",
+  sector: "333",
   name: "Mirta",
   identification: "31596585",
   location: "San Martin 7100",
@@ -17,7 +17,7 @@ Consultant.create({
 
 Consultant.create({
   code: "222",
-  sector: "admin",
+  sector: "333",
   name: "Ramona",
   identification: "123",
   location: "Herrera 2310",
@@ -29,7 +29,7 @@ Consultant.create({
 
 Consultant.create({
   code: "333",
-  sector: "admin",
+  sector: "333",
   name: "Norma",
   identification: "124",
   location: "Alem 1100",
@@ -41,7 +41,7 @@ Consultant.create({
 
 Consultant.create({
   code: "444",
-  sector: "admin",
+  sector: "333",
   name: "Sandra",
   identification: "125",
   location: "Ortigoza 500",
@@ -52,7 +52,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "555",
-  sector: "admin",
+  sector: "444",
   name: "Pedro",
   identification: "126",
   location: "Braña y Andujar 327 PB",
@@ -63,7 +63,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "666",
-  sector: "admin",
+  sector: "444",
   name: "Pedro",
   identification: "127",
   location: "Braña y Andujar 327 PB",
@@ -74,7 +74,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "777",
-  sector: "admin",
+  sector: "444",
   name: "Monica",
   identification: "128",
   location: "calle 472 n 333",
@@ -85,7 +85,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "888",
-  sector: "admin",
+  sector: "444",
   name: "Rita",
   identification: "129",
   location: "calle 56 327 PB",
@@ -96,7 +96,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "999",
-  sector: "admin",
+  sector: "444",
   name: "Susana",
   identification: "130",
   location: " Alcorta 3900 PB",
@@ -107,7 +107,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "1000",
-  sector: "admin",
+  sector: "444",
   name: "Armando",
   identification: "131",
   location: "Braña y Andujar 327 PB",
@@ -118,7 +118,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "1001",
-  sector: "admin",
+  sector: "444",
   name: "Miguel",
   identification: "132",
   location: "Roma PB 2",

@@ -5,8 +5,6 @@ import {
   Divider,
 } from "antd";
 
-const { Content, Header, Footer } = Layout;
-
 export default function products({
   products,
   onHandleIncrement,

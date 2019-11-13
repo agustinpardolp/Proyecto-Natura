@@ -6,30 +6,35 @@ const Consultant = require("../../db/models").Consultant;
 const Product = require("../../db/models").Product;
 
 router.post("/new", function(req, res) {
-  console.log(req.body)
   
-  Consultant.findByPk(req.body.user.id).then(user => {
-    Order.create({
-        total: req.body.totals.price
-
-    }).then(orderInstans => {
-      orderInstans.setConsultant(user)
-      let producArray = req.body.order
-      producArray.forEach(product => {
-            Product.findByPk(product.id).then(product => {
-              product.addOrder(orderInstans, {
-                through: {
-                  quantity: product.userQuantity,
-                  price: product.price
-                }
-              });
-            }); 
-          
+    Consultant.findByPk(req.body.user.id).then(user => {
+      Order.create({
+          total: req.body.totals.price
+  
+      }).then(orderInstans => {
+        orderInstans.setConsultant(user)
+        let producArray = req.body.order
+  
+        producArray.forEach(orderProduct => {
+              Product.findByPk(orderProduct.id).then(product => {
+                product.addOrder(orderInstans, {
+                  through: {
+                    quantity: orderProduct.userQuantity,
+                    price: orderProduct.price
+                  }
+                });
+              }); 
+          })
+          res.send(orderInstans)
         })
-    
-      }).then(orderInstans => console.log(orderInstans)) 
+    })
 
-  })
+    router.post ("/updateShippping", function(req, res){
+
+
+
+    })
+ 
     
     // .then(orderInstans => {
   //     // if (orderInstans == null) {

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Products from "../ProductsContainer/products";
+import TemplateProductLoading from "../ModalsContainer/templateProductLoading";
+import { selectedConsultant } from "../../redux/actions/user";
 import { fetchProducts } from "../../redux/actions/products";
 import {
   addProductToOrder,
@@ -10,6 +12,7 @@ import {
 import { fetchConsultantBySuperviser } from "../../redux/actions/user";
 
 class ProductContainer extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +29,13 @@ class ProductContainer extends Component {
   componentDidMount() {
     this.props.fetchConsultantBySuperviser(this.props.user.id);
     this.props.fetchProducts().then(products => {
+      if (!products.length) {
+        this.setState(
+          {
+            productList: products,
+            originalProductList: products
+          })
+      }
       this.setState(
         {
           productList: products,
@@ -41,19 +51,19 @@ class ProductContainer extends Component {
     });
     this.props.removeOrder();
   }
-
+//MANEJO LOCAL DE INCREMENTOS / DECREMENTOS DE ARTICULOS SELECCIONADOS CON USUARIO
   onHandleIncrement(product) {
-    //PÁSO PREVIO DE SETEO PRODUCTOS CON CANTIDADES!! PARA VISTA PRODUCTS (INPUT DEL MAS Y MENOS)
+    //Recibo productos con userQuantity en cero. Para poder increment/decrement y visualizar cambios en front
     var productList = this.props.products;
  
     for (let i = 0; i < productList.length; i++) {
-      //itero sobre los productos y al atributo userQuantity con cada click
+      //itero sobre los productos 
       if (productList[i].id == product.id) {
-        productList[i].userQuantity = productList[i].userQuantity + 1;
+        productList[i].userQuantity = productList[i].userQuantity + 1; //incremento si es el seleccionado por usuario
       }
     }
     this.setState({
-      productList: productList //seteo de productos + cantidad
+      productList: productList //seteo localmente productos c/ cantidad 
     });
 
     this.props.addProductToOrder(this.state.productList); //FINALIZADA LA CANTIDAD, ENVIO PRODUCTO AL REDUCER PARA ARMAR ORDEN
@@ -76,6 +86,7 @@ class ProductContainer extends Component {
   }
 
   onHandleSelectedConsultant(e) { //funcion para seleccionar domicilio segun consultor
+
     let consultant = JSON.parse(e.target.value);
     let consultantAdress = [];
     let consultantList = this.props.consultantList;
@@ -85,19 +96,21 @@ class ProductContainer extends Component {
         consultantAdress = consultant.location;
       }
     }
-
+    this.props.selectedConsultant(consultant)
     this.setState({
       consultantAdress: [consultantAdress] //seteo array, por si se trabaja c/ mas de 1 domicilio
     });
   }
 
   render() {
+    
     return (
       <div
         className={
           this.props.collapseView ? "main-product-full" : "main-product-partial"
-        }
-      >
+        } //modificio width de productos si se colapsa el sidebar
+      > 
+      { this.state.productList && this.state.productList.length?
         <Products
           consultantList={this.props.consultantList}
           user={this.props.user}
@@ -107,7 +120,9 @@ class ProductContainer extends Component {
           onHandleIncrement={this.onHandleIncrement}
           onHandlerDecrement={this.onHandlerDecrement}
           onHandleSelectedConsultant={this.onHandleSelectedConsultant}
-        />
+          />:
+        <TemplateProductLoading/>  //Si aun no hay productos, muestro logo + loading...
+        }
       </div>
     );
   }
@@ -130,7 +145,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(fetchConsultantBySuperviser(userId)),
     decrementProductFromOrder: product =>
       dispatch(decrementProductFromOrder(product)),
-      removeOrder: () => dispatch(removeOrder())
+      removeOrder: () => dispatch(removeOrder()),
+      selectedConsultant: (consultant) => dispatch(selectedConsultant(consultant))
   };
 };
 export default connect(
