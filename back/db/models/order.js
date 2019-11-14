@@ -13,8 +13,12 @@ const Order = db.define("order", {
 },
   extra: {
     type: Sequelize.INTEGER,
+    defaultValue: 0
   },
-
+  shipping: {
+      type: Sequelize.STRING,
+      defaultValue: "no informado"
+  }
 });
 
 module.exports = Order;

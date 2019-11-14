@@ -13,11 +13,13 @@ export default function products({
   consultantList,
   totalOrderValue,
   consultantAdress,
-  user
+  user,
+  displayStatus,
+  order
 }) {
   
   return (
-  
+    
     <Layout className = "main-body-products">
       <nav aria-label="breadcrumb main-header-advice">
         <ol className="breadcrumb d-none d-sm-block" id= "main-header-advice">
@@ -79,7 +81,15 @@ export default function products({
             </div>
           </div>
         </div>
-        
+        {displayStatus == "disabled"?
+                <nav aria-label="breadcrumb" >
+                  <ol className="breadcrumb d-none d-sm-block" id= "main-order-notification">
+                    <li className="breadcrumb-item active " aria-current="page">
+                      Existe una orden vigente bajo el numero: {order.id}
+                    </li>
+                  </ol>
+              </nav>:null
+              }
         <div className="card-body">
           <div className="row card-list">
             {products.length &&
@@ -106,6 +116,7 @@ export default function products({
                             type="submit"
                             className="btn"
                             id = "btn-plus"
+                            disabled= {displayStatus}
                             onClick={() => {
                               onHandlerDecrement(product);
                             }}>
@@ -133,6 +144,7 @@ export default function products({
                             id = "btn-minus"
                             data-type="minus"
                             data-type="plus"
+                            disabled= {displayStatus}
                             onClick={() => {
                               onHandleIncrement(product);
                             }}

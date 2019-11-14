@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import { Layout } from "antd";
 const { Footer, Content } = Layout;
 
-export default function footer({scrollChange, onHandlerClear, onConfirmOrder, totalOrderValue}) {
-
+export default function footer({scrollChange, onHandlerClear, onConfirmOrder, totalOrderValue, displayStatus}) {
+  {console.log("display", displayStatus)}
   return (
         <div className={`footer ${scrollChange}`}>
             <Footer className ="footer">
@@ -29,8 +29,8 @@ export default function footer({scrollChange, onHandlerClear, onConfirmOrder, to
                      <div className = "col-lg-2 col-md-4">
                         <div className = "container btn-footer-container">
                           <div className=" btn-list-botton">
-                              <button className="btn btn-clear" onClick = {onHandlerClear}> Limpiar</button>
-                              <button className="btn btn-finalizar" onClick = {onConfirmOrder}>Finalizar </button>
+                              <button className="btn btn-clear" disabled = {displayStatus} onClick = {onHandlerClear}> Limpiar</button>
+                              <button className="btn btn-finalizar" disabled = {displayStatus }onClick = {onConfirmOrder}>Finalizar </button>
                           </div> 
                         </div>  
                      </div>

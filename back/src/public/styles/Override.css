@@ -20,15 +20,15 @@ html, body{
     font-size: large;
 }
 .ant-layout{
-	display: flex !important;
+	display: flex 
 }
 .ant-layout-header {
-	background-color: #F7931E!important;
-	padding: 0px !important;
+	background-color: #F7931E;
+	padding: 0px 
 }
 .ant-menu-horizontal{
-	background-color: #F7931E!important;
-	float: right !important;
+	background-color: #F7931E;
+	float: right 
 }
 .ant-layout-content{
 

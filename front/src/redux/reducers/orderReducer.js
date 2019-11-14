@@ -10,7 +10,8 @@ import orderCounter from "../../auxFunctions";
 const initialState = {
   orderCreated: "", //ORDENES DEL BACK YA INGRESADAS
   order: [], //ORDENES CREADAS 1ERO EN EL FRONT
-  totalOrderValue: "" //VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
+  totalOrderValue: "",//VALORES MAXIMOS DE GANANCIA, PROFIT, ETC
+  displayStatus: "" //PARA DEHABILITAR BOTONES DE FOOTER Y +/-
 };
 
 export default (state = initialState, action) => {
@@ -18,7 +19,8 @@ export default (state = initialState, action) => {
 
     //ORDENES DEL BACK
     case RECEIVE_ORDER:
-      return { ...state, orderCreated: action.order };
+      console.log("ordenes creadas del back", action.orderCreated)
+      return { ...state, orderCreated: action.orderCreated, displayStatus:"disabled" };
 
     //AGREGO PRODUCTOS A ORDER
     case ADD_PRODUCT_TO_ORDER: //1) agrego un producto, primer caso si NO hay nada en la orden
@@ -60,7 +62,7 @@ export default (state = initialState, action) => {
   }
 };
 
-// OPCION 2) CONSTRUYENDO OBJETO DE ORDEN
+// OPCION 2) EN CASO DE CONSTRUIR EL OBJETO ORDEN 100% DESDE FRONT
 
 // export default (state = initialState, action) => {
 

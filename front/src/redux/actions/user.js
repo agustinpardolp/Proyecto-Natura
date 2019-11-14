@@ -38,12 +38,10 @@ export const selectedConsultant = consultant => {
   };
 }
 export const loginUser = user => dispatch => {
-
   return axios
     .post("/api/user/login", user)
     .then(res => res.data)
     .then(user => {
-      console.log(user)
       dispatch(receiveLoggedUser(user));
       return user;
     });
@@ -69,7 +67,6 @@ export const fetchLoggedUser = () => dispatch => {
 };
 
 export const fetchConsultantBySuperviser = userId => dispatch => {
-  console.log(userId, "user");
   return axios
     .get(`/api/user/superviser/consultant/${userId}`)
     .then(res => res.data)

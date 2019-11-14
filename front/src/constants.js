@@ -21,6 +21,16 @@ export const DECREMENT_PRODUCT_FROM_ORDER = "DECREMENT_PRODUCT_FROM_ORDER";
 export const REMOVE_ORDER = "REMOVE_ORDER";
 export const RECEIVE_PRODUCT_PATH_CHANGE = "RECEIVE_PRODUCT_PATH_CHANGE";
 
+//LOGIN
+export const PAGE_TITLE = "Ingreso";
+export const FORM_USERNAME = "Ingresar usuario y contraseña"
+export const FORM_PASSWORD = "contraseña";
+export const BUTTON_LOGIN = "Ingresar";
+export const ERROR_AUTHENTICATE = "El inicio de sesíon no se a realizado correctamente. Por favor, vuelva a intentarlo.";
+export const ERROR_USERNAME = "Se requiere un nombre de usuario valido.";
+export const ERROR_PASSWORD = "Se requiere una contraseña valida";
+
+
 
 
   

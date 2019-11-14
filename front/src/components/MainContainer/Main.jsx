@@ -22,14 +22,14 @@ class Main extends Component {
     };
   }
   componentDidMount(){
-    this.props.fetchLoggedUser() //pido user para mantander sesion iniciada //VER passport no mantiene secion ¿?
+    this.props.fetchLoggedUser() //pido user para mantander sesion iniciada //VER passport no mantiene sesion ¿?
     .then(user=>{
       this.setState({
         user:user,
         loading:false
       })
-
     })
+ 
   }
 
   render() {

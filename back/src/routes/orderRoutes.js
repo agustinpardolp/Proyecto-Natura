@@ -5,6 +5,18 @@ const OrderDetail = require("../../db/models").OrderDetail;
 const Consultant = require("../../db/models").Consultant;
 const Product = require("../../db/models").Product;
 
+    router.get("/:userId", function(req, res){
+      let consultantId = req.params.userId?req.params.userId: 0
+
+      Order.findAll({
+        where:{
+          consultantId: req.params.userId
+        },
+        order: [["id", "DESC"]]
+      }).then(orders => {
+        res.send(orders[0])})
+  })
+
 router.post("/new", function(req, res) {
   
     Consultant.findByPk(req.body.user.id).then(user => {
@@ -29,12 +41,19 @@ router.post("/new", function(req, res) {
         })
     })
 
-    router.post ("/updateShippping", function(req, res){
+    router.put("/updateShippping", function(req, res){
 
-
-
+        Order.update({
+          shipping: req.body.shippingType 
+        },{
+          where:{
+           id: req.body.orderId
+          } 
+        }).then(orderUpdated => {
+    
+          res.send(orderUpdated)})
     })
- 
+    
     
     // .then(orderInstans => {
   //     // if (orderInstans == null) {

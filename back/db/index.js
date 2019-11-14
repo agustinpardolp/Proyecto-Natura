@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 //     logging: false
 // })
 
-const db = new Sequelize('NaturaPrueba','root', '', {
-    host: '',
+const db = new Sequelize('NaturaPrueba','root', 'Seem2Jump6', {
+    host: 'nomaddsdb.cykssfqpmcmf.us-west-2.rds.amazonaws.com',
     port: 3306,
     dialect: 'mysql',
     dialectOptions: {

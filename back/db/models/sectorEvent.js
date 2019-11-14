@@ -6,7 +6,11 @@ const SectorEvent = db.define("sectorEvent", {
         type: Sequelize.STRING
       },
   event_code: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique:true, 
+        primaryKey:true,
+        defaultValue: "SR-MADRE"
       },
   load_from: {
         type: Sequelize.DATE,

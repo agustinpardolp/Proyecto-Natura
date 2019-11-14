@@ -1,6 +1,7 @@
 const Consultant = require("../back/db/models").Consultant;
 const Product = require ("../back//db/models").Product;
 const Superviser = require ("../back/db/models").Superviser;
+const Event = require ("../back/db/models").Event;
 // USERS
 Consultant.create({
   
@@ -159,7 +160,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "cremaManos.jpg",
   userQuantity:0
 });
@@ -174,7 +174,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:300,
-  event_code:"MADRE",
   image: "perfume.jpg",
   userQuantity:0
 });
@@ -189,7 +188,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "jabones.jpeg",
   userQuantity:0
 });
@@ -204,7 +202,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "capsulas.jpg",
   userQuantity:0
 });
@@ -220,7 +217,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "balsamo.jpeg",
   userQuantity:0
 });
@@ -235,7 +231,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "oleo.jpg",
   userQuantity:0
 }),
@@ -251,7 +246,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "cremaManos.jpg",
   userQuantity:0
 });
@@ -266,7 +260,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:300,
-  event_code:"MADRE",
   image: "perfume.jpg",
   userQuantity:0
 });
@@ -281,7 +274,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "toallitas.jp",
   userQuantity:0
 });
@@ -296,7 +288,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "capsulas.jpg",
   userQuantity:0
 });
@@ -312,7 +303,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "ciruela.jpg",
   userQuantity:0
 });
@@ -327,7 +317,34 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "frescor.jpg",
   userQuantity:0
 });
+
+  Event.create({
+  sector: 000,
+  event_code: "SR-MADRE",
+  load_from: "9/4/2018",
+  load_to: "9/5/2018"
+  });
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-PADRE",
+  load_from: "6/4/2018",
+  load_to: "7/5/2018"
+   });
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-NAVIDAD",
+  load_from: "11/4/2018",
+  load_to: "12/20/2018"
+  });  
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-NIÑO",
+  load_from: "8/4/2018",
+  load_to: "9/5/2018"
+  });

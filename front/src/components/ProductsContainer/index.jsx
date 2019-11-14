@@ -7,8 +7,10 @@ import { fetchProducts } from "../../redux/actions/products";
 import {
   addProductToOrder,
   decrementProductFromOrder,
-  removeOrder
+  removeOrder,
+  fetchOrdersById
 } from "../../redux/actions/order";
+
 import { fetchConsultantBySuperviser } from "../../redux/actions/user";
 
 class ProductContainer extends Component {
@@ -17,8 +19,9 @@ class ProductContainer extends Component {
     super(props);
     this.state = {
       productList: "",
-      originalProductList: "",
       consultantAdress: "",
+      order: "",
+      displayStatus: ""
 
     };
     this.onHandleIncrement = this.onHandleIncrement.bind(this);
@@ -28,27 +31,30 @@ class ProductContainer extends Component {
 
   componentDidMount() {
     this.props.fetchConsultantBySuperviser(this.props.user.id);
-    this.props.fetchProducts().then(products => {
-      if (!products.length) {
-        this.setState(
-          {
-            productList: products,
-            originalProductList: products
-          })
-      }
+    
+    this.props.fetchOrdersById(this.props.user.id)
+      .then(order =>{
+          if (order) {  
+            this.setState(
+              {order:order,
+                displayStatus: "disabled"      
+              })
+            }
+          }
+        )
+    this.props.fetchProducts().then(products => { 
+
       this.setState(
         {
           productList: products,
-          originalProductList: products
         },
         () => {
           console.log(this.state.productList);
         }
       );
-      this.setState({
-        orderExist: this.props.orderExist
-      })
+      
     });
+
     this.props.removeOrder();
   }
 //MANEJO LOCAL DE INCREMENTOS / DECREMENTOS DE ARTICULOS SELECCIONADOS CON USUARIO
@@ -59,7 +65,7 @@ class ProductContainer extends Component {
     for (let i = 0; i < productList.length; i++) {
       //itero sobre los productos 
       if (productList[i].id == product.id) {
-        productList[i].userQuantity = productList[i].userQuantity + 1; //incremento si es el seleccionado por usuario
+          productList[i].userQuantity = productList[i].userQuantity + 1; //incremento si es el seleccionado por usuario
       }
     }
     this.setState({
@@ -112,8 +118,10 @@ class ProductContainer extends Component {
       > 
       { this.state.productList && this.state.productList.length?
         <Products
+          displayStatus = {this.state.displayStatus}
           consultantList={this.props.consultantList}
           user={this.props.user}
+          order ={this.props.order}
           products={this.state.productList}
           consultantAdress={this.state.consultantAdress}
           totalOrderValue={this.props.totalOrderValue}
@@ -134,7 +142,7 @@ const mapStateToProps = (state, ownProps) => ({
   consultantList: state.user.consultantList,
   collapseView: state.product.collapseView,
   totalOrderValue: state.orders.totalOrderValue,
-  orderExist: state.orders.orderExist
+  order: state.orders.orderCreated,
 });
 
 const mapDispatchToProps = dispatch => {
@@ -146,7 +154,8 @@ const mapDispatchToProps = dispatch => {
     decrementProductFromOrder: product =>
       dispatch(decrementProductFromOrder(product)),
       removeOrder: () => dispatch(removeOrder()),
-      selectedConsultant: (consultant) => dispatch(selectedConsultant(consultant))
+      selectedConsultant: (consultant) => dispatch(selectedConsultant(consultant)),
+      fetchOrdersById: (userId) => dispatch(fetchOrdersById(userId))
   };
 };
 export default connect(

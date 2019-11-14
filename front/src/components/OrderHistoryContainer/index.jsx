@@ -13,11 +13,6 @@ class OrderHistoryContainer extends Component {
         this.onHandlerDetail = this.onHandlerDetail.bind(this)
     }
 
-    componentDidMount(){
-        // this.props.fetchOrders()
-       
-    }
-
     onHandlerDetail(orderId){
         this.props.fetchOrderByid(orderId)
         .then(selectedOrder=>{

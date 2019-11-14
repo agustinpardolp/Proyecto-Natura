@@ -7,8 +7,7 @@ function orderConfirm({collapseView}) {
   return (
     <Layout className={collapseView? "home-container main-product-full":"home-container main-product-partial"}> 
     <div className = "container">
-    {/* <div className = "row"> */}
-      {/* <div className = " col-sm-12 col-md-12 col-lg-12"> */}
+
         <nav aria-label="breadcrumb main-header-advice">
             Recordá que tenes hasta las 18hrs del dia para cargar tu pedido
       </nav>
@@ -18,19 +17,14 @@ function orderConfirm({collapseView}) {
           Pedido Completado correctamente
         </div>
       </div>
-  {/* </div> */}
-    {/* </div> */}
+
     </Layout>
   );
 }
  
-const mapStateToProps = (state, ownProps) => (
- 
-  {
-   
-   collapseView: state.product.collapseView,
+const mapStateToProps = (state, ownProps) => ({
+ collapseView: state.product.collapseView,
   
-
  });
  
  export default connect(mapStateToProps, null)(orderConfirm)

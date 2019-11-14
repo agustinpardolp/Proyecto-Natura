@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Footer from "../FooterContainer/footer";
-import ModalConfirmOrder from "../ModalsContainer/ModalConfirmOrder"
+import ModalConfirmOrder from "../ModalsContainer/modalConfirmOrder"
 import { removeOrder, createOrder, updateOrderShipping } from "../../redux/actions/order";
 import { resetOrderProducts } from "../../redux/actions/products";
 
@@ -11,7 +11,9 @@ class FooterContainer extends Component {
     this.state = {
       scrollChange: "hidden-footer",
       showModal: false,
-      orderId:""
+      orderId:"",
+      shippingType: "terrestre",
+      displayStatus: ""
     };
 
     this.onScroll = this.onScroll.bind(this);
@@ -19,9 +21,17 @@ class FooterContainer extends Component {
     this.onConfirmOrder = this.onConfirmOrder.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleOk = this.handleOk.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onConfirmShipping = this.onConfirmShipping.bind(this)
   }
+
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
+
+    // if(this.props.orderCreated)
+    // this.setState({
+    //   displayStatus: "disabled"
+    // })
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll);
@@ -58,22 +68,37 @@ class FooterContainer extends Component {
     }
   }
   handleOk(e) {
-    console.log("entreeeeeeee")
+    
     this.setState({
       showModal: false
     });
   }
 
   handleCancel(e) {
-    console.log(e);
+
     this.setState({
       showModal: false
     });
   }
-  onConfirmShipping(orderId){
-    this.props.updateOrderShipping(orderId)
+  handleChange(value){
+
+    this.setState({
+      shippingType: value
+    })
 
   }
+  onConfirmShipping(orderId, ){
+ 
+    this.props.updateOrderShipping(orderId,this.state.shippingType)
+    .then(orderUpdated =>{
+      this.props.removeOrder();
+      this.setState({
+        showModal: false
+      })
+
+    })
+  }
+
   render() {
     return (
       <>
@@ -82,8 +107,15 @@ class FooterContainer extends Component {
       onConfirmOrder= {this.onConfirmOrder}
       scrollChange={this.state.scrollChange}
       totalOrderValue={this.props.totalOrderValue}
+      displayStatus = {this.props.displayStatus}
       />
-       <ModalConfirmOrder showModal = {this.state.showModal} handleCancel ={this.handleOk} handleOk = {this.handleOk} orderId = {this.state.orderId}/>
+       <ModalConfirmOrder showModal = {this.state.showModal} handleCancel ={this.handleOk} 
+       orderId = {this.state.orderId} 
+       onConfirmShipping = {this.onConfirmShipping}
+       handleChange = {this.handleChange}
+       shippingType = {this.state.shippingType}
+       
+       />
       </>
     );
   }
@@ -94,6 +126,8 @@ const mapStateToProps = (state, ownProps) => {
     totalOrderValue: state.orders.totalOrderValue,
     products: state.product.productList,
     order: state.orders.order,
+    displayStatus: state.orders.displayStatus,
+    orderCreated: state.orders.orderCreated,
     selectedConsultant: state.user.selectedConsultant
   };
 };
@@ -102,7 +136,7 @@ const mapDispatchToProps = dispatch => ({
   removeOrder: () => dispatch(removeOrder()),
   resetOrderProducts: products => dispatch(resetOrderProducts(products)),
   createOrder: (order, user, totals) => dispatch(createOrder(order, user, totals)),
-  updateOrderShipping: (orderId) => dispatch(updateOrderShipping(orderId))
+  updateOrderShipping: (orderId, shippingType) => dispatch(updateOrderShipping(orderId, shippingType))
 });
 
 export default connect(

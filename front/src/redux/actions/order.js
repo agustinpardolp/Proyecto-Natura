@@ -20,10 +20,10 @@ export const decrementProductFromOrder = function(product) {
     product
   };
 };
-export const receiveOrder = function(order) {
+export const receiveOrder = function(orderCreated) {
   return {
     type: RECEIVE_ORDER,
-    order
+    orderCreated
   };
 };
 
@@ -40,32 +40,28 @@ export const createOrder= (order, user, totals) => dispatch => {
   return axios
     .post("/api/orders/new", { order, user, totals })
     .then(res => res.data)
-    .then(order => {
-      dispatch(receiveOrder(order))
-      return order
+    .then(orderCreated => {
+      dispatch(receiveOrder(orderCreated))
+      return orderCreated
     });
 };
 
 export const fetchOrdersById = userId => dispatch => {
+
   return axios
     .get(`api/orders/${userId}`)
     .then(res => res.data)
-    .then(orderList => dispatch(receiveOrderById(orderList)));
+    .then(orderCreated =>{
+      dispatch(receiveOrder(orderCreated))
+      return orderCreated
+    })
 };
 
-export const updateOrderShipping = orderId => {
+export const updateOrderShipping = (orderId, shippingType) => dispatch => {
+
   return axios
-    .post("/api/orders/updateShippping", { orderId })
-    .then(res => res.data)
-  
+    .put("/api/orders/updateShippping", { orderId, shippingType })
+    .then(orderUpdated =>{
+      return orderUpdated
+    })
 }
-
-// export const resetProductFromOrder = () => dispatch => {
-//   return axios.get("/api/products")
-//    .then(res =>res.data) 
-
-//    .then(product => {
-//      console.log("action", product)
-//      dispatch(removeOrder(product))
-//    });
-// };
