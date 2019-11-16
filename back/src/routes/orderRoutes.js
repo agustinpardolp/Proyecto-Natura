@@ -6,8 +6,7 @@ const Consultant = require("../../db/models").Consultant;
 const Product = require("../../db/models").Product;
 
 router.post("/new", function(req, res) {
-  console.log(req.body)
-  
+ 
   Consultant.findByPk(req.body.user.id).then(user => {
     Order.create({
         total: req.body.totals.price
@@ -15,14 +14,19 @@ router.post("/new", function(req, res) {
     }).then(orderInstans => {
       orderInstans.setConsultant(user)
       let producArray = req.body.order
+   
       producArray.forEach(product => {
             Product.findByPk(product.id).then(product => {
-              product.addOrder(orderInstans, {
-                through: {
-                  quantity: product.userQuantity,
-                  price: product.price
-                }
-              });
+              console.log("soy el producttttttttttttttttttttt", product)
+          
+                product.addOrder(orderInstans, {
+                  through: {
+                    quantity: product.userQuantity,
+                    price: product.price
+                  }
+                });
+              }
+         
             }); 
           
         })

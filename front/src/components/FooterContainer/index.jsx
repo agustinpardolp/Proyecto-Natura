@@ -32,11 +32,11 @@ class FooterContainer extends Component {
   }
 
   onConfirmOrder(){
-    this.setState({
-      showModal:true
-    })
+    // this.setState({
+    //   showModal:true
+    // })
     // console.log("order", this.props.order, "user", this.props.user, "total", this.props.totalOrderValue)
-    // this.props.createOrder(this.props.order, this.props.user, this.props.totalOrderValue)
+    this.props.createOrder(this.props.order, this.props.user, this.props.totalOrderValue)
   }
 
   onScroll() {
