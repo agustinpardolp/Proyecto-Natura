@@ -5,35 +5,55 @@ const OrderDetail = require("../../db/models").OrderDetail;
 const Consultant = require("../../db/models").Consultant;
 const Product = require("../../db/models").Product;
 
-router.post("/new", function(req, res) {
- 
-  Consultant.findByPk(req.body.user.id).then(user => {
-    Order.create({
-        total: req.body.totals.price
+    router.get("/:userId", function(req, res){
+      let consultantId = req.params.userId?req.params.userId: 0
 
-    }).then(orderInstans => {
-      orderInstans.setConsultant(user)
-      let producArray = req.body.order
-   
-      producArray.forEach(product => {
-            Product.findByPk(product.id).then(product => {
-              console.log("soy el producttttttttttttttttttttt", product)
-          
+      Order.findAll({
+        where:{
+          consultantId: req.params.userId
+        },
+        order: [["id", "DESC"]]
+      }).then(orders => {
+        res.send(orders[0])})
+  })
+
+router.post("/new", function(req, res) {
+  
+    Consultant.findByPk(req.body.user.id).then(user => {
+      Order.create({
+          total: req.body.totals.price
+  
+      }).then(orderInstans => {
+        orderInstans.setConsultant(user)
+        let producArray = req.body.order
+  
+        producArray.forEach(orderProduct => {
+              Product.findByPk(orderProduct.id).then(product => {
                 product.addOrder(orderInstans, {
                   through: {
-                    quantity: product.userQuantity,
-                    price: product.price
+                    quantity: orderProduct.userQuantity,
+                    price: orderProduct.price
                   }
                 });
-              }
-         
-            }); 
-          
+              }); 
+          })
+          res.send(orderInstans)
         })
-    
-      }).then(orderInstans => console.log(orderInstans)) 
+    })
 
-  })
+    router.put("/updateShippping", function(req, res){
+
+        Order.update({
+          shipping: req.body.shippingType 
+        },{
+          where:{
+           id: req.body.orderId
+          } 
+        }).then(orderUpdated => {
+    
+          res.send(orderUpdated)})
+    })
+    
     
     // .then(orderInstans => {
   //     // if (orderInstans == null) {

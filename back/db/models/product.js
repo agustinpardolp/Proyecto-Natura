@@ -46,10 +46,6 @@ const Product = db.define("product", {
     type: Sequelize.FLOAT,
     defaultValue: 0
   },
-  event_code: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   userQuantity:{
     type:Sequelize.INTEGER,
     defaultValue: 0

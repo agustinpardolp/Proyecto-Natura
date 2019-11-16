@@ -3,7 +3,8 @@ import {
   RECEIVE_LOGGED_USER,
   USER_LOGOUT,
   SET_AVATAR,
-  RECEIVE_CONSULTANTS
+  RECEIVE_CONSULTANTS,
+  RECEIVE_SELECTED_CONSULTANT
 } from "../../constants";
 
 export const receiveLoggedUser = loggedUser => ({
@@ -30,14 +31,17 @@ export const receiveConsultants = consultantList => {
     consultantList
   };
 };
-
+export const selectedConsultant = consultant => {
+  return {
+    type: RECEIVE_SELECTED_CONSULTANT,
+    consultant
+  };
+}
 export const loginUser = user => dispatch => {
-
   return axios
     .post("/api/user/login", user)
     .then(res => res.data)
     .then(user => {
-      console.log(user)
       dispatch(receiveLoggedUser(user));
       return user;
     });
@@ -63,7 +67,6 @@ export const fetchLoggedUser = () => dispatch => {
 };
 
 export const fetchConsultantBySuperviser = userId => dispatch => {
-  console.log(userId, "user");
   return axios
     .get(`/api/user/superviser/consultant/${userId}`)
     .then(res => res.data)

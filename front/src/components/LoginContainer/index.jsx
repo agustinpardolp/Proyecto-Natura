@@ -46,7 +46,6 @@ class LoginContainer extends Component {
         this.props.history.push("/");
       })
       .catch(() => {
-        console.log(error)
         this.setState({
           modalShow: true
         });
@@ -59,7 +58,6 @@ class LoginContainer extends Component {
   }
 
   handleCancel(e) {
-    console.log(e);
     this.setState({
       modalShow: false
     });

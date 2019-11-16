@@ -1,11 +1,12 @@
 const Consultant = require("../back/db/models").Consultant;
 const Product = require ("../back//db/models").Product;
 const Superviser = require ("../back/db/models").Superviser;
+const Event = require ("../back/db/models").Event;
 // USERS
 Consultant.create({
   
   code: "111",
-  sector: "admin",
+  sector: "333",
   name: "Mirta",
   identification: "31596585",
   location: "San Martin 7100",
@@ -17,7 +18,7 @@ Consultant.create({
 
 Consultant.create({
   code: "222",
-  sector: "admin",
+  sector: "333",
   name: "Ramona",
   identification: "123",
   location: "Herrera 2310",
@@ -29,7 +30,7 @@ Consultant.create({
 
 Consultant.create({
   code: "333",
-  sector: "admin",
+  sector: "333",
   name: "Norma",
   identification: "124",
   location: "Alem 1100",
@@ -41,7 +42,7 @@ Consultant.create({
 
 Consultant.create({
   code: "444",
-  sector: "admin",
+  sector: "333",
   name: "Sandra",
   identification: "125",
   location: "Ortigoza 500",
@@ -52,7 +53,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "555",
-  sector: "admin",
+  sector: "444",
   name: "Pedro",
   identification: "126",
   location: "Braña y Andujar 327 PB",
@@ -63,7 +64,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "666",
-  sector: "admin",
+  sector: "444",
   name: "Pedro",
   identification: "127",
   location: "Braña y Andujar 327 PB",
@@ -74,7 +75,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "777",
-  sector: "admin",
+  sector: "444",
   name: "Monica",
   identification: "128",
   location: "calle 472 n 333",
@@ -85,7 +86,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "888",
-  sector: "admin",
+  sector: "444",
   name: "Rita",
   identification: "129",
   location: "calle 56 327 PB",
@@ -96,7 +97,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "999",
-  sector: "admin",
+  sector: "444",
   name: "Susana",
   identification: "130",
   location: " Alcorta 3900 PB",
@@ -107,7 +108,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "1000",
-  sector: "admin",
+  sector: "444",
   name: "Armando",
   identification: "131",
   location: "Braña y Andujar 327 PB",
@@ -118,7 +119,7 @@ Consultant.create({
 });
 Consultant.create({
   code: "1001",
-  sector: "admin",
+  sector: "444",
   name: "Miguel",
   identification: "132",
   location: "Roma PB 2",
@@ -159,7 +160,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "cremaManos.jpg",
   userQuantity:0
 });
@@ -174,7 +174,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:300,
-  event_code:"MADRE",
   image: "perfume.jpg",
   userQuantity:0
 });
@@ -189,7 +188,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "jabones.jpeg",
   userQuantity:0
 });
@@ -204,7 +202,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "capsulas.jpg",
   userQuantity:0
 });
@@ -220,7 +217,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "balsamo.jpeg",
   userQuantity:0
 });
@@ -235,7 +231,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "oleo.jpg",
   userQuantity:0
 }),
@@ -251,7 +246,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "cremaManos.jpg",
   userQuantity:0
 });
@@ -266,7 +260,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:300,
-  event_code:"MADRE",
   image: "perfume.jpg",
   userQuantity:0
 });
@@ -281,7 +274,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "toallitas.jp",
   userQuantity:0
 });
@@ -296,7 +288,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"PADRE",
   image: "capsulas.jpg",
   userQuantity:0
 });
@@ -312,7 +303,6 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "ciruela.jpg",
   userQuantity:0
 });
@@ -327,7 +317,34 @@ Product.create({
   add_cases:1,
   add_dif_cases:1,
   profit:200,
-  event_code:"MADRE",
   image: "frescor.jpg",
   userQuantity:0
 });
+
+  Event.create({
+  sector: 000,
+  event_code: "SR-MADRE",
+  load_from: "9/4/2018",
+  load_to: "9/5/2018"
+  });
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-PADRE",
+  load_from: "6/4/2018",
+  load_to: "7/5/2018"
+   });
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-NAVIDAD",
+  load_from: "11/4/2018",
+  load_to: "12/20/2018"
+  });  
+  
+  Event.create({
+  sector: 000,
+  event_code: "SR-NIÑO",
+  load_from: "8/4/2018",
+  load_to: "9/5/2018"
+  });

@@ -9,13 +9,10 @@
 html, body{ 
 	height:100% !important;
 	margin:0;
-
   }
-
 .page-header.navbar {
 	height: auto;
 }
-
 .alert-danger {
     background-color: #a94442;
     border-color: #a94442;
@@ -23,15 +20,15 @@ html, body{
     font-size: large;
 }
 .ant-layout{
-	display: flex !important;
+	display: flex 
 }
 .ant-layout-header {
-	background-color: #F7931E!important;
-	padding: 0px !important;
+	background-color: #F7931E;
+	padding: 0px 
 }
 .ant-menu-horizontal{
-	background-color: #F7931E!important;
-	float: right !important;
+	background-color: #F7931E;
+	float: right 
 }
 .ant-layout-content{
 
@@ -57,8 +54,6 @@ html, body{
 .main-card-grid{
 	margin: 7px
 }
-
-
 @media (max-width: 1199px) {
 	.page-header-fixed .page-container {
 		margin-top: 65px;
@@ -71,8 +66,6 @@ html, body{
 		justify-content: flex-end;
 	  }
 }
-
-
 @media (max-width: 767px) {
 	.page-header.navbar {
 		height: 134px;
@@ -98,7 +91,6 @@ html, body{
 		visibility: visible;
 	  }
 }
-
 @media (max-width: 614px) {
 	.page-header.navbar {
 		height: 134px;
@@ -117,7 +109,6 @@ html, body{
 	}
 	
 }
-
 @media (max-width: 480px) {
 	.page-header.navbar {
 		height: 134px;
@@ -136,19 +127,18 @@ html, body{
 	}
 
 	.card-container {
-		 /* -webkit-flex-flow: column; */
-				 flex-flow: column;
-				 align-items: center;
-				 text-align: center;
-				 
-		}
+
+		flex-flow: column;
+		align-items: center;
+		text-align: center;		 
+	}
 	#select-consultant-container{
-			text-align-last: left;
+		text-align-last: left;
 			
 		}
-		.btn-list-botton {
-			display: flex;
-			justify-content:  space-evenly;
+	.btn-list-botton {
+		display: flex;
+		justify-content:  space-evenly;
 		}
 	}
 	.card-list{
@@ -163,7 +153,6 @@ html, body{
 		max-width: 100%;
 		width: 100%;
 		font-size: 18px;
-		/* display: grid; */
 	  }
 
 	  .btn-footer-container{
@@ -183,7 +172,6 @@ html, body{
 	margin-bottom: 15px;
 	box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
 }
-
 .container > .btn-footer-container {
 	align-items: flex-start;
 	text-align: center;
@@ -192,20 +180,20 @@ html, body{
 	width: 140px;
 	/* font-size: 25px; */
   }
-
-.select-consultant-container{
-	/* text-align-last: end; */
-
-}
-
 .main-login-container{
 
 	padding-top: 64px;
 }
-
 .ant-btn-danger{
 background: var(--main-bg-color);
 border: none
+}
+
+.ant-spin-dot-item{
+	background: var(--main-bg-color)
+}
+.ant-spin-text{
+color: var(--main-bg-color)
 }
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Icon, Input, Button, Checkbox, Tabs, Row, Col } from "antd";
 const { TabPane } = Tabs;
+import { PAGE_TITLE, FORM_USERNAME, FORM_PASSWORD, BUTTON_LOGIN, ERROR_AUTHENTICATE, ERROR_USERNAME, ERROR_PASSWORD} from "../../constants"
 
 function login({
   onPassChange,

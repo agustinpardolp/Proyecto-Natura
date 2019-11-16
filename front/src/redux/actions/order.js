@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   ADD_PRODUCT_TO_ORDER,
-  RECEIVE_ORDERS,
+  RECEIVE_ORDER,
   REMOVE_ORDER,
   DECREMENT_PRODUCT_FROM_ORDER
 } from "../../constants";
@@ -20,10 +20,10 @@ export const decrementProductFromOrder = function(product) {
     product
   };
 };
-export const receiveOrders = function(orderList) {
+export const receiveOrder = function(orderCreated) {
   return {
-    type: RECEIVE_ORDERS,
-    orderList
+    type: RECEIVE_ORDER,
+    orderCreated
   };
 };
 
@@ -40,35 +40,28 @@ export const createOrder= (order, user, totals) => dispatch => {
   return axios
     .post("/api/orders/new", { order, user, totals })
     .then(res => res.data)
-    .then(updatedPruduct => dispatch(addProductFromOrder(updatedPruduct)));
+    .then(orderCreated => {
+      dispatch(receiveOrder(orderCreated))
+      return orderCreated
+    });
 };
-// export const addProductToOrder = (product, user) => dispatch => {
-//   console.log("ACTION", product, user);
-//   return axios
-//     .post("/api/orders/add", { product, user })
-//     .then(res => res.data)
-//     .then(updatedPruduct => dispatch(addProductFromOrder(updatedPruduct)));
-// };
 
-export const fetchOrders = () => dispatch => {
-  return axios
-    .get("api/orders/")
-    .then(res => res.data)
-    .then(orderList => dispatch(receiveOrders(orderList)));
-};
 export const fetchOrdersById = userId => dispatch => {
+
   return axios
     .get(`api/orders/${userId}`)
     .then(res => res.data)
-    .then(orderList => dispatch(receiveOrders(orderList)));
+    .then(orderCreated =>{
+      dispatch(receiveOrder(orderCreated))
+      return orderCreated
+    })
 };
 
-// export const resetProductFromOrder = () => dispatch => {
-//   return axios.get("/api/products")
-//    .then(res =>res.data) 
+export const updateOrderShipping = (orderId, shippingType) => dispatch => {
 
-//    .then(product => {
-//      console.log("action", product)
-//      dispatch(removeOrder(product))
-//    });
-// };
+  return axios
+    .put("/api/orders/updateShippping", { orderId, shippingType })
+    .then(orderUpdated =>{
+      return orderUpdated
+    })
+}

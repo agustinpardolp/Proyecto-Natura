@@ -14,8 +14,10 @@ import {connect} from "react-redux";
           this.onCollapse = this.onCollapse.bind(this)
           this.onScreenChange = this.onScreenChange.bind(this)
     }
+
 componentDidMount() {
   window.addEventListener("resize", this.onScreenChange)
+ 
 }
   onCollapse (collapsed){
     this.setState({ collapsed });
@@ -40,10 +42,15 @@ componentDidMount() {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  user: state.user.user,
+});
+
 const mapDispatchToProps = dispatch => {
   return {
-    productWidthScreenChange: (collapse)=>dispatch(productWidthScreenChange(collapse))
+    productWidthScreenChange: (collapse)=>dispatch(productWidthScreenChange(collapse)),
   };
 };
 
-export default connect(null,mapDispatchToProps)(SideBarContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(SideBarContainer)

@@ -1,3 +1,4 @@
+'use strict';
 const db = require ("../index");
 const Consultant = require("../models/consultant");
 const Superviser = require ("../models/superviser");
@@ -14,9 +15,9 @@ Order.belongsTo(Superviser, {as:"superviser"})
 Order.belongsToMany(Product,{ through: OrderDetail, foreignKey: 'order' })
 Product.belongsToMany(Order,{ through: OrderDetail, foreignKey: 'product' } )
 
-Product.belongsTo(Event, {as:"sectorEventId"})
+Product.belongsTo(Event, {foreignKey :"fk_event_code", targetKey:'event_code'})
 
 Adress.belongsTo(Consultant, {as:"consultant"})
 Adress.belongsTo(Superviser, {as:"superviser"})
 
-module.exports = { db, Adress, Order, Product, Consultant, Superviser, OrderDetail };
+module.exports = { db, Adress, Order, Product, Consultant, Superviser, OrderDetail, Event };

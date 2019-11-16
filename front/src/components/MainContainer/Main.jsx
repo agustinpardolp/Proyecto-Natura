@@ -12,7 +12,6 @@ import LoginContainer from "../LoginContainer/index";
 import OrderConfirmContainer from "../OrderConfirmContainer/orderConfirm";
 import OrderHistoryContainer from "../OrderHistoryContainer/index"
 
-
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -22,16 +21,15 @@ class Main extends Component {
 
     };
   }
-
   componentDidMount(){
-    this.props.fetchLoggedUser()
+    this.props.fetchLoggedUser() //pido user para mantander sesion iniciada //VER passport no mantiene sesion ¿?
     .then(user=>{
       this.setState({
         user:user,
         loading:false
       })
-
     })
+ 
   }
 
   render() {
@@ -40,7 +38,7 @@ class Main extends Component {
     return (
       <div className="mainRouter">
         <Route component={NavBarContainer} />
-        
+
       {this.props.user && this.props.user.id?
          <>
         <Layout className= "main-body" style={{ minHeight: '100vh' }}>
@@ -54,11 +52,11 @@ class Main extends Component {
         <Footer/>
         </Layout>
         </>
-        : 
+        :
         <>
-        <Route exact path= "/login" component = {LoginContainer} /> 
-         <Redirect from="/" to="/login" component={LoginContainer} /> 
-        </>
+            <Route exact path= "/login" component = {LoginContainer} />
+            <Redirect from="/" to="/login" component={LoginContainer} />  
+        </> //redirecciono a / si no hay user   
   }
   </div>
         );
