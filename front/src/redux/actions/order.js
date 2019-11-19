@@ -36,7 +36,7 @@ export const removeOrder = function() {
 };
 
 export const createOrder= (order, user, totals) => dispatch => {
-
+  
   return axios
     .post("/api/orders/new", { order, user, totals })
     .then(res => res.data)

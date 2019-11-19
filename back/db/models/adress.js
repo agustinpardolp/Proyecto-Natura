@@ -6,21 +6,9 @@ const Adress = db.define("adress", {
     type: Sequelize.STRING,
     defaultValue: null
   },
-  name: {
+  type: {
     type: Sequelize.STRING,
-    defaultValue: null
-  },
-  comertial_situation: {
-    type: Sequelize.STRING,
-    defaultValue: null
-  },
-  code_comercial_structure: {
-    type: Sequelize.TEXT,
-    defaultValue: null
-  },
-  name_comercial_structure: {
-    type: Sequelize.STRING,
-    defaultValue: null
+    defaultValue: "particular"
   },
   code_management: {
     type: Sequelize.STRING,
@@ -52,19 +40,15 @@ const Adress = db.define("adress", {
   },
   number: {
     type: Sequelize.STRING,
-    defaultValue: null
+    defaultValue: "S/N"
   },
   street: {
     type: Sequelize.STRING,
     defaultValue: null
   },
-  complement: {
-    type: Sequelize.STRING,
-    defaultValue: null
-  },
   reference: {
     type: Sequelize.STRING,
-    defaultValue: null
+    defaultValue: "N/D"
   },
   
 });

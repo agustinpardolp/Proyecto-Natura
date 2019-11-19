@@ -4,7 +4,7 @@ import { Layout } from "antd";
 const { Footer, Content } = Layout;
 
 export default function footer({scrollChange, onHandlerClear, onConfirmOrder, totalOrderValue, displayStatus}) {
-  {console.log("display", displayStatus)}
+ 
   return (
         <div className={`footer ${scrollChange}`}>
             <Footer className ="footer">

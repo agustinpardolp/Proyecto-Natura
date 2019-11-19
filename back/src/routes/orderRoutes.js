@@ -18,12 +18,14 @@ const Product = require("../../db/models").Product;
   })
 
 router.post("/new", function(req, res) {
-  
+  console.log("BODY",req.body)
     Consultant.findByPk(req.body.user.id).then(user => {
       Order.create({
           total: req.body.totals.price
   
       }).then(orderInstans => {
+
+        // console.log("order instanssssss", orderInstans)
         orderInstans.setConsultant(user)
         let producArray = req.body.order
   

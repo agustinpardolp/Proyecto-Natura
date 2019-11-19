@@ -29,7 +29,6 @@ class Main extends Component {
         loading:false
       })
     })
- 
   }
 
   render() {

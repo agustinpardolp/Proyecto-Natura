@@ -10,7 +10,8 @@ class LoginContainer extends Component {
     this.state = {
       userIdent: "",
       pass: "",
-      modalShow: false
+      modalShow: false,
+    
     };
 
     this.onHandlerClick = this.onHandlerClick.bind(this);
@@ -69,6 +70,7 @@ class LoginContainer extends Component {
           onPassChange={this.onPassChange}
           onCodeChange={this.onCodeChange}
           onHandlerClick={this.onHandlerClick}
+          
         />
         <ModalError
           handleOk={this.handleOk}

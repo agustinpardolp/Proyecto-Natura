@@ -21,6 +21,7 @@ class NavBarContainer extends Component {
     return (
       <div>
         <NavBar
+          headerStyle={this.state.headerStyle}
           totalOrderValue={this.props.totalOrderValue}
           user={this.props.user}
           productPath={this.props.productPath}
@@ -43,7 +44,4 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBarContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);

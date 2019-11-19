@@ -7,9 +7,7 @@ function login({
   onPassChange,
   onCodeChange,
   onHandlerClick,
-  onTabChange,
-  noTitleKey,
-  key
+ 
 }) {
   return (
     <div className="main-login-container">

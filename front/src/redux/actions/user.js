@@ -4,7 +4,9 @@ import {
   USER_LOGOUT,
   SET_AVATAR,
   RECEIVE_CONSULTANTS,
-  RECEIVE_SELECTED_CONSULTANT
+  RECEIVE_CONSULTANT_ADRESS,
+  RECEIVE_SELECTED_CONSULTANT,
+  RECEIVE_SELECTED_ADRESS
 } from "../../constants";
 
 export const receiveLoggedUser = loggedUser => ({
@@ -31,11 +33,26 @@ export const receiveConsultants = consultantList => {
     consultantList
   };
 };
-export const selectedConsultant = consultant => {
+export const receiveConsultantsAdress = consultantAdressList => {
+  return {
+    type: RECEIVE_CONSULTANT_ADRESS,
+    consultantAdressList
+  };
+}
+
+export const receiveSelectedConsultant = selectedConsultant => {
   return {
     type: RECEIVE_SELECTED_CONSULTANT,
-    consultant
-  };
+    selectedConsultant
+  }
+}
+
+export const receiveSelectedAdress = selectedAdress => {
+
+  return {
+    type: RECEIVE_SELECTED_ADRESS,
+    selectedAdress
+  }
 }
 export const loginUser = user => dispatch => {
   return axios
@@ -70,5 +87,16 @@ export const fetchConsultantBySuperviser = userId => dispatch => {
   return axios
     .get(`/api/user/superviser/consultant/${userId}`)
     .then(res => res.data)
-    .then(consultantList => dispatch(receiveConsultants(consultantList)));
+    .then(consultantList => {
+      dispatch(receiveConsultants(consultantList))}
+      );
 };
+
+export const fetchConsultantAdress = consultant => dispatch => {
+  return axios 
+  .get(`/api/user/consultant/adress/${consultant.id}`)
+  .then(res => res.data)
+  .then(consultantAdressList => {
+    dispatch(receiveConsultantsAdress(consultantAdressList))}
+    );
+}

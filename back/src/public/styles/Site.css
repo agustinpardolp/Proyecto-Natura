@@ -148,17 +148,22 @@ body {
   display: flex;
 }
 
-.navbar-container {
-  display: flex;
+#navbar-main-container {
   display: contents;
+}
+#navbar-container {
+ display: contents;
 }
 .navbar-container-user {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.navbar-container > h6 {
+.navbar-data{
   color: white;
+}
+#navbar-extra-info-mobile{
+  display: none;
 }
 .card-info-container {
   margin-left: 20px;
@@ -287,3 +292,4 @@ font-size: 16px;
   text-align: center;
 
 }
+

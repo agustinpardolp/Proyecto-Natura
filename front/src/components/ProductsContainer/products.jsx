@@ -10,14 +10,15 @@ export default function products({
   onHandleIncrement,
   onHandlerDecrement,
   onHandleSelectedConsultant,
+  onHandleSelectedAdress,
   consultantList,
   totalOrderValue,
-  consultantAdress,
+  consultantAdressList,
   user,
   displayStatus,
   order
 }) {
-  
+
   return (
     
     <Layout className = "main-body-products">
@@ -40,7 +41,7 @@ export default function products({
                   <>
                 <label className="d-none d-sm-block"> Consultor </label>
                 <select onChange = {onHandleSelectedConsultant} class="selectpicker" data-style="btn-info" >
-                  <option  >Seleccione un consultor </option>
+                  <option value = {JSON.stringify({})} >Seleccione un consultor </option>
                   {consultantList && 
                     consultantList.map(consultant => {
                       return (
@@ -55,35 +56,26 @@ export default function products({
               <div className="col-xs-12 col-sm-10 col-md-5 col-lg-3 offset-lg-1 ">
               <div className="container-label-direccion">
                 <label className="d-none d-sm-block"> Direccion: </label>{" "}
-               
-                {user && user.identification? //si hay user consultor, muestro su direccion
-                 <select  className="selectpicker" >
-                 <option>Seleccione una direccion</option>
-                       <option>
-                         {user.location}
-                       </option>
-                     );
-               </select>
-                :
-                <select  className="selectpicker" >
-                  <option>Seleccione una direccion</option>
-                  {consultantAdress &&  //si hay user supervisor muestro direccion de consultores
-                    consultantAdress.map(adress => {
+                <select onChange = {onHandleSelectedAdress} className="selectpicker" >
+                  <option value = {JSON.stringify({})} >Seleccione una direccion</option>
+                  {consultantAdressList &&  //si hay user supervisor muestro direccion de consultores
+                    consultantAdressList.map(adress => {
+  
                       return (
-                        <option key={adress}>
-                          {adress}
+                        <option value = {JSON.stringify(adress)} key={adress.id}>
+                          {adress.street} {adress.number}
                         </option>
                       );
                     })}
                 </select>
-                }
+                {/* } */}
               </div>
             </div>
           </div>
         </div>
         {displayStatus == "disabled"?
-                <nav aria-label="breadcrumb" >
-                  <ol className="breadcrumb d-none d-sm-block" id= "main-order-notification">
+                <nav aria-label="breadcrumb" id = "breadcum-order-advice" >
+                  <ol className="breadcrumb" id= "main-order-notification">
                     <li className="breadcrumb-item active " aria-current="page">
                       Existe una orden vigente bajo el numero: {order.id}
                     </li>

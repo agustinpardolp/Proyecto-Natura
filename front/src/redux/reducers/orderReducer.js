@@ -19,8 +19,10 @@ export default (state = initialState, action) => {
 
     //ORDENES DEL BACK
     case RECEIVE_ORDER:
-      console.log("ordenes creadas del back", action.orderCreated)
-      return { ...state, orderCreated: action.orderCreated, displayStatus:"disabled" };
+
+       let displayStatus;
+       action.orderCreated? displayStatus = "disabled": displayStatus = "";
+      return { ...state, orderCreated: action.orderCreated, displayStatus: displayStatus };
 
     //AGREGO PRODUCTOS A ORDER
     case ADD_PRODUCT_TO_ORDER: //1) agrego un producto, primer caso si NO hay nada en la orden

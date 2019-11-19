@@ -8,6 +8,7 @@ export default function SideBar({ onCollapse, collapsed, hiddenSidebar, onScreen
   return (
     <Sider
       breakpoint="md"
+      display= "none"
       hidden = {hiddenSidebar}
       collapsible
       collapsed={collapsed}
