@@ -1,3 +1,8 @@
+Aplicacion realizada en Q4-Tech para Natura. Actualización completa de sitio Web para toma de pedidos de consultoras.
+Proyecto originalmente realizado en ASP:NET se migró a React-Redux y Node Js.
+
+Procedimiento para correr el proyecto:
+
 Ejecutar instalacion de paquetes de Node
 
 Ejecutar el comando npm install tanto en el directorio del back, (/back), como del Front (/front)
@@ -15,9 +20,6 @@ Ejecutar el comando npm run build en el directorio del front, (/front) para corr
 
 Seedeo de la DB
 Ejecutar el comando node seed.js en el directorio del back, (/back) para realizar un carga automatica de datos de usuarios y beneficios en la base. 
-IMP: Pueden encontrarse comentadas algunas rutas, entre ellas las de autenticacion para el login,
-en ese caso se ingresara con cualquier user y
-el pass 111. ESTO SE DEJO ASI SOLO A MODO DE PRUEBA.
 
 Frameworks de CSS: Bootstrap / Ant Design
 Libreria JS: React-Redux
