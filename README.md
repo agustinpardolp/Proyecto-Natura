@@ -1,4 +1,5 @@
-Aplicacion realizada en Q4-Tech para Natura. Actualización completa de sitio Web para toma de pedidos de consultoras.
+## Aplicacion realizada en Q4-Tech para Natura. Actualización completa de sitio Web para toma de pedidos de consultoras.
+
 Proyecto originalmente realizado en ASP:NET se migró a React-Redux-Thunk y Node Js.
 
 Procedimiento para correr el proyecto:
